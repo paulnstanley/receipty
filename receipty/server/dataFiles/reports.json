@@ -1,0 +1,32 @@
+[
+    {
+        "_id": 1,
+        "user": {
+            "_id": 2,
+            "username": "jim",
+            "password": "jim",
+            "role": "user",
+            "generatedToken": "abcdefg"
+        },
+        "name": "August report",
+        "total": 1400.32,
+        "from": "jim",
+        "to": "bob",
+        "submittedDate": "09/14/2018"
+    },
+    {
+        "_id": 2,
+        "user": {
+            "_id": 2,
+            "username": "jim",
+            "password": "jim",
+            "role": "user",
+            "generatedToken": "abcdefg"
+        },
+        "name": "July report",
+        "total": 300.52,
+        "from": "jim",
+        "to": "bob",
+        "submittedDate": "08/14/2018"
+    }
+]
