@@ -15,14 +15,14 @@ const app = express()
 
 app.use(bodyParser.json());
 
-app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
-)
-app.use(passport.initialize())
-app.use(passport.session())
+// app.use(
+//   cookieSession({
+//     maxAge: 30 * 24 * 60 * 60 * 1000,
+//     keys: [keys.cookieKey]
+//   })
+// )
+// app.use(passport.initialize())
+// app.use(passport.session())
 
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production assets
