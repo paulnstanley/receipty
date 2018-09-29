@@ -5,6 +5,10 @@ const passport = require('passport');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 
+require('./models/User');
+require('./models/Report');
+require('./models/Expense');
+
 mongoose.connect(keys.mongoURI)
 
 const app = express()
