@@ -7,6 +7,8 @@ import Login from './Login';
 import NavBar from './NavBar';
 import ExpensesNew from './expenses/ExpensesNew';
 import ReportsNew from './reports/ReportsNew';
+import Expenses from './Expenses';
+import Reports from './Reports';
 
 class App extends Component {
     componentDidMount() {
