@@ -5,7 +5,8 @@ import { fetchExpenses } from '../../actions';
 class ExpensesList extends Component {
   componentDidMount() {
     this.props.fetchExpenses();
-  }
+  };
+
 
   renderExpenses() {
     return this.props.expenses.reverse().map(expense => {
@@ -36,6 +37,7 @@ class ExpensesList extends Component {
       </div>
     );
   }
+
 }
 
 function mapStateToProps({ expenses }) {
