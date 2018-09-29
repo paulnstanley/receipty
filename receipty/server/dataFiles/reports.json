@@ -1,13 +1,6 @@
 [
     {
         "_id": 1,
-        "user": {
-            "_id": 2,
-            "username": "jim",
-            "password": "jim",
-            "role": "user",
-            "generatedToken": "abcdefg"
-        },
         "name": "August report",
         "total": 1400.32,
         "from": "jim",
@@ -16,13 +9,6 @@
     },
     {
         "_id": 2,
-        "user": {
-            "_id": 2,
-            "username": "jim",
-            "password": "jim",
-            "role": "user",
-            "generatedToken": "abcdefg"
-        },
         "name": "July report",
         "total": 300.52,
         "from": "jim",

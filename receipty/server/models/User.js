@@ -13,7 +13,7 @@ const userSchema = new Schema({
     reports: [ReportSchema] // an array of a user's reports
 });
 
-mongoose.model('users', userSchema);
+mongoose.model('users', UserSchema);
 
 
 
