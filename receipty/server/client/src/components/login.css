@@ -1,0 +1,69 @@
+.email {
+    padding: 10px;
+}
+
+.email-input {
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    width: 50%;
+    border-radius: 10px;
+    text-align:center;
+}
+
+.password {
+    padding: 10px;
+}
+
+.password-input {
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    width: 50%;
+    border-radius: 10px;
+    text-align:center;
+}
+
+.email ::placeholder {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  color: #666666;
+}
+
+.password ::placeholder {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  color: #666666;
+}
+
+#email-input {
+    font-size:20px;
+}
+
+.login-submit {
+    width: 70px;
+    height: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background-color: #55BB55;
+    border-radius: 10px;
+}
+
+FormControl:focus::-webkit-FormControl-placeholder {
+  opacity: 0;
+}
+
+App.css
+
+.App {
+text-align: center;
+background-color: #DDDDDD;
+width: 50%;
+margin-left: 25%;
+margin-right: 25%;
+font-family: 'Open Sans', sans-serif;
+height: 500px;
+}
+h1 {
+font-family:'Open Sans', sans-serif;
+font-weight: 900;
+font-size: 60px;
+}
