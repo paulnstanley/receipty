@@ -1,0 +1,40 @@
+/* TAG ELEMENTS, WE REALLY SHOULD NOT USE THESE, TRY TO MAKE THEM ID'S OR CLASSES */
+
+
+
+ul {
+ list-style-type: none;
+ margin: 0;
+ padding: 0;
+ width: 200px;
+ background-color: #f1f1f1;
+ 
+}
+
+li a {
+ display: block;
+ color: #000;
+ padding: 8px 16px;
+ text-decoration: none;
+}
+li a.active {
+ background-color: #4CAF50;
+ color: white;
+}
+
+
+li a:hover {
+ background-color: #555;
+ color: white;
+}
+
+/* ID ELEMENTS, BEST PRACTICE OVER ALL, BEST FOR THINGS THAT ONLY HAVE ONE PLACE THEY SHOWUP */
+
+#exp-rep-navbar{
+ 
+}
+
+
+
+
+/* CLASSNAME ELEMENTS, WORKS WELL FOR THINGS THAT NEED TO BE USED OFTEN */

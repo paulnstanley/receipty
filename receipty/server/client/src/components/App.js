@@ -5,7 +5,7 @@ import * as actions from '../actions';
 import "./app.css"
 
 import Login from './Login';
-// import NavBar from './NavBar';
+ import NavBar from './NavBar';
 import ExpensesNew from './expenses/ExpensesNew';
 import ReportsNew from './reports/ReportsNew';
 import Expenses from './Expenses';
@@ -26,6 +26,10 @@ class App extends Component {
                         <Route exact path="/expenses/new" component={ExpensesNew} />
                         <Route exact path="/reports" component={Reports} />
                         <Route exact path="/reports/new" component={ReportsNew} />
+
+                        {/* testing */}
+                        <Route exact path="/navbar" component={NavBar} />
+
                     </div>
                 </BrowserRouter>
             </div>
