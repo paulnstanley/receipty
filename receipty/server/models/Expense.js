@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 
-const ExpenseSchema = new Schema({
+const expenseSchema = new Schema({
     merchant: String,
     amount: Number,
     createdDate: String,
@@ -12,7 +12,7 @@ const ExpenseSchema = new Schema({
     reimbursedDate: String
 });
 
-mongoose.model('expenses', surveySchema);
+mongoose.model('expenses', expenseSchema);
 
 
 
