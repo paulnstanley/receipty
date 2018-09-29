@@ -14,12 +14,12 @@ class NavBar extends Component {
       
       
 
-      <ul>
-        <li><a class="active" href="#home">Expenses</a></li>
-        <li><a href="#news">Reports</a></li>
-        <li><a href="#contact">Inbox</a></li>
-        <li><a href="#about">Settings</a></li>
-        <li><a href="#about">Logout</a></li>
+      <ul className = "navbar-ul ">
+        <li><a className="navbar-li-a-active navbar-li-a">Expenses</a></li>
+        <li><a className = "navbar-li-a">Reports</a></li>
+        <li><a className = "navbar-li-a">Inbox</a></li>
+        <li><a className = "navbar-li-a">Settings</a></li>
+        <li><a className = "navbar-li-a">Logout</a></li>
       </ul>
 
       
