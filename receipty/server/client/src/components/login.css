@@ -50,20 +50,3 @@
 FormControl:focus::-webkit-FormControl-placeholder {
   opacity: 0;
 }
-
-App.css
-
-.App {
-text-align: center;
-background-color: #DDDDDD;
-width: 50%;
-margin-left: 25%;
-margin-right: 25%;
-font-family: 'Open Sans', sans-serif;
-height: 500px;
-}
-h1 {
-font-family:'Open Sans', sans-serif;
-font-weight: 900;
-font-size: 60px;
-}
