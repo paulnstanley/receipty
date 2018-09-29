@@ -12,7 +12,7 @@ const ExpenseSchema = new Schema({
     reimbursedDate: String
 });
 
-mongoose.model('expenses', surveySchema);
+mongoose.model('expenses', ExpenseSchema);
 
 
 

@@ -1,13 +1,6 @@
 [
     {
         "_id": 1,
-        "user": {
-            "_id": 2,
-            "username": "jim",
-            "password": "jim",
-            "role": "user",
-            "generatedToken": "abcdefg"
-        },
         "merchant": "Store0",
         "amount": 123.01,
         "createdDate": "09/10/2018",
@@ -18,13 +11,6 @@
     },
     {
         "_id": 2,
-        "user": {
-            "_id": 2,
-            "username": "jim",
-            "password": "jim",
-            "role": "user",
-            "generatedToken": "abcdefg"
-        },
         "merchant": "Store1",
         "amount": 15.99,
         "createdDate": "09/12/2018",
@@ -35,13 +21,6 @@
     },
     {
         "_id": 3,
-        "user": {
-            "_id": 2,
-            "username": "jim",
-            "password": "jim",
-            "role": "user",
-            "generatedToken": "abcdefg"
-        },
         "merchant": "Store2",
         "amount": 12.01,
         "createdDate": "09/11/2018",
@@ -52,13 +31,6 @@
     },
     {
         "_id": 4,
-        "user": {
-            "_id": 2,
-            "username": "jim",
-            "password": "jim",
-            "role": "user",
-            "generatedToken": "abcdefg"
-        },
         "merchant": "Store3",
         "amount": 10.35,
         "createdDate": "09/13/2018",
@@ -69,13 +41,6 @@
     },
     {
         "_id": 5,
-        "user": {
-            "_id": 2,
-            "username": "jim",
-            "password": "jim",
-            "role": "user",
-            "generatedToken": "abcdefg"
-        },
         "merchant": "Store4",
         "amount": 1200.45,
         "createdDate": "09/08/2018",
