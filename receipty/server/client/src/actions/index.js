@@ -1,3 +1,4 @@
+//Zulmy- I used the template we used for FeedbackLoop//
 import axios from 'axios';
 import { FETCH_USER, FETCH_EXPENSES, FETCH_REPORTS } from './types';
 
@@ -32,4 +33,6 @@ export const fetchUser = () => async dispatch => {
   
     dispatch({ type: FETCH_REPORTS, payload: res.data });
   };
+
+  //the following code are actions or requests to the reducers to incorporate these calls for data as part of the store//
   
