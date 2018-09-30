@@ -8,7 +8,7 @@ import Login from './Login';
 
 import NavBar from './NavBar';
 import ExpenseNew from './expenses/ExpenseNew';
-// import NavBar
+
 import ReportsNew from './reports/ReportsNew';
 import Expenses from './Expenses';
 import Reports from './Reports';
