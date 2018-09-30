@@ -32,8 +32,13 @@ const SaveExpense = function(expenseModel) {
   expenses.push(expenseModel);
 }
 
+const GetExpenseByUserId = function(user){
+    return expenses.filter(expense => expense.userId == user);
+}
+
 module.exports = {
     GetAllExpenses,
     GetExpenseById,
-    SaveExpense
+    SaveExpense,
+    GetExpenseByUserId 
 }

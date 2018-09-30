@@ -28,9 +28,16 @@ const GetUserIdByName = function (userName) {
   return myUser.id;
 }
 
+const GetExpensesForUser = function(id){
+  let myUser = users.filter(user => user.id == id);
+
+  return myUser.expenses;
+
+}
 
 module.exports = {
   GetUserById,
   GetAllUsers,
-  GetUserIdByName
+  GetUserIdByName,
+  GetExpensesForUser
 }
