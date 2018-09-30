@@ -10,6 +10,8 @@ const datastore = require('../datastore/Expenses_datastore');
 
 const expensesRouter = require('express').Router();
 
+
+
 //TODO: remove, this was for testing (later we will need /api/me/get and more error handling)
 expensesRouter.get('/api/expenses', function (request, response) {
   //because using express you can shorten the reponse.writehead and response.end to this:
@@ -36,6 +38,6 @@ expensesRouter.post('/api/expenses', function (request, response) {
 
   //respond with a 200 message that the item was saved
   response.end(console.log('200: the expense was saved!'));
-}
+})
 
 module.exports = expensesRouter;

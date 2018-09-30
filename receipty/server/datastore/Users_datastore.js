@@ -6,11 +6,24 @@ the datastore/Users_datastore.js file will handle all of the database search/fil
 Right now, this is saving in memory so anything will be lost if the server restarts.  it's ok for testing and is good because when we change this to actually communicate with the db we won't need to change any other files other than those in the datastore folder
 ============================================================*/
 
+//require in dummy data in users.json
+var users = require('../dataFiles/users.json');
+
+
 //add functions here and don't forget to export
 
+const GetAllUsers = function() {
+  return users;
+}
+
+//find a user by id
+const GetUserById = function (id) {
+  //do some filtering by id....
+  return users.filter(user => user._id == id);
+}
 
 
 module.exports = {
-  //function,
-  //function
+  GetUserById,
+  GetAllUsers
 }

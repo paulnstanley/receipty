@@ -21,7 +21,7 @@ const ExpenseSchema = new Schema({
     reciept_img: String,
     comments: String,
     reimbursedDate: String,
-    user: {type: Schema.Types.ObjectId, ref: 'user'},
+    userId: {type: Schema.Types.ObjectId, ref: 'user'},
     report: {type: Schema.Types.ObjectId, ref: 'report'}
 });
 
@@ -34,7 +34,7 @@ const ReportSchema = new Schema({
     to: String,
     submittedDate: String,
     expenses: [{type: Schema.Types.ObjectId, ref: 'expense'}],
-    user: {type: Schema.Types.ObjectId, ref: 'user'}
+    userId: {type: Schema.Types.ObjectId, ref: 'user'}
 })
 
 const Report = mongoose.model('report', ReportSchema);
