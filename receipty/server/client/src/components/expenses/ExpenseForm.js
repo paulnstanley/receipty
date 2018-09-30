@@ -6,7 +6,18 @@ import { Link } from 'react-router-dom';
 import formFieldsStyle from './formFieldsStyle';
 import formFields from './formFields';
 
-class SurveyForm extends Component {
+const options = [
+  { value: 'travel', label: 'Travel', className: 'travel' },
+  { value: 'food', label: 'Food', className: 'food' },
+  { value: 'supplies', label: 'Supplies', className: 'supplies'}, 
+  { value: 'utilities', label: 'Utilities', className: 'utilities'}, 
+  { value: 'entertainment', label: 'Entertainment', className: 'entertainment'}, 
+  { value: 'other', label: 'Other', className: 'other'}
+];
+
+const defaultOption = options[0];
+
+class ExpenseForm extends Component {
   renderFields() {
     return _.map(formFields, ({ label, name }) => {
       return (
@@ -24,14 +35,13 @@ class SurveyForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
+        <form onSubmit={this.props.handleSubmit(this.props.onExpenseSubmit)}>
           {this.renderFields()}
-          <Link to="/surveys" className="red btn-flat white-text">
+          <Link to="/expenses" className="red btn-flat white-text">
             Cancel
           </Link>
           <button type="submit" className="teal btn-flat right white-text">
-            Next
-            <i className="material-icons right">done</i>
+            Done
           </button>
         </form>
       </div>
@@ -54,6 +64,6 @@ function validate(values) {
 
 export default reduxForm({
   validate,
-  form: 'surveyForm',
+  form: 'expenseForm',
   destroyOnUnmount: false
-})(SurveyForm);
+})(ExpenseForm);

@@ -5,7 +5,7 @@ import formFields from './formFields';
 import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
 
-const ExpenseFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
+const ExpenseFormReview = ({ onCancel, formValues, submitExpense, history }) => {
   const reviewFields = _.map(formFields, ({ name, label }) => {
     return (
       <div key={name}>
@@ -28,10 +28,10 @@ const ExpenseFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
         Back
       </button>
       <button
-        onClick={() => submitSurvey(formValues, history)}
+        onClick={() => submitExpense(formValues, history)}
         className="green btn-flat right white-text"
       >
-        Send Survey
+        Send Expense
         <i className="material-icons right">email</i>
       </button>
     </div>
@@ -39,7 +39,7 @@ const ExpenseFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
 };
 
 function mapStateToProps(state) {
-  return { formValues: state.form.surveyForm.values };
+  return { formValues: state.form.expenseForm.values };
 }
 
 export default connect(mapStateToProps, actions)(withRouter(ExpenseFormReview));

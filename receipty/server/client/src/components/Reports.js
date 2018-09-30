@@ -7,8 +7,8 @@ const Reports = () => {
     <div>
       <ReportsList />
       <div className="fixed-action-btn">
-        <Link to="/reports/new" className="btn-small">
-          <i>New Report</i>
+        <Link to="/reports/new" className="teal btn-flat right white-text">
+          New Report
         </Link>
       </div>
     </div>

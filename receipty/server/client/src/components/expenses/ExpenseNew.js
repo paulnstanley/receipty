@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import ExpenseForm from './ExpenseForm';
 import ExpenseFormReview from './ExpenseFormReview';
+import Dropdown from 'react-dropdown';
 
 class ExpenseNew extends Component {
   state = { showFormReview: false };
@@ -18,7 +19,7 @@ class ExpenseNew extends Component {
 
     return (
       <ExpenseForm
-        onSurveySubmit={() => this.setState({ showFormReview: true })}
+        onExpenseSubmit={() => this.setState({ showFormReview: true })}
       />
     );
   }
