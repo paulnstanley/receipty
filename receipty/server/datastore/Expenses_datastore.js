@@ -13,6 +13,8 @@ Right now, this is saving in memory so anything will be lost if the server resta
 
 var expenses = require('../dataFiles/expenses.json');
 
+// will need to change these functions to search for a unique user's 
+// expenses in their users.json 'expenses' array
 const GetAllExpenses = function() {
     return expenses;
 }
