@@ -4,17 +4,32 @@ const { URL } = require('url');
 // const mongoose = require('mongoose');
 // const requireLogin = require('../middlewares/requireLogin');
 
-//dataSore is a file that will handle all of the mongodb sorting/filtering/saving...anything related to the DB.  This is why we don't need to require in mongoose in this file
-//by requiring in the datastore/reports_datastore, we are essentially bringing in all functions from that file and are using them in our 
-const datastore = require('../datastore/Reports_datastore');
+// changing 'datastore' to 'reportsDatastore' to not have a 'datastore' in each route file
+const reportsDatastore = require('../datastore/Reports_datastore');
 
 const reportsRouter = require('express').Router();
 
 
-/*
+reportsRouter.get('/api/reports', function (request, response) {
+  //because using express you can shorten the reponse.writehead and response.end to this:
+  response.json(reportsDatastore.GetAllReports());
+})
 
-put routes here and reference functions from datastore/Reports_datasore
+reportsRouter.post('/api/reports', function (request, response) {
+    //expenseModel = request.body.amount;
+    let reportModel = {
+      name: request.body.name,
+      total: request.body.total,
+      from: request.body.from,
+      to: request.body.to,
+      submittedDate: request.body.submittedDate
+    };
 
-*/
+    reportsDatastore.SaveReport(reportModel);
+  
+  
+    //respond with a 200 message that the item was saved
+    response.end(console.log('200: the report was saved!'));
+  })
 
 module.exports = reportsRouter;
