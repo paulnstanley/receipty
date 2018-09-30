@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchReports } from '../../actions';
+import NavBar from '../NavBar';
 
 class ReportsList extends Component {
   componentDidMount() {
@@ -33,6 +34,7 @@ class ReportsList extends Component {
   render() {
     return (
       <div>
+        <NavBar />
         {this.renderReports()}
       </div>
     );
