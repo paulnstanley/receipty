@@ -34,6 +34,6 @@ expensesRouter.post('/api/expenses'), function (request, response) {
 
   //respond with a 200 message that the item was saved
   response.end(console.log('200: the expense was saved!'));
-})
+}
 
 module.exports = expensesRouter;
