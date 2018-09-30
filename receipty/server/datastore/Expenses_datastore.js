@@ -20,11 +20,13 @@ const GetAllExpenses = function() {
     return expenses;
 }
 
+//a function that will find an expense by its id
 const GetExpenseById = function(id) {
     //do some filtering by id....
     return expenses.filter(expense => expense._id == id);
 }
 
+//a function that will add an expense to the in memory storage (or db)
 const SaveExpense = function(expenseModel) {
   
   expenses.push(expenseModel);

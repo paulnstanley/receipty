@@ -22,8 +22,15 @@ const GetUserById = function (id) {
   return users.filter(user => user._id == id);
 }
 
+const GetUserIdByName = function (userName) {
+  let myUser = users.filter(userName => user.username == username);
+
+  return myUser.id;
+}
+
 
 module.exports = {
   GetUserById,
-  GetAllUsers
+  GetAllUsers,
+  GetUserIdByName
 }
