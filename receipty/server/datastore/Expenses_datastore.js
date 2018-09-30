@@ -14,6 +14,8 @@ var expenses = require('../dataFiles/expenses.json');
 var users = require('../dataFiles/users.json');
 
 
+// will need to change these functions to search for a unique user's 
+// expenses in their users.json 'expenses' array
 const GetAllExpenses = function() {
     return expenses;
 }

@@ -21,7 +21,7 @@ expensesRouter.get('/api/expenses', function (request, response) {
 //Returns expenses from a particular userId
 
 
-expensesRouter.post('/api/expenses'), function (request, response) {
+expensesRouter.post('/api/expenses', function (request, response) {
   //expenseModel = request.body.amount;
   let expenseModel = {
     merchant: request.body.merchant,
