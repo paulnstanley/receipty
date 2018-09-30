@@ -12,7 +12,9 @@ const expenseSchema = new Schema({
     reimbursedDate: String
 });
 
+
 mongoose.model('expenses', expenseSchema);
+
 
 
 

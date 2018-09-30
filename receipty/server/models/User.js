@@ -4,7 +4,7 @@ const ExpenseSchema = require('./Expense');
 const ReportSchema = require('./Report');
 
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
     username: String,
     password: String,
     role: String,
@@ -13,7 +13,7 @@ const userSchema = new Schema({
     reports: [ReportSchema] // an array of a user's reports
 });
 
-mongoose.model('users', userSchema);
+mongoose.model('users', UserSchema);
 
 
 
