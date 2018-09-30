@@ -27,9 +27,6 @@ class App extends Component {
                         <Route exact path="/reports" component={Reports} />
                         <Route exact path="/reports/new" component={ReportsNew} />
 
-                        {/* testing */}
-                        <Route exact path="/navbar" component={NavBar} />
-
                     </div>
                 </BrowserRouter>
             </div>

@@ -3,7 +3,7 @@
 
 
 
-
+/* ================================================================= */
 /* ID ELEMENTS, BEST PRACTICE OVER ALL, BEST FOR THINGS THAT ONLY HAVE ONE PLACE THEY SHOWUP */
 
 #exp-rep-navbar{
@@ -20,7 +20,7 @@
 }
 
 #navbar-avatar{
- /* made an ID for the expense page/report page navbar. design is responsive with this set up. colors ofcourse are optional. also allows for image upload.  */
+ /* made an ID for the expense page/report page navbar. design is responsive with this set up. colors ofcourse are optional. also allows for image upload, although the stock image is itself round, and any new images would need to be formated.  */
  display: block; 
     margin-left: auto;
     margin-right: auto;
@@ -29,6 +29,8 @@
     padding-bottom: 10%;
 }
 
+
+/* ================================================================= */
 /* CLASSNAME ELEMENTS, WORKS WELL FOR THINGS THAT NEED TO BE USED OFTEN */
 
 .navbar-ul {
@@ -50,12 +52,13 @@
 }
 
 .navbar-li-a:hover {
+ /* hover allows for a grey bar to pop up highlighting options that are able to be clicked.   */
  background-color: #555;
  color: white;
 }
 
 .navbar-li-a-active {
- /* the active highlight is so that users know wich page they are on. currently hardcoded to expenses.  */
+ /* the active highlight is so that users know wich page they are on. currently timeboxing will return to it later relates to function activePageHighlighter  */
  background-color: #4CAF50;
  width: 100%;
  color: white;
