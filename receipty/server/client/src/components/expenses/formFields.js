@@ -4,5 +4,5 @@ export default [
     { label: 'Expense Date', name: 'expense date' },
     { label: 'Category', name: 'category' },
     { label: 'Receipt URL', name: 'img url'},
-    { label: 'Comment Body', name: 'body'},
+    { label: 'Comments', name: 'body'},
 ];

@@ -18,7 +18,7 @@ const ExpenseFormReview = ({ onCancel, formValues, submitExpense, history }) => 
   });
 
   return (
-    <div>
+    <div className="FormReview">
       <h5>Please confirm your entries</h5>
       {reviewFields}
       <button
