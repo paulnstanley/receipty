@@ -9,12 +9,17 @@ const reportsDatastore = require('../datastore/Reports_datastore');
 
 const reportsRouter = require('express').Router();
 
-
+//TODO: DELETE THIS BECAUSE IT IS FOR TESTING ONLY
 reportsRouter.get('/api/reports', function (request, response) {
   //because using express you can shorten the reponse.writehead and response.end to this:
   response.json(reportsDatastore.GetAllReports());
 })
 
+
+//get api/me/reports will respond with the reports for a particular user
+
+//post api/reports will save a particular user's report to the the DB
+//the request will include the user's id and so in addition to saveing this we will also need to associated by the id sent in the request with a user
 reportsRouter.post('/api/reports', function (request, response) {
     //expenseModel = request.body.amount;
     let reportModel = {
@@ -22,7 +27,8 @@ reportsRouter.post('/api/reports', function (request, response) {
       total: request.body.total,
       from: request.body.from,
       to: request.body.to,
-      submittedDate: request.body.submittedDate
+      submittedDate: request.body.submittedDate,
+      "expenses": []
     };
 
     reportsDatastore.SaveReport(reportModel);
