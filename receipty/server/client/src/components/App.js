@@ -1,18 +1,26 @@
+// required react components
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import "./app.css"
 
+//base of login page
 import Login from './Login';
 
-import NavBar from './NavBar';
-import ExpenseNew from './expenses/ExpenseNew';
 
-import ReportsNew from './reports/ReportsNew';
+//base of expenses page
 import Expenses from './Expenses';
-import Reports from './Reports';
+import ExpenseNew from './expenses/ExpenseNew';
+import NavBar from './NavBar';
 
+//base of Reports page
+import Reports from './Reports';
+import ReportsNew from './reports/ReportsNew';
+/* this will also include NavBar */
+
+
+//the major app component that forms the UX/UI
 class App extends Component {
     componentDidMount() {
         this.props.fetchUser();
