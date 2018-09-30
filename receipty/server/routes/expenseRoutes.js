@@ -16,6 +16,8 @@ expensesRouter.get('/api/expenses', function (request, response) {
   response.json(datastore.GetAllExpenses());
 })
 
+//Returns expenses from a particular userId
+
 
 expensesRouter.post('/api/expenses'), function (request, response) {
   //expenseModel = request.body.amount;
