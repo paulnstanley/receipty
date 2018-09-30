@@ -1,31 +1,39 @@
 const _ = require('lodash');
 const Path = require('path-parser');
 const { URL } = require('url');
-const mongoose = require('mongoose');
-const requireLogin = require('../middlewares/requireLogin');
+// const mongoose = require('mongoose');
+// const requireLogin = require('../middlewares/requireLogin');
+
+//dataSore is a file that will handle all of the mongodb sorting/filtering/saving...anything related to the DB.  This is why we don't need to require in mongoose in this file
+//by requiring in the datastore/expenses_datastore, we are essentially bringing in all functions from that file and are using them in our 
+const datastore = require('../datastore/Expenses_datastore');
+
+const expensesRouter = require('express').Router();
+
+//TODO: remove, this was for testing (later we will need /api/me/get and more error handling)
+expensesRouter.get('/api/expenses', function (request, response) {
+  //because using express you can shorten the reponse.writehead and response.end to this:
+  response.json(datastore.GetAllExpenses());
+})
 
 
-//GET/api/me/expenses returns expenses array for logged in users
-myRouter.get('/api/me/expenses', function (request, response) {
-  //use helper function to validate/process access token
-  let currentAccessToken = getValidTokenFromRequest(request);
-  if (!currentAccessToken) {
-    // If there isn't an access token in the request, we know that the user isn't logged in, so don't continue
-    response.writeHead(401, "Session expired, please try again");
-    response.end();
-  } else {
-    // Verify that the user exists to know if we should continue processing
-    let me = users.find((me) => {
-      return me.id == request.params.id;
-    });
-    if (!me) {
-      // If there isn't a user with that id, then return a 404
-      response.writeHead(404, "That user cannot be found");
-      response.end();
-      return;
-    } else {
-      response.writeHead(200, Object.assign({ 'Content-Type': 'application/json' }));
-      response.end(JSON.stringify(me.expenses));
-    }
-  }
-});
+expensesRouter.post('/api/expenses'), function (request, response) {
+  //expenseModel = request.body.amount;
+  let expenseModel = {
+    merchant: request.body.merchant,
+    amount: request.body.amount,
+    createdDate: request.body.createdDate,
+    category: request.body.category,
+    reciept_img: request.body.reciept_img,
+    comments: request.body.comments,
+    reimbursedDate: request.body.reimbursedDate
+  };
+
+  datastore.SaveExpense(expenseModel);
+
+
+  //respond with a 200 message that the item was saved
+  response.end(console.log('200: the expense was saved!'));
+})
+
+module.exports = expensesRouter;

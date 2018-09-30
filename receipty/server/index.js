@@ -24,6 +24,19 @@ app.use(bodyParser.json());
 // app.use(passport.initialize())
 // app.use(passport.session())
 
+
+//import routes
+const expenseRoutes = require('./routes/expenseRoutes')
+const reportRoutes = require('./routes/reportRoutes')
+const authRoutes = require('./routes/authRoutes')
+
+//use routes
+app.use(expenseRoutes)
+app.use(reportRoutes)
+app.use(authRoutes)
+
+
+//only in heroku
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production assets
   // like our main.js file, or main.css file!
