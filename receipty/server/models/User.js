@@ -4,7 +4,7 @@ const ExpenseSchema = require('./Expense');
 const ReportSchema = require('./Report');
 
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
     username: String,
     password: String,
     role: String,
