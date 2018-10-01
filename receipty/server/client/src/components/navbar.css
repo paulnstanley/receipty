@@ -3,13 +3,13 @@
 
 
 
-/* ================================================================= */
+/* =================================================== */
 /* ID ELEMENTS, BEST PRACTICE OVER ALL, BEST FOR THINGS THAT ONLY HAVE ONE PLACE THEY SHOWUP */
 
-#exp-rep-navbar{
+#exp-rep-navbar {
  /* this id is to lock navbar to the left side of the screen. colors can be changed to fit designers themes but others are to make sure that entire bar locks in well.  */
  height: 100%;
- width: 100%;/* this witch controls the entire navbar resize it to your liking */
+ width: 10%;/* this witch controls the entire navbar resize it to your liking */
  position: fixed;
  z-index: 1;
  top: 0;
@@ -19,7 +19,7 @@
  padding-top: 20px;
 }
 
-#navbar-avatar{
+#navbar-avatar {
  /* made an ID for the expense page/report page navbar. design is responsive with this set up. colors ofcourse are optional. also allows for image upload, although the stock image is itself round, and any new images would need to be formated.  */
  display: block; 
     margin-left: auto;
@@ -29,8 +29,17 @@
     padding-bottom: 10%;
 }
 
+#about-recipty {
+    color:  #26a69a ;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    font-size: 30px;
+    z-index: initial;
+    text-align: center;
+}
 
-/* ================================================================= */
+/* =================================================== */
 /* CLASSNAME ELEMENTS, WORKS WELL FOR THINGS THAT NEED TO BE USED OFTEN */
 
 .navbar-ul {

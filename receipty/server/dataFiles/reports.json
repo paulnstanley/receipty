@@ -2,17 +2,21 @@
     {
         "_id": 1,
         "name": "August report",
-        "total": 1400.32,
-        "from": "jim",
-        "to": "bob",
-        "submittedDate": "09/14/2018"
+        "totalAmount": 1400.32,
+        "fromUser": "jim",
+        "toAdmin": "bob",
+        "requestedDate": "09/14/2018",
+        "expenses": [],
+        "userId":1
     },
     {
         "_id": 2,
         "name": "July report",
-        "total": 300.52,
-        "from": "jim",
-        "to": "bob",
-        "submittedDate": "08/14/2018"
+        "totalAmount": 300.52,
+        "fromUser": "jim",
+        "toAdmin": "bob",
+        "requestedDate": "08/14/2018",
+        "expenses": [],
+        "userId": 1
     }
 ]
