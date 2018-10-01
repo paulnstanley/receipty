@@ -6,6 +6,7 @@ const { URL } = require('url');
 
 // changing 'datastore' to 'reportsDatastore' to not have a 'datastore' in each route file
 const reportsDatastore = require('../datastore/Reports_datastore');
+const usersDatastore = require('../datastore/Users_datastore');
 
 const reportsRouter = require('express').Router();
 
@@ -16,26 +17,28 @@ reportsRouter.get('/api/reports', function (request, response) {
 })
 
 
-//get api/me/reports will respond with the reports for a particular user
-
 //post api/reports will save a particular user's report to the the DB
 //the request will include the user's id and so in addition to saveing this we will also need to associated by the id sent in the request with a user
-reportsRouter.post('/api/reports', function (request, response) {
-    //expenseModel = request.body.amount;
-    let reportModel = {
-      name: request.body.name,
-      total: request.body.total,
-      from: request.body.from,
-      to: request.body.to,
-      submittedDate: request.body.submittedDate,
-      "expenses": []
-    };
+reportsRouter.post('/api/reports/:userId', function (request, response) {
+  //define the user id sent in the request
+  let id = request.params.userId;
+  //expenseModel = request.body.amount;
+  let reportModel = {
+    name: request.body.name,
+    total: request.body.total,
+    from: request.body.from,
+    to: request.body.to,
+    submittedDate: request.body.submittedDate,
+    expenses: [],
+    userId: request.params.id
+  };
 
-    reportsDatastore.SaveReport(reportModel);
-  
-  
-    //respond with a 200 message that the item was saved
-    response.end(console.log('200: the report was saved!'));
-  })
+  reportsDatastore.SaveReport(reportModel);
+
+  usersDatastore.AddReportToUserArray(id, reportModel);
+
+  //respond with a 200 message that the item was saved
+  response.end(console.log('200: the report was saved!'));
+})
 
 module.exports = reportsRouter;

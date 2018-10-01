@@ -28,12 +28,14 @@ const GetExpenseById = function(id) {
 
 //a function that will add an expense to the in memory storage (or db)
 const SaveExpense = function(expenseModel) {
-  
-  expenses.push(expenseModel);
+    
+    expenses.push(expenseModel);
 }
 
 const GetExpenseByUserId = function(user){
-    return expenses.filter(expense => expense.userId == user);
+    var userId = {user}
+
+    return expenses.find({userId})
 }
 
 module.exports = {

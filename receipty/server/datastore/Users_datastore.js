@@ -35,9 +35,23 @@ const GetExpensesForUser = function(id){
 
 }
 
+const AddExpenseToUserArray = function (id, expenseModel){
+  let userToPushTo = GetUserById(id);
+  // console.log(userToPushTo[0])
+  userToPushTo[0].expenses.push(expenseModel);
+};
+
+const AddReportToUserArray = function (id, reportModel) {
+  let userToPushTo = GetUserById(id);
+  // console.log(userToPushTo[0])
+  userToPushTo[0].reports.push(reportModel);
+};
+
 module.exports = {
   GetUserById,
   GetAllUsers,
   GetUserIdByName,
-  GetExpensesForUser
+  GetExpensesForUser,
+  AddExpenseToUserArray,
+  AddReportToUserArray
 }
