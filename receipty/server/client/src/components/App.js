@@ -39,7 +39,6 @@ class App extends Component {
                 <BrowserRouter>
                     <div>
                         {/* the routes that form our webpages */}
-                        <NavBar />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/expenses" component={Expenses} />
                         <Route exact path="/expenses/new" component={ExpenseNew} />
