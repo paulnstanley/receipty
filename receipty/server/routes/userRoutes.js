@@ -19,10 +19,11 @@ userRouter.get('/api/users', function (request, response) {
 })
 
 //TODO: this will need to be updated to account for a logged in user.  For now it will get a user based on a userid as a parameter
-userRouter.get('/api/user/:id', function (request, response) {
-  let _id = request.params.id;
-  
-  response.json(usersDatastore.GetUserById(_id))
+userRouter.get('/api/user/:_id', function (request, response) {
+  let _id = request.params._id;
+  let foundUser = usersDatastore.GetUserById(_id);
+
+  response.end(foundUser)
 })
 
 //TODO: update this to reflect proper user login
