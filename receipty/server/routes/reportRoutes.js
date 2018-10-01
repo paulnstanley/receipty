@@ -26,9 +26,9 @@ reportsRouter.post('/api/reports/:userId', function (request, response) {
   let reportModel = {
     name: request.body.name,
     total: request.body.total,
-    from: request.body.from,
-    to: request.body.to,
-    submittedDate: request.body.submittedDate,
+    fromUser: request.body.from,
+    toAdmin: request.body.to,
+    requestedDate: request.body.submittedDate,
     expenses: [],
     userId: request.params.id
   };
@@ -39,6 +39,10 @@ reportsRouter.post('/api/reports/:userId', function (request, response) {
 
   //respond with a 200 message that the item was saved
   response.end(console.log('200: the report was saved!'));
+})
+
+reportsRouter.put('/api/reports/addExpense/:reportId', function (request, response) {
+
 })
 
 module.exports = reportsRouter;

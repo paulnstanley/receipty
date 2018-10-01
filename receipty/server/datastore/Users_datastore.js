@@ -9,16 +9,39 @@ Right now, this is saving in memory so anything will be lost if the server resta
 //require in dummy data in users.json
 var users = require('../dataFiles/users.json');
 
+//require in User model (DB data)
+var User = require ('../models/User.js')
 
 //add functions here and don't forget to export
+
+// //**** LOCAL MONGODB -NOT IN MEMORY  ****/
+// const AddNewUser = function(userModel){
+//   const user = new User({
+//     username: userModel.username,
+//     password: userModel.password,
+//     role: userModel.role,
+//     generatedToken: userModel.generatedToken,
+//   });
+
+//   return user.save();
+// }
+
 
 const GetAllUsers = function() {
   return users;
 }
 
 //find a user by id
-const GetUserById = function (id) {
-  //do some filtering by id....
+const GetUserById = function (_id) {
+//   /**** LOCAL MONGODB -NOT IN MEMORY  ****/
+//  return(
+//     User
+//     .findById(id)
+//     .populate('expenses')
+//     .populate('reports')
+
+//  )
+  /**** IN MEMORY  ****/
   return users.filter(user => user._id == id);
 }
 
@@ -53,5 +76,6 @@ module.exports = {
   GetUserIdByName,
   GetExpensesForUser,
   AddExpenseToUserArray,
-  AddReportToUserArray
+  AddReportToUserArray,
+  AddNewUser
 }

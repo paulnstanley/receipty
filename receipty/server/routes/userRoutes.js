@@ -10,8 +10,6 @@ const usersDatastore = require('../datastore/Users_datastore');
 
 const userRouter = require('express').Router();
 
-
-
 //put routes here and reference functions from datastore/Users_datasore
 
 //TODO: remove, this was for testing (later we will need /api/me/get and more error handling)
@@ -22,8 +20,25 @@ userRouter.get('/api/users', function (request, response) {
 
 //TODO: this will need to be updated to account for a logged in user.  For now it will get a user based on a userid as a parameter
 userRouter.get('/api/user/:id', function (request, response) {
-  let id = request.params.id;
-  response.json(usersDatastore.GetUserById(id))
+  let _id = request.params.id;
+  
+  response.json(usersDatastore.GetUserById(_id))
+})
+
+//TODO: update this to reflect proper user login
+userRouter.post('/api/user/new', function(request, response){
+  let userModel = {
+    username: request.body.username,
+    password: request.body.password,
+    role: request.body.role,
+    generatedToken: 00000000,
+  }
+
+  usersDatastore.AddNewUser(userModel);
+
+  //respond with a 200 message that the item was saved
+  response.end(console.log('200: the user was saved!'));
+
 })
 
 module.exports = userRouter;
