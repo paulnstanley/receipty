@@ -17,7 +17,6 @@ module.exports = function(passport) {
 
     // used to serialize the user for the session
     passport.serializeUser((user, done) => {
-        console.log('serializing');
         done(null, user._id);
     });
 
@@ -28,7 +27,9 @@ module.exports = function(passport) {
 
         let users = User.GetAllUsers();
         let user = users.find(user => user._id == _id);
-        console.log('the user is ', user)
+
+
+
         done(null, user);
 
     });
@@ -36,7 +37,6 @@ module.exports = function(passport) {
     passport.use('login', new LocalStrategy((username, password, done) => {
         let users = User.GetAllUsers();
         let user = users.find( user => user.username == username && user.password == password);
-        console.log('the user is logining in as ', user)
 
             if (!user) {
               return done(null, false, { message: 'Incorrect username or password' });

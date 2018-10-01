@@ -12,7 +12,6 @@ const expensesRouter = require('express').Router();
 
 //TODO: remove, this was for testing (later we will need /api/me/get and more error handling)
 expensesRouter.get('/api/expenses', function (request, response) {
-  console.log(request.isAuthenticated());
   //because using express you can shorten the reponse.writehead and response.end to this:
   response.json(expensesDatastore.GetAllExpenses());
 })
