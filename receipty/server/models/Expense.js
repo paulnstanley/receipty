@@ -3,7 +3,6 @@ const { Schema } = mongoose;
 
 
 const ExpenseSchema = new Schema({
-  _id: mongoose.Schema.Types.ObjectId,
   merchant: String,
   amount: Number,
   createdDate: String,
@@ -11,8 +10,8 @@ const ExpenseSchema = new Schema({
   reciept_img: String,
   comments: String,
   reimbursedDate: String,
-  userId: { type: Schema.Types.ObjectId, ref: 'user' },
-  reportId: { type: Schema.Types.ObjectId, ref: 'report' }
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
+  reportId: { type: Schema.Types.ObjectId, ref: 'Report' }
 });
 
 // const Expense = mongoose.model('Expense', ExpenseSchema);
