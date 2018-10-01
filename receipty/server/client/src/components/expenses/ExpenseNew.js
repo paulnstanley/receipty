@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import ExpenseForm from './ExpenseForm';
 import ExpenseFormReview from './ExpenseFormReview';
-<<<<<<< HEAD
-
-=======
->>>>>>> 4344e5e2147fa6b06d73f7a5feba96be213250dd
 
 class ExpenseNew extends Component {
   state = { showFormReview: false };
