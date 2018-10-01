@@ -1,7 +1,12 @@
+//this file will create what will be the Reports page. 
+//required node modules
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+//required components to create the Reports components.
 import ReportsList from './reports/ReportsList';
 
+// component that will be rendered as main part of Report 
 const Reports = () => {
   return (
     <div>
