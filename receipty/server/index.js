@@ -27,11 +27,13 @@ app.use(bodyParser.json());
 const expenseRoutes = require('./routes/expenseRoutes')
 const reportRoutes = require('./routes/reportRoutes')
 const authRoutes = require('./routes/authRoutes')
+const userRoutes = require('./routes/userRoutes')
 
 //use routes
 app.use(expenseRoutes)
 app.use(reportRoutes)
 app.use(authRoutes)
+app.use(userRoutes)
 
 
 //only in heroku
