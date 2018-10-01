@@ -1,4 +1,3 @@
-// ExpenseForm shows a form for a user to add input
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
@@ -7,7 +6,10 @@ import formFieldsStyle from './formFieldsStyle';
 import formFields from './formFields';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-//the two variables below are to help me incorporate the dropdown and calender features//
+import renderDatePicker from './renderDatePicker';
+
+
+//the two variables below are incorporated the dropdown features//
 const options = [
   { value: 'travel', label: 'Travel', className: 'travel' },
   { value: 'food', label: 'Food', className: 'food' },
@@ -20,13 +22,21 @@ const options = [
 const defaultOption = options[0];
 
 class ExpenseForm extends Component {
+  datePickerOnChange(event) {
+    return (event.target.value);
+  }
+
+  categoriesOnChange(event) {
+    return(event.value);
+  }
+
   renderFields() {
     return (
       <div>
-      <Field key="Merchant" component={formFieldsStyle} type="text" label="Merchant Name" name="Name"/>
+      <Field key="Merchant Name" component={formFieldsStyle} type="text" label="Merchant Name" name="Merchant Name"/>
       <Field key="Amount" component={formFieldsStyle} type="number" label="Amount" name="Amount" />
-      <label>Date</label><input type="date" label="Date" />
-      <label>Categories</label><Dropdown label="Categories" className="expense-categories" options={options} onChange={this._onSelect} value={defaultOption} placeholder="Selection an Option" />
+      <label>Date</label><input type="date" label="Date" onChange={event => this.datePickerOnChange(event)} />
+      <label>Categories</label><Dropdown label="Categories" className="expense-categories" options={options} onChange={event => this.categoriesOnChange(event)} value={defaultOption} placeholder="Selection an Option" />
       <Field key="Comments" component={formFieldsStyle} type="text" label="Comments" name="Comments" />
       <label>Upload Receipt Picture</label><p><input type="file" onChange={
     ( e ) => {      
@@ -44,16 +54,13 @@ class ExpenseForm extends Component {
   render() {
     return (
       <div>
-        <div id ="ExpenseFormTitleContainer">
-        <h3>Expense Form</h3>
-        </div>
         <form onSubmit={this.props.handleSubmit(this.props.onExpenseSubmit)}>
           {this.renderFields()}
           <Link to="/expenses" className="red btn-flat white-text">
             Cancel
           </Link>
           <button type="submit" className="teal btn-flat right white-text">
-            Done
+            Next
           </button>
         </form>
       </div>
@@ -74,7 +81,7 @@ function validate(values) {
 
   return errors;
 }
-
+console.log(this.props);
 export default reduxForm({
   validate,
   form: 'expenseForm',
