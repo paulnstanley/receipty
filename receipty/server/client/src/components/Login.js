@@ -28,11 +28,11 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="Login">
-        <div className="avatar"> 
-            <img src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" alt="Avatar" width="100px" height="100px" />
+        <div className="Login">
+        <div className="avatar" className="col-md-3"> 
+            <img src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" alt="Avatar" width="150px" height="150px" />
         </div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="col-md-9">
           <FormGroup className="email" controlId="email" bsSize="large">
             <FormControl
               className="email-input"
@@ -52,15 +52,15 @@ class Login extends Component {
             />
           </FormGroup>
           <Button
-            className="login-submit"
-            bsStyle="primary"
+            className="login-submit float-right"
+            bsStyle="success"
             bsSize="large"
             disabled={!this.validateForm()}
             type="submit"
             >Login
           </Button>
         </form>
-      </div>
+        </div>
     );
   }
 }

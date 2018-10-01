@@ -10,7 +10,7 @@ class NavBar extends Component {
   }
    render() {
     return (
-     <div id = "exp-rep-navbar">
+     <div id = "exp-rep-navbar" className="col-md-3">
 
       <div> 
         <img src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" alt="Avatar"  id = "navbar-avatar" />

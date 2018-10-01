@@ -2,6 +2,15 @@
     padding: 10px;
 }
 
+.col-md-3 {
+    padding: 10px;
+    float: left;
+}
+
+.col-md-9 {
+    float: left;
+}
+
 .email-input {
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
@@ -39,13 +48,15 @@
 }
 
 .login-submit {
-    width: 70px;
     height: 30px;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    background-color: #55BB55;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: rgb(22, 216, 22);
     border-radius: 10px;
 }
+
 
 FormControl:focus::-webkit-FormControl-placeholder {
   opacity: 0;
