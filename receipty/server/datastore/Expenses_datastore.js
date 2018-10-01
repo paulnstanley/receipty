@@ -31,8 +31,25 @@ const GetExpenseById = function(id) {
 
 //a function that will add an expense to the in memory storage (or db)
 const SaveExpense = function(expenseModel) {
-    
-    expenses.push(expenseModel);
+
+    //**** SAVE TO MONGODB NOT TO IN MEMORY */
+    const expense = new Expense({
+        merchant: expenseModel.merchant,
+        amount: expenseModel.amount,
+        createdDate: expenseModel.createdDate,
+        category: expenseModel.category,
+        receipt_img: expenseModel.reciept_img,
+        comments: expenseModel.comments,
+        reimbursedDate: expenseModel.reimbursedDate,
+        userId: expenseModel.userId,
+        reportId: expenseModel.reportId
+    });
+
+    return expense.save();
+
+    /** ******** COMMENT OUT ABOVE TO USE WITH IN MEMEORY ***** */
+
+    // expenses.push(expenseModel);
 }
 
 const GetExpenseByUserId = function(user){

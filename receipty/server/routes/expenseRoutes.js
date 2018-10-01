@@ -48,7 +48,7 @@ expensesRouter.post('/api/expenses/:userId', function (request, response) {
   //use the datastore function to save to the database
   expensesDatastore.SaveExpense(expenseModel);
 
-  usersDatastore.AddExpenseToUserArray(id, expenseModel);
+  // usersDatastore.AddExpenseToUserArray(id, expenseModel);
 
   //respond with a 200 message that the item was saved
   response.end(console.log('200: the expense was saved!'));
