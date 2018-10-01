@@ -14,17 +14,17 @@ var User = require ('../models/User.js')
 
 //add functions here and don't forget to export
 
-// //**** LOCAL MONGODB -NOT IN MEMORY  ****/
-// const AddNewUser = function(userModel){
-//   const user = new User({
-//     username: userModel.username,
-//     password: userModel.password,
-//     role: userModel.role,
-//     generatedToken: userModel.generatedToken,
-//   });
+//**** LOCAL MONGODB -NOT IN MEMORY  ****/
+const AddNewUser = function(userModel){
+  const user = new User({
+    username: userModel.username,
+    password: userModel.password,
+    role: userModel.role,
+    generatedToken: userModel.generatedToken,
+  });
 
-//   return user.save();
-// }
+  return user.save();
+}
 
 
 const GetAllUsers = function() {
@@ -33,16 +33,22 @@ const GetAllUsers = function() {
 
 //find a user by id
 const GetUserById = function (_id) {
-//   /**** LOCAL MONGODB -NOT IN MEMORY  ****/
-//  return(
-//     User
-//     .findById(id)
-//     .populate('expenses')
-//     .populate('reports')
+  /**** LOCAL MONGODB -NOT IN MEMORY  ****/
+ //return(
+    User
+    .findById(_id)
+    .populate('expenses')
+    .populate('reports')
+    .exec((err, user) => {
+      if(err) {
+        console.log("error");
+      }
 
-//  )
-  /**** IN MEMORY  ****/
-  return users.filter(user => user._id == id);
+    })
+
+ //)
+  // /**** IN MEMORY  ****/
+  // return users.filter(user => user._id == id);
 }
 
 const GetUserIdByName = function (userName) {

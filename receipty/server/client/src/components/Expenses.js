@@ -1,5 +1,10 @@
+//this file will form the actual expenses page
+
+//required node modules files for functionality
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+//component imports
 import ExpensesList from './expenses/ExpensesList';
 import ExpenseListTable from './expenses/ExpenseListTable';
 import NavBar from './NavBar.js';

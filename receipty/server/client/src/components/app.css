@@ -17,7 +17,7 @@ form {
     float: right;
     width: 90%;
 }
-/* without this CSS for the forms, the form bleeds into the NavBar */
+/* without this CSS for the forms, formreview, & expenseformtitlecontainer, the form bleeds into the NavBar */
 
 .FormReview {
     float: right;

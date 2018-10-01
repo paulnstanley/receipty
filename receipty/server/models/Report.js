@@ -3,14 +3,14 @@ const { Schema } = mongoose;
 
 
 const ReportSchema = new Schema({
-  _id: mongoose.Schema.Types.ObjectId,
   name: String,
   totalAmount: Number,
   fromUser: String,
   toAdmin: String,
   requestedDate: String,
-  expenses: [{ type: Schema.Types.ObjectId, ref: 'expense' }],
-  userId: { type: Schema.Types.ObjectId, ref: 'user' }
+  reportCreatedDate: { type: Date, default: Date.now },
+  reimbursementDate: String,
+  userId: String
 })
 
 // const Report = mongoose.model('Report', ReportSchema);

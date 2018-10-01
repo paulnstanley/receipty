@@ -1,5 +1,4 @@
 const _ = require('lodash');
-const Path = require('path-parser');
 const { URL } = require('url');
 // const mongoose = require('mongoose');
 // const requireLogin = require('../middlewares/requireLogin');
@@ -15,6 +14,15 @@ const expensesRouter = require('express').Router();
 expensesRouter.get('/api/expenses', function (request, response) {
   //because using express you can shorten the reponse.writehead and response.end to this:
   response.json(expensesDatastore.GetAllExpenses());
+})
+
+expensesRouter.get('/api/user/:userId/expenses', function (request, response) {
+  let userId= request.params.userId
+  console.log(request.params.userId);
+  // let expenses = expensesDatastore.GetExpensesByUserId(user);
+  expensesDatastore.GetExpensesByUserId(userId)
+  .then(expensesByUserId => response.json(expensesByUserId));
+  
 })
 
 
@@ -34,21 +42,20 @@ expensesRouter.post('/api/expenses/:userId', function (request, response) {
   let id = request.params.userId;
 
   //define what wll be saved
+  //expense date and expense id should auto save
   let expenseModel = {
     merchant: request.body.merchant,
     amount: request.body.amount,
-    createdDate: request.body.createdDate,
     category: request.body.category,
     reciept_img: request.body.reciept_img,
     comments: request.body.comments,
-    reimbursedDate: request.body.reimbursedDate,
     userId: request.params.userId,
     reportId: request.body.reportId
   };
   //use the datastore function to save to the database
   expensesDatastore.SaveExpense(expenseModel);
 
-  usersDatastore.AddExpenseToUserArray(id, expenseModel);
+  // usersDatastore.AddExpenseToUserArray(id, expenseModel);
 
   //respond with a 200 message that the item was saved
   response.end(console.log('200: the expense was saved!'));
