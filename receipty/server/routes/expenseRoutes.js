@@ -16,6 +16,15 @@ expensesRouter.get('/api/expenses', function (request, response) {
   response.json(expensesDatastore.GetAllExpenses());
 })
 
+expensesRouter.get('/api/user/:userId/expenses', function (request, response) {
+  let userId= request.params.userId
+  console.log(request.params.userId);
+  // let expenses = expensesDatastore.GetExpensesByUserId(user);
+  expensesDatastore.GetExpensesByUserId(userId)
+  .then(expensesByUserId => response.json(expensesByUserId));
+  
+})
+
 
 // //REQUEST WILL INCLUDE user token whenever we implement auth
 // //for now, we will substitute user id for user token
