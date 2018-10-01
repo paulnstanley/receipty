@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+//team created files that are not pages
 import * as actions from '../actions';
 import "./app.css"
 
@@ -30,7 +32,7 @@ class App extends Component {
             <div className="container">
                 <BrowserRouter>
                     <div>
-
+                        {/* the routes that form our webpages */}
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/expenses" component={Expenses} />
                         <Route exact path="/expenses/new" component={ExpenseNew} />
