@@ -25,8 +25,13 @@ class ExpenseForm extends Component {
       <div>
       <Field key="Merchant" component={formFieldsStyle} type="text" label="Merchant Name" name="Name"/>
       <Field key="Amount" component={formFieldsStyle} type="number" label="Amount" name="Amount" />
+<<<<<<< HEAD
       <label>Date</label><input type="date" label="Date" label="Date" />
       <label>Categories</label>
+=======
+      <label>Date</label><input type="date" label="Date" />
+      <label>Categories</label><Dropdown label="Categories" className="expense-categories" options={options} onChange={this._onSelect} value={defaultOption} placeholder="Selection an Option" />
+>>>>>>> 4344e5e2147fa6b06d73f7a5feba96be213250dd
       <Field key="Comments" component={formFieldsStyle} type="text" label="Comments" name="Comments" />
       <label>Upload Receipt Picture</label><p><input type="file" onChange={
     ( e ) => {      

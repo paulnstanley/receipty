@@ -14,7 +14,7 @@ import Login from './Login';
 //base of expenses page
 import NavBar from './NavBar';
 import ExpenseNew from './expenses/ExpenseNew';
-import ReportNew from './reports/ReportsNew';
+// import ReportNew from './reports/ReportsNew';
 import Expenses from './Expenses';
 
 
@@ -41,13 +41,13 @@ class App extends Component {
                         <Route exact path="/expenses" component={Expenses} />
                         <Route exact path="/expenses/new" component={ExpenseNew} />
                         <Route exact path="/reports" component={Reports} />
-                        <Route exact path="/reports/new" component={ReportNew} />
+                        {/* <Route exact path="/reports/new" component={ReportNew} /> */}
                     </div>
                 </BrowserRouter>
             </div>
         );
     }
 }
-
+//Zulmy- I had to comment out ReportsNew since it causes 11 errors in page since component hasn't been made. 
 export default connect (null, actions)(App);
 
