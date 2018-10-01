@@ -33,7 +33,7 @@ class ExpenseForm extends Component {
   renderFields() {
     return (
       <div>
-      <Field key="Merchant Name" component={formFieldsStyle} type="text" label="Merchant Name" name="Merchant Name"/>
+      <Field key="Merchant" component={formFieldsStyle} type="text" label="Merchant Name" name="Name"/>
       <Field key="Amount" component={formFieldsStyle} type="number" label="Amount" name="Amount" />
       <label>Date</label><input type="date" label="Date" onChange={event => this.datePickerOnChange(event)} />
       <label>Categories</label><Dropdown label="Categories" className="expense-categories" options={options} onChange={event => this.categoriesOnChange(event)} value={defaultOption} placeholder="Selection an Option" />

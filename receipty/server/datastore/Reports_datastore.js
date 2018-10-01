@@ -11,6 +11,9 @@ Right now, this is saving in memory so anything will be lost if the server resta
 
 var reports = require('../dataFiles/reports.json');
 
+//require in Report model (DB data)
+var Report = require('../models/Report.js')
+
 
 const GetAllReports = function() {
   return reports;

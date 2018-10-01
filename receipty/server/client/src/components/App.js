@@ -1,16 +1,34 @@
+// required react components
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+//team created files that are not pages, helper files
 import * as actions from '../actions';
 import "./app.css"
 
+//base of login page
 import Login from './Login';
-import NavBar from './NavBar';
-import ExpenseNew from './expenses/ExpenseNew';
-// import ReportNew from './reports/ReportsNew';
-import Expenses from './Expenses';
-import Reports from './Reports';
 
+
+//base of expenses page, will list all expenses
+import NavBar from './NavBar';
+import Expenses from './Expenses';
+
+//base page of adding new expense to expenses main page
+import ExpenseNew from './expenses/ExpenseNew';
+
+
+//base of Reports page, will list all reports
+import Reports from './Reports';
+/* this will also include NavBar */
+
+//base page of add listed expense to form a new report
+import ReportsNew from './reports/ReportsNew';
+
+
+
+//the major app component that forms the UX/UI
 class App extends Component {
     componentDidMount() {
         this.props.fetchUser();
@@ -20,6 +38,7 @@ class App extends Component {
             <div className="container">
                 <BrowserRouter>
                     <div>
+                        {/* the routes that form our webpages */}
                         <NavBar />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/expenses" component={Expenses} />
