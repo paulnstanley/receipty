@@ -48,6 +48,13 @@ class NavBar extends Component {
             </a>
           </Link>
         </li>
+        <li>
+          <Link to = {`/about`}>
+            <a id = "about-recipty" className = "navbar-li-a">
+              Recipty
+            </a>
+          </Link>
+        </li>
         
       </ul>
       {function activePageHighlighter(){
