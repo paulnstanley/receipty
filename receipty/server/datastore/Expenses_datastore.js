@@ -36,11 +36,9 @@ const SaveExpense = function(expenseModel) {
     const expense = new Expense({
         merchant: expenseModel.merchant,
         amount: expenseModel.amount,
-        createdDate: expenseModel.createdDate,
         category: expenseModel.category,
         receipt_img: expenseModel.reciept_img,
         comments: expenseModel.comments,
-        reimbursedDate: expenseModel.reimbursedDate,
         userId: expenseModel.userId,
         reportId: expenseModel.reportId
     });

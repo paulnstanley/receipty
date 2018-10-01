@@ -33,14 +33,13 @@ expensesRouter.post('/api/expenses/:userId', function (request, response) {
   let id = request.params.userId;
 
   //define what wll be saved
+  //expense date and expense id should auto save
   let expenseModel = {
     merchant: request.body.merchant,
     amount: request.body.amount,
-    createdDate: request.body.createdDate,
     category: request.body.category,
     reciept_img: request.body.reciept_img,
     comments: request.body.comments,
-    reimbursedDate: request.body.reimbursedDate,
     userId: request.params.userId,
     reportId: request.body.reportId
   };
