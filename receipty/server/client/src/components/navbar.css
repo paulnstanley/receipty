@@ -9,12 +9,12 @@
 #exp-rep-navbar {
  /* this id is to lock navbar to the left side of the screen. colors can be changed to fit designers themes but others are to make sure that entire bar locks in well.  */
  height: 100%;
- width: 18%;/* this witch controls the entire navbar resize it to your liking */
+ width: 10%;/* this witch controls the entire navbar resize it to your liking */
  position: fixed;
  z-index: 1;
  top: 0;
  left: 0;
- background-color: #f1f1f1;
+ background-color: rgba(5, 119, 150, 0.75);
  overflow-x: hidden;
  padding-top: 20px;
 }
@@ -48,13 +48,14 @@
  margin: 0;
  padding: 0;
  width: 100%;
- background-color: #f1f1f1;
+ background-color:rgba(5, 119, 150, 0.173);
+ border-radius: 10px;
 }
 
 .navbar-li-a {
 /* colors and further styling are optional. this set up allows for the current look.  */
  display: block;
- color: #000;
+ color: rgb(186, 245, 193);
  padding: 8px 16px;
  text-decoration: none;
  padding-bottom: 10%;

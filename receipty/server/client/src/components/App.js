@@ -34,19 +34,17 @@ class App extends Component {
         this.props.fetchUser();
     }
     render() {
+        console.log(this);
         return (
             <div className="container">
-                <BrowserRouter>
                     <div>
                         {/* the routes that form our webpages */}
-                        <NavBar />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/expenses" component={Expenses} />
                         <Route exact path="/expenses/new" component={ExpenseNew} />
                         <Route exact path="/reports" component={Reports} />
                         {/* <Route exact path="/reports/new" component={ReportNew} /> */}
                     </div>
-                </BrowserRouter>
             </div>
         );
     }

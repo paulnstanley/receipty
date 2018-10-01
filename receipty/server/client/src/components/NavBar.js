@@ -40,7 +40,7 @@ class NavBar extends Component {
         </li>
         <li>
           <Link to = {`/about`} a id = "about-recipty" className = "navbar-li-a">
-              Recipty
+              Receipty
           </Link>
         </li>
         
