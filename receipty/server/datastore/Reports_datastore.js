@@ -9,9 +9,29 @@ Right now, this is saving in memory so anything will be lost if the server resta
 
 //add functions here and don't forget to export
 
+var reports = require('../dataFiles/reports.json');
+
+//require in Report model (DB data)
+var Report = require('../models/Report.js')
+
+
+const GetAllReports = function() {
+  return reports;
+}
+
+const GetReportById = function(id) {
+  //do some filtering by id....
+  return reports.filter(report => report._id == id);
+}
+
+const SaveReport = function(reportModel) {
+
+reports.push(reportModel);
+}
 
 
 module.exports = {
-  //function,
-  //function
+  GetAllReports,
+  GetReportById,
+  SaveReport
 }

@@ -12,9 +12,12 @@ import Login from './Login';
 
 
 //base of expenses page
-import Expenses from './Expenses';
-import ExpenseNew from './expenses/ExpenseNew';
 import NavBar from './NavBar';
+import ExpenseNew from './expenses/ExpenseNew';
+import ReportNew from './reports/ReportsNew';
+import Expenses from './Expenses';
+
+
 
 //base of Reports page
 import Reports from './Reports';
@@ -33,10 +36,12 @@ class App extends Component {
                 <BrowserRouter>
                     <div>
                         {/* the routes that form our webpages */}
+                        <NavBar />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/expenses" component={Expenses} />
                         <Route exact path="/expenses/new" component={ExpenseNew} />
                         <Route exact path="/reports" component={Reports} />
+                        <Route exact path="/reports/new" component={ReportNew} />
                     </div>
                 </BrowserRouter>
             </div>

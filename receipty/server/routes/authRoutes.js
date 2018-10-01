@@ -11,10 +11,9 @@ const datastore = require('../datastore/Users_datastore');
 const authRouter = require('express').Router();
 
 
-/*
 
-put routes here and reference functions from datastore/Users_datasore
+//put routes here and reference functions from datastore/Users_datasore
 
-*/
+
 
 module.exports = authRouter;

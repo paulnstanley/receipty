@@ -4,17 +4,45 @@ const { URL } = require('url');
 // const mongoose = require('mongoose');
 // const requireLogin = require('../middlewares/requireLogin');
 
-//dataSore is a file that will handle all of the mongodb sorting/filtering/saving...anything related to the DB.  This is why we don't need to require in mongoose in this file
-//by requiring in the datastore/reports_datastore, we are essentially bringing in all functions from that file and are using them in our 
-const datastore = require('../datastore/Reports_datastore');
+// changing 'datastore' to 'reportsDatastore' to not have a 'datastore' in each route file
+const reportsDatastore = require('../datastore/Reports_datastore');
+const usersDatastore = require('../datastore/Users_datastore');
 
 const reportsRouter = require('express').Router();
 
+//TODO: DELETE THIS BECAUSE IT IS FOR TESTING ONLY
+reportsRouter.get('/api/reports', function (request, response) {
+  //because using express you can shorten the reponse.writehead and response.end to this:
+  response.json(reportsDatastore.GetAllReports());
+})
 
-/*
 
-put routes here and reference functions from datastore/Reports_datasore
+//post api/reports will save a particular user's report to the the DB
+//the request will include the user's id and so in addition to saveing this we will also need to associated by the id sent in the request with a user
+reportsRouter.post('/api/reports/:userId', function (request, response) {
+  //define the user id sent in the request
+  let id = request.params.userId;
+  //expenseModel = request.body.amount;
+  let reportModel = {
+    name: request.body.name,
+    total: request.body.total,
+    fromUser: request.body.from,
+    toAdmin: request.body.to,
+    requestedDate: request.body.submittedDate,
+    expenses: [],
+    userId: request.params.id
+  };
 
-*/
+  reportsDatastore.SaveReport(reportModel);
+
+  usersDatastore.AddReportToUserArray(id, reportModel);
+
+  //respond with a 200 message that the item was saved
+  response.end(console.log('200: the report was saved!'));
+})
+
+reportsRouter.put('/api/reports/addExpense/:reportId', function (request, response) {
+
+})
 
 module.exports = reportsRouter;

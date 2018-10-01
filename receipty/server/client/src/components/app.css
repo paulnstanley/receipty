@@ -12,3 +12,20 @@ h1 {
     font-weight: 900;
     font-size: 60px;
 }
+
+form {
+    float: right;
+    width: 90%;
+}
+/* without this CSS for the forms, the form bleeds into the NavBar */
+
+.FormReview {
+    float: right;
+    width: 90%;
+}
+
+#ExpenseFormTitleContainer {
+    float: right;
+    padding: 20px 0px 10px;
+    width: 90%;
+}
