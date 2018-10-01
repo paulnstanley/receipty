@@ -1,6 +1,6 @@
 //this file will form the actual expenses page
 
-//required react tools files for functionality
+//required node modules files for functionality
 import React from 'react';
 import { Link } from 'react-router-dom';
 
