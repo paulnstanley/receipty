@@ -5,8 +5,8 @@ import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import formFieldsStyle from './formFieldsStyle';
 import formFields from './formFields';
-import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
+
+
 //the two variables below are to help me incorporate the dropdown and calender features//
 const options = [
   { value: 'travel', label: 'Travel', className: 'travel' },
@@ -26,7 +26,7 @@ class ExpenseForm extends Component {
       <Field key="Merchant" component={formFieldsStyle} type="text" label="Merchant Name" name="Name"/>
       <Field key="Amount" component={formFieldsStyle} type="number" label="Amount" name="Amount" />
       <label>Date</label><input type="date" label="Date" />
-      <label>Categories</label><Dropdown label="Categories" className="expense-categories" options={options} onChange={this._onSelect} value={defaultOption} placeholder="Selection an Option" />
+      <label>Categories</label>
       <Field key="Comments" component={formFieldsStyle} type="text" label="Comments" name="Comments" />
       <label>Upload Receipt Picture</label><p><input type="file" onChange={
     ( e ) => {      
