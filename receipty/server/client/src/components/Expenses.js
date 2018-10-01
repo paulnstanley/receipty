@@ -12,7 +12,7 @@ const Expenses = () => {
   return (
     <div>
       <NavBar />
-      <ExpensesList />
+      {/* <ExpensesList /> */}
       <div className="fixed-action-btn">
         <Link to="/expenses/new" className="teal btn-flat right white-text">
           New Expense

@@ -57,9 +57,9 @@ class NavBar extends Component {
         </li>
         
       </ul>
-      {function activePageHighlighter(){
+      {/* {function activePageHighlighter(){
         //this function will allow for the active page to be highlighted in green. currently css is set, not active still working on the javascript. Time boxed myself will come back to it after mvp/mvp+
-      }}
+      }} */}
      </div>
      );
 
