@@ -11,7 +11,11 @@ import NavBar from './NavBar';
 const Reports = () => {
   return (
     <div>
+<<<<<<< HEAD
       {/* <NavBar /> */}
+=======
+      <NavBar />
+>>>>>>> 7c15e8b605ad224801a942c52628650b650348ca
       <ReportsList />
       <div className="fixed-action-btn">
         <Link to="/reports/new" className="teal btn-flat right white-text">

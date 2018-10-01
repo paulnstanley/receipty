@@ -2,6 +2,22 @@
     padding: 10px;
 }
 
+
+
+.col-centered{
+    float: none;
+    margin: 100px auto;
+}
+
+.avatar {
+    float: left;
+}
+
+.form-block {
+    float: left;
+    width: 60%;
+}
+
 .email-input {
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
@@ -39,13 +55,19 @@
 }
 
 .login-submit {
-    width: 70px;
     height: 30px;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    background-color: #55BB55;
+    text-decoration-color: darkgreen;
+    text-align: center;
+    text-transform: uppercase;
     border-radius: 10px;
 }
+
+.float-right {
+    float: right;
+}
+
 
 FormControl:focus::-webkit-FormControl-placeholder {
   opacity: 0;

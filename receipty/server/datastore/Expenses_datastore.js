@@ -24,9 +24,27 @@ const GetAllExpenses = function() {
 }
 
 //a function that will find an expense by its id
-const GetExpenseById = function(id) {
-    //do some filtering by id....
-    return expenses.filter(expense => expense._id == id);
+const GetExpensesByUserId = function(userId) {
+    // //do some filtering by id....
+    // return expenses.filter(expense => expense._id == id);
+    //let {user}= userId;
+
+    //****delete later after testing */
+    // let query = Expense.find({userId : new mongoose.Types.ObjectId(userId)});
+    // return query.exec();
+
+    let query = Expense.find({userId : userId});
+    return query.exec();
+}
+
+const GetUniqueExpenseByUserId = function(userId, expenseId) {
+    let query = Expense
+    .find({
+        userId : userId,
+        _id: expenseId
+    });
+    
+    return query.exec();
 }
 
 //a function that will add an expense to the in memory storage (or db)
@@ -36,11 +54,9 @@ const SaveExpense = function(expenseModel) {
     const expense = new Expense({
         merchant: expenseModel.merchant,
         amount: expenseModel.amount,
-        createdDate: expenseModel.createdDate,
         category: expenseModel.category,
         receipt_img: expenseModel.reciept_img,
         comments: expenseModel.comments,
-        reimbursedDate: expenseModel.reimbursedDate,
         userId: expenseModel.userId,
         reportId: expenseModel.reportId
     });
@@ -52,15 +68,9 @@ const SaveExpense = function(expenseModel) {
     // expenses.push(expenseModel);
 }
 
-const GetExpenseByUserId = function(user){
-    var userId = {user}
-
-    return expenses.find({userId})
-}
-
 module.exports = {
     GetAllExpenses,
-    GetExpenseById,
     SaveExpense,
-    GetExpenseByUserId 
+    GetExpensesByUserId,
+    GetUniqueExpenseByUserId
 }

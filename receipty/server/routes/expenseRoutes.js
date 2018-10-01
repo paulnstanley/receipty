@@ -16,6 +16,22 @@ expensesRouter.get('/api/expenses', function (request, response) {
   response.json(expensesDatastore.GetAllExpenses());
 })
 
+expensesRouter.get('/api/user/:userId/expenses', function (request, response) {
+  let userId= request.params.userId
+  console.log(request.params.userId);
+  // let expenses = expensesDatastore.GetExpensesByUserId(user);
+  expensesDatastore.GetExpensesByUserId(userId)
+  .then(expensesByUserId => response.json(expensesByUserId));
+  
+})
+
+expensesRouter.get('/api/user/:userId/expenses/:expenseId', function (request, response) {
+  let theUser = request.params.userId;
+  let theExpense = request.params.expenseId;
+
+  expensesDatastore.GetUniqueExpenseByUserId(theUser, theExpense).then(userExpense => response.json(userExpense));
+})
+
 
 // //REQUEST WILL INCLUDE user token whenever we implement auth
 // //for now, we will substitute user id for user token
@@ -33,14 +49,13 @@ expensesRouter.post('/api/expenses/:userId', function (request, response) {
   let id = request.params.userId;
 
   //define what wll be saved
+  //expense date and expense id should auto save
   let expenseModel = {
     merchant: request.body.merchant,
     amount: request.body.amount,
-    createdDate: request.body.createdDate,
     category: request.body.category,
     reciept_img: request.body.reciept_img,
     comments: request.body.comments,
-    reimbursedDate: request.body.reimbursedDate,
     userId: request.params.userId,
     reportId: request.body.reportId
   };

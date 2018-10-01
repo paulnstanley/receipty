@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 //component imports
 import ExpensesList from './expenses/ExpensesList';
-import NavBar from './NavBar.js';
+import NavBar from './NavBar';
 
 const Expenses = () => {
   return (
