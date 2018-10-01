@@ -15,17 +15,17 @@ h1 {
 
 form {
     float: right;
-    width: 90%;
+    width: 80%;
 }
 /* without this CSS for the forms, formreview, & expenseformtitlecontainer, the form bleeds into the NavBar */
 
 .FormReview {
     float: right;
-    width: 90%;
+    width: 80%;
 }
 
 #ExpenseFormTitleContainer {
     float: right;
     padding: 20px 0px 10px;
-    width: 90%;
+    width: 80%;
 }
