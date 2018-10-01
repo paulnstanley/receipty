@@ -9,8 +9,8 @@ const ReportSchema = new Schema({
   fromUser: String,
   toAdmin: String,
   requestedDate: String,
-  expenses: [{ type: Schema.Types.ObjectId, ref: 'expense' }],
-  userId: { type: Schema.Types.ObjectId, ref: 'user' }
+  expenses: [{ type: Schema.Types.ObjectId, ref: 'Expense' }],
+  userId: { type: Schema.Types.ObjectId, ref: 'User' }
 })
 
 // const Report = mongoose.model('Report', ReportSchema);
