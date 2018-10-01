@@ -6,10 +6,12 @@ import { Link } from 'react-router-dom';
 
 //component imports
 import ExpensesList from './expenses/ExpensesList';
+import NavBar from './NavBar';
 
 const Expenses = () => {
   return (
     <div>
+      <NavBar />
       <ExpensesList />
       <div className="fixed-action-btn">
         <Link to="/expenses/new" className="teal btn-flat right white-text">

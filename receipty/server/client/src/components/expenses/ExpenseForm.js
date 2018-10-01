@@ -110,6 +110,7 @@ class ExpenseForm extends Component {
       <div>
         <form onSubmit={this.props.handleSubmit(this.props.onExpenseSubmit)}>
           {this.renderFields()}
+          <br />
           <Link to="/expenses" className="red btn-flat white-text">
             Cancel
           </Link>
