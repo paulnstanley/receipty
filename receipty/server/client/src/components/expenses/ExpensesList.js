@@ -23,6 +23,7 @@ class ExpensesList extends Component {
           <div className="card-content">
             <span className="card-title">{expense.title}</span>
             <p>
+              Hello World "Hello World"fsdgjsldfgjsldfkjlsdkghskjdfghslkdfjghklsdfjghlskdfjghsldkfjghlsdkjfghldkfjghsldfjghsldkfjghsdklfghslkdfjghlskdjglskg
               {expense.body}
             </p>
             <p className="right">
