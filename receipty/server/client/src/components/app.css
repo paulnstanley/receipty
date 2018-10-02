@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
 .App {
     text-align: center;
     background-color:  rgb(245, 245, 245);
@@ -19,17 +21,38 @@ h1 {
 
 form {
     float: right;
-    width: 90%;
+    width: 80%;
 }
 /* without this CSS for the forms, formreview, & expenseformtitlecontainer, the form bleeds into the NavBar */
 
 .FormReview {
     float: right;
-    width: 90%;
+    width: 80%;
 }
 
 #ExpenseFormTitleContainer {
     float: right;
     padding: 20px 0px 10px;
     width: 90%;
+}
+
+/*
+    height: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    text-align-last: center;
+    text-decoration-color: darkgreen;
+    text-align: auto;
+    text-transform: uppercase;
+    border-radius: 10px;
+*/
+/*
+padding: 25px 50px 75px 100px;
+        top padding is 25px
+        right padding is 50px
+        bottom padding is 75px
+        left padding is 100px
+*/
+.fixed-action-btn {
+    padding: 0px 5px 5px 5px;
 }
