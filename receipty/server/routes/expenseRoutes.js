@@ -4,7 +4,6 @@ const { URL } = require('url');
 // const requireLogin = require('../middlewares/requireLogin');
 
 //dataSore is a file that will handle all of the mongodb sorting/filtering/saving...anything related to the DB.  This is why we don't need to require in mongoose in this file
-//by requiring in the datastore/expenses_datastore, we are essentially bringing in all functions from that file and are using them in our 
 const expensesDatastore = require('../datastore/Expenses_datastore');
 const usersDatastore = require('../datastore/Users_datastore');
 
@@ -23,6 +22,13 @@ expensesRouter.get('/api/user/:userId/expenses', function (request, response) {
   expensesDatastore.GetExpensesByUserId(userId)
   .then(expensesByUserId => response.json(expensesByUserId));
   
+})
+
+expensesRouter.get('/api/user/:userId/expenses/:expenseId', function (request, response) {
+  let theUser = request.params.userId;
+  let theExpense = request.params.expenseId;
+
+  expensesDatastore.GetUniqueExpenseByUserId(theUser, theExpense).then(userExpense => response.json(userExpense));
 })
 
 

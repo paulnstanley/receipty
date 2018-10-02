@@ -1,25 +1,44 @@
 //this file will form the actual expenses page
 
 //required node modules files for functionality
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
 //component imports
 import ExpensesList from './expenses/ExpensesList';
 import NavBar from './NavBar.js';
+import { Button } from "react-bootstrap";
+import './app.css';
 
-const Expenses = () => {
-  return (
-    <div>
-      <NavBar />
-      <ExpensesList />
-      <div className="fixed-action-btn">
-        <Link to="/expenses/new" className="teal btn-flat right white-text">
+class Expenses extends Component {
+  constructor(props) {
+    super(props);
+    this.navigateToNewExpense = this.navigateToNewExpense.bind(this);
+  }
+
+  navigateToNewExpense() {
+    this.props.history.push('/expenses/new');
+  }
+
+  render() {
+    return (
+      <div>
+        <NavBar />
+        <ExpensesList />
+
+        <Button 
+          className="fixed-action-btn"
+          bsStyle="Success" 
+          bsSize="large" 
+          type="submit"
+          onClick={this.navigateToNewExpense}
+          >
           New Expense
-        </Link>
+        </Button>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
-export default Expenses;
+
+export default withRouter(Expenses);
