@@ -26,12 +26,32 @@ const GetReportById = function(id) {
 
 const SaveReport = function(reportModel) {
 
-reports.push(reportModel);
+    //**** SAVE TO MONGODB NOT TO IN MEMORY */
+    const report = new Report({
+      name: reportModel.name,
+      totalAmount: reportModel.totalAmount,
+      fromUser: reportModel.fromUser,
+      toAdmin: reportModel.toAdmin,
+      requestedDate:reportModel.requestedDate,
+      reimbursementDate: reportModel.reimbursementDate,
+      userId: reportModel.userIsd
+    });
+
+    return report.save();
+
+}
+
+//a function that will find an expense by its id
+const GetReportsByUserId = function (userId) {
+  
+  let query = Report.find({ userId: userId });
+  return query.exec();
 }
 
 
 module.exports = {
   GetAllReports,
   GetReportById,
-  SaveReport
+  SaveReport,
+  GetReportsByUserId
 }
