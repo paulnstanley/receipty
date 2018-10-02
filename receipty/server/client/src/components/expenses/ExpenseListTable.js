@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactTable from "react-table";
 import 'react-table/react-table.css'
 import "./ExpenseListTable.css";
+import axios from "axios";
 
 class ExpenseListTable extends Component { 
     constructor(props) {
@@ -134,6 +135,22 @@ class ExpenseListTable extends Component {
         )
     }
 }
+
+
+axios.get('https://ps-receipty.herokuapp.com/api/users')
+  .then(function (response) {
+    console.log("response is:"+response);
+  })
+
+
+
+
+
+
+
+
+
+
 //Make dummy data for table
 function makeData() {
   return [
