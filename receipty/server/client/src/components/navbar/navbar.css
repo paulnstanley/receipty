@@ -34,7 +34,7 @@
     position: absolute;
     bottom: 10px;
     width: 100%;
-    font-size: 25px;
+    font-size: 22px;
     z-index: initial;
     text-align: center;
     font-family: 'Pacifico', Helvetica, sans-serif;
@@ -62,13 +62,13 @@
  padding: 8px 16px;
  text-decoration: none;
  padding-bottom: 10%;
- text-align: left;
+
 
 }
 
 .navbar-li-a:hover {
  /* hover allows for a grey bar to pop up highlighting options that are able to be clicked.   */
- background-color: rgb(8, 128, 32);
+ background-color: grey;
  color: white;
 }
 
