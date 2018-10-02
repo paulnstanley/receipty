@@ -51,6 +51,7 @@
  width: 100%;
  background-color:rgba(5, 119, 150, 0);
  border-radius: 10px;
+ text-align: left;
 }
 
 .navbar-li-a {
@@ -61,17 +62,19 @@
  padding: 8px 16px;
  text-decoration: none;
  padding-bottom: 10%;
+ text-align: left;
+
 }
 
 .navbar-li-a:hover {
  /* hover allows for a grey bar to pop up highlighting options that are able to be clicked.   */
- background-color: #555;
+ background-color: rgb(8, 128, 32);
  color: white;
 }
 
 .navbar-li-a-active {
  /* the active highlight is so that users know wich page they are on. currently timeboxing will return to it later relates to function activePageHighlighter  */
- background-color: #4CAF50;
+ background-color: rgb(18, 169, 23);
  width: 100%;
  color: white;
 }

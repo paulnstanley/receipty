@@ -1,9 +1,11 @@
-titled 
+
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import formFieldsStyle from './formFieldsStyle';
 import formFields from './formFields';
+import NavBar from '../navbar/NavBar';
+
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 ​

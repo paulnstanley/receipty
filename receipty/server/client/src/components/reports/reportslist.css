@@ -1,0 +1,9 @@
+ /* this file shape the main reports page with NavBar and ReportsList */
+
+#reports-list-section {
+
+ height: 100%;
+ width:100%;
+ /* padding-left: 18%;this space is the space that the nav bar will take up, you change this, you must also change navbar */
+ background-color: pink;
+}
