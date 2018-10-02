@@ -72,7 +72,7 @@ class ExpenseForm extends Component {
           component={formFieldsStyle} 
           onChange={event => this.datePickerOnChange(event)} 
           />
-          <Dropdown 
+          {/* <Dropdown 
           name="Categories"
           key="Categories"
           label="Categories" 
@@ -82,7 +82,7 @@ class ExpenseForm extends Component {
           onChange={event => this.categoriesOnChange(event)} 
           value={defaultOption} 
           placeholder="Select an Option" 
-          />
+          /> */}
           <Field 
           key="Comments" 
           component={formFieldsStyle} 

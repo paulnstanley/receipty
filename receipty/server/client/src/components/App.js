@@ -12,7 +12,7 @@ import Expenses from './Expenses';
 //base page of adding new expense to expenses main page
 import ExpenseNew from './expenses/ExpenseNew';
 //base of Reports page, will list all reports
-import Reports from './Reports';
+import Reports from './reports/Reports';
 /* this will also include NavBar */
 //base page of add listed expense to form a new report
 import ReportsNew from './reports/ReportsNew';
