@@ -15,33 +15,33 @@ class NavBar extends Component {
        <ul className = "navbar-ul ">
          {/* links to all major routes. do note that we agreed that for mvp Reports, Inbox, and Logout are all duds. I put settings so that it looks nice.no need to make it do anything, just don't click it.  */}
         <li>
-          <Link to = {`/expenses`} a id = "expenses" className="navbar-li-a">
-            EXPENSES 
+          <Link to = {`/expenses`} id = "expenses" className="navbar-li-a">
+            EXPENSES  
           </Link>
         </li>
         <li>
-          <Link to = {`/reports`} a id = "reports" className = "navbar-li-a">
+          <Link to = {`/reports`} id = "reports" className = "navbar-li-a">
             REPORTS
           </Link>
         </li>
         <li>
-          <Link to = {`/inbox`} a id = "inbox" className = "navbar-li-a">
+          <Link to = {`/inbox`} id = "inbox" className = "navbar-li-a">
             INBOX
           </Link>
         </li>
         <li>
-          <Link to = {`/settings`} a id = "settings" className = "navbar-li-a"> 
+          <Link to = {`/settings`} id = "settings" className = "navbar-li-a"> 
             SETTINGS
           </Link>
         </li>
         <li>
-          <Link to = {`/logout`} a id = "logout" className = "navbar-li-a">
+          <Link to = {`/logout`} id = "logout" className = "navbar-li-a">
             LOGOUT
           </Link>
         </li>
         <li>
-          <Link to = {`/about`} a id = "about-receipty" className = "navbar-li-a">
-            ReCeipty™
+          <Link to = {`/about`} id = "about-recipty" className = "navbar-li-a">
+              ReCeipty
           </Link>
         </li>
         
