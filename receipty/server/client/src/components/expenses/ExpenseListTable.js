@@ -136,10 +136,11 @@ class ExpenseListTable extends Component {
     }
 }
 
-
-axios.get('https://ps-receipty.herokuapp.com/api/users')
+//bob's expenses
+axios.get('https://ps-receipty.herokuapp.com/api/user/5bb26ea077074900150d3ee6/expenses')
   .then(function (response) {
-    console.log("response is:"+response);
+    console.log("bob's expenses");
+    console.log(response);
   })
 
 
