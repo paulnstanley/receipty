@@ -6,6 +6,7 @@ const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 
 require('./models/User');
+require('./services/passport')(passport);
 
 mongoose.connect(keys.mongoURI)
 
@@ -24,7 +25,6 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
-require('./services/passport')(passport);
 
 
 //import routes
