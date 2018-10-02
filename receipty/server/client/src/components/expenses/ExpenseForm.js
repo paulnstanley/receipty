@@ -3,6 +3,8 @@ import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import formFieldsStyle from './formFieldsStyle';
 import formFields from './formFields';
+import NavBar from '../NavBar';
+
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
@@ -108,6 +110,10 @@ class ExpenseForm extends Component {
   render() {
     return (
       <div>
+        <NavBar />  
+        <div id ="ExpenseFormTitleContainer">
+        <h3>Expense Form</h3>
+        </div>
         <form onSubmit={this.props.handleSubmit(this.props.onExpenseSubmit)}>
           {this.renderFields()}
           <br />
