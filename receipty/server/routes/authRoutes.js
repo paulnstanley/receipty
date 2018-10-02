@@ -14,13 +14,14 @@ authRouter.use(bodyParser.json());
 
 
 authRouter.post('/login', passport.authenticate('login', {
-    successRedirect: '/api/expenses',
+    successRedirect: '/api/user/:userId/expenses',
     failureRedirect: '/api/login',
   }));
-/*
 
-put routes here and reference functions from datastore/Users_datasore
-
-*/
+authRouter.get('/logout', (request, response) => {
+    console.log("I am Logged out!")
+    request.logOut()
+    response.send("Woot Woot You're Logged Out")
+})
 
 module.exports = authRouter;

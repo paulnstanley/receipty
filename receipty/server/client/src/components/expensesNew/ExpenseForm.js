@@ -3,7 +3,7 @@ import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import formFieldsStyle from './formFieldsStyle';
 import formFields from './formFields';
-import NavBar from '../NavBar';
+import NavBar from '../navbar/NavBar';
 
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
@@ -74,7 +74,7 @@ class ExpenseForm extends Component {
           component={formFieldsStyle} 
           onChange={event => this.datePickerOnChange(event)} 
           />
-          <Dropdown 
+          {/* <Dropdown 
           name="Categories"
           key="Categories"
           label="Categories" 
@@ -84,7 +84,7 @@ class ExpenseForm extends Component {
           onChange={event => this.categoriesOnChange(event)} 
           value={defaultOption} 
           placeholder="Select an Option" 
-          />
+          /> */}
           <Field 
           key="Comments" 
           component={formFieldsStyle} 

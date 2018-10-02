@@ -3,19 +3,19 @@ import React, { Component } from 'react';
 import {  Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 //team created files that are not pages, helper files
-import * as actions from '../actions';
+import * as actions from '../../actions';
 import "./app.css"
 //base of login page
-import Login from './Login';
+import Login from '../login/Login';
 //base of expenses page, will list all expenses
-import Expenses from './Expenses';
+import Expenses from '../expenses/Expenses';
 //base page of adding new expense to expenses main page
-import ExpenseNew from './expenses/ExpenseNew';
+import ExpenseNew from '../expensesNew/ExpenseNew';
 //base of Reports page, will list all reports
-import Reports from './Reports';
+import Reports from '../reports/Reports';
 /* this will also include NavBar */
 //base page of add listed expense to form a new report
-import ReportsNew from './reports/ReportsNew';
+import ReportsNew from '../reportsnew/ReportsNew';
 
 //the major app component that forms the UX/UI
 class App extends Component {
