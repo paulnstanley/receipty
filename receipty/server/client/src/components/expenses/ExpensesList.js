@@ -16,6 +16,7 @@ class ExpensesList extends Component {
 
 
   renderExpenses() {
+    //the botton return says map out this.props.expenses but in reverse order so that the most recent is on top//
     return this.props.expenses.reverse().map(expense => {
       return (
         <div className="card darken-1" key={expense._id}>
@@ -29,6 +30,7 @@ class ExpensesList extends Component {
               Sent On: {new Date(expense.dateSent).toLocaleDateString()}
             </p>
           </div>
+          {/* The bottom portion probably don't be need for our expense but you can play around with it to see what it does. */}
           <div className="card-action">
             <a>Yes: {expense.yes}</a>
             <a>No: {expense.no}</a>
@@ -41,13 +43,14 @@ class ExpensesList extends Component {
   render() {
     return (
       <div>
+        {/* renders the big function we made above  */}
         {this.renderExpenses()}
       </div>
     );
   }
 
 }
-
+//this maps our state according to expesnse and connects with our fetch Expenses function and exports as Expense List//
 function mapStateToProps({ expenses }) {
   return { expenses };
 }
