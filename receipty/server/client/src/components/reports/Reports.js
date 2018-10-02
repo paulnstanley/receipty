@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 //required components to create the Reports components.
 import ReportsList from './ReportsList';
-import NavBar from '../NavBar';
+import NavBar from '../navbar/NavBar';
 
 // component that will be rendered as main part of Report 
 const Reports = () => {

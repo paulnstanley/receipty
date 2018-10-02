@@ -5,10 +5,10 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 //component imports
-import ExpensesList from './expenses/ExpensesList';
-import NavBar from './NavBar.js';
+import ExpensesList from './ExpensesList';
+import NavBar from '../navbar/NavBar';
 import { Button } from "react-bootstrap";
-import './app.css';
+import '../app/app.css';
 
 class Expenses extends Component {
   constructor(props) {
