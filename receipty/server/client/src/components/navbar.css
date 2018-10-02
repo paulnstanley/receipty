@@ -9,7 +9,7 @@
 #exp-rep-navbar {
  /* this id is to lock navbar to the left side of the screen. colors can be changed to fit designers themes but others are to make sure that entire bar locks in well.  */
  height: 100%;
- width: 10%;/* this witch controls the entire navbar resize it to your liking */
+ width: 20%;/* this witch controls the entire navbar resize it to your liking */
  position: fixed;
  z-index: 1;
  top: 0;
@@ -29,14 +29,15 @@
     padding-bottom: 10%;
 }
 
-#about-recipty {
-    color:  #26a69a ;
+#about-receipty {
+    color:  #fefefe ;
     position: absolute;
     bottom: 10px;
     width: 100%;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 30px;
     z-index: initial;
-    text-align: center;
+    text-align: left;
 }
 
 /* =================================================== */
@@ -55,7 +56,7 @@
 .navbar-li-a {
 /* colors and further styling are optional. this set up allows for the current look.  */
  display: block;
- color: rgb(186, 245, 193);
+ color: rgb(255, 255, 255);
  padding: 8px 16px;
  text-decoration: none;
  padding-bottom: 10%;
@@ -63,13 +64,13 @@
 
 .navbar-li-a:hover {
  /* hover allows for a grey bar to pop up highlighting options that are able to be clicked.   */
- background-color: #555;
+ background-color: rgb(8, 128, 32);
  color: white;
 }
 
 .navbar-li-a-active {
  /* the active highlight is so that users know wich page they are on. currently timeboxing will return to it later relates to function activePageHighlighter  */
- background-color: #4CAF50;
+ background-color: rgb(18, 169, 23);
  width: 100%;
  color: white;
 }

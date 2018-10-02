@@ -5,6 +5,8 @@ import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import formFieldsStyle from './formFieldsStyle';
 import formFields from './formFields';
+import NavBar from '../NavBar';
+
 
 
 //the two variables below are to help me incorporate the dropdown and calender features//
@@ -44,6 +46,7 @@ class ExpenseForm extends Component {
   render() {
     return (
       <div>
+        <NavBar />  
         <div id ="ExpenseFormTitleContainer">
         <h3>Expense Form</h3>
         </div>
