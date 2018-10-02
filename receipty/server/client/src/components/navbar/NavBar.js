@@ -18,27 +18,27 @@ class NavBar extends Component {
          {/* links to all major routes. do note that we agreed that for mvp Reports, Inbox, and Logout are all duds. I put settings so that it looks nice.no need to make it do anything, just don't click it.  */}
         <li>
           <Link to = {`/expenses`} id = "expenses" className="navbar-li-a">
-            EXPENSES  
+            Expenses  
           </Link>
         </li>
         <li>
           <Link to = {`/reports`} id = "reports" className = "navbar-li-a">
-            REPORTS
+            Reports
           </Link>
         </li>
         <li>
           <Link to = {`/inbox`} id = "inbox" className = "navbar-li-a">
-            INBOX
+            Inbox
           </Link>
         </li>
         <li>
           <Link to = {`/settings`} id = "settings" className = "navbar-li-a"> 
-            SETTINGS
+            Settings
           </Link>
         </li>
         <li>
           <Link to = {`/logout`} id = "logout" className = "navbar-li-a">
-            LOGOUT
+            Logout
           </Link>
         </li>
         <li>
