@@ -1,4 +1,3 @@
-// SurveyNew shows SurveyForm and SurveyFormReview
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import ExpenseForm from './ExpenseForm';
