@@ -1,10 +1,6 @@
 // required react components
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import {  Route, Switch } from 'react-router-dom';
-=======
 import { Route, BrowserRouter } from 'react-router-dom';
->>>>>>> fdf2c2d76ffe6295ae83492ed7238cff3f8aeb88
 import { connect } from 'react-redux';
 //team created files that are not pages, helper files
 import * as actions from '../../actions';
