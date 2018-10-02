@@ -29,25 +29,16 @@ class App extends Component {
     render() {
         return (
             <div className="container">
-<<<<<<< HEAD
-                    <Switch>
-=======
                 <BrowserRouter>
                    <div>
->>>>>>> fdf2c2d76ffe6295ae83492ed7238cff3f8aeb88
                         {/* the routes that form our webpages */}
                         <Route exact path="/" component={Login} />
                         <Route exact path="/expenses" component={Expenses} />
                         <Route exact path="/expenses/new" component={ExpenseNew} />
                         <Route exact path="/reports" component={Reports} />
                         {/* <Route exact path="/reports/new" component={ReportNew} /> */}
-<<<<<<< HEAD
-
-                    </Switch>
-=======
                     </div>
                 </BrowserRouter>
->>>>>>> fdf2c2d76ffe6295ae83492ed7238cff3f8aeb88
             </div>
         );
     }
