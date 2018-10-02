@@ -1,0 +1,10 @@
+.ExpenseListTable {
+    margin-left: 180px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.ReactTable input.checkbox {
+	-webkit-appearance: checkbox;
+	appearance: checkbox;
+}
