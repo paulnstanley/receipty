@@ -6,5 +6,7 @@
 
 .ReactTable input.checkbox {
 	-webkit-appearance: checkbox;
-	appearance: checkbox;
+    appearance: checkbox;
+    opacity: 1;
+    position: relative;
 }
