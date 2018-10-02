@@ -1,6 +1,6 @@
 // required react components
 import React, { Component } from 'react';
-import {  Route } from 'react-router-dom';
+import {  Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 //team created files that are not pages, helper files
 import * as actions from '../../actions';
@@ -25,7 +25,7 @@ class App extends Component {
     render() {
         return (
             <div className="container">
-                    <div>
+                    <Switch>
                         {/* the routes that form our webpages */}
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/expenses" component={Expenses} />
@@ -33,7 +33,7 @@ class App extends Component {
                         <Route exact path="/reports" component={Reports} />
                         {/* <Route exact path="/reports/new" component={ReportNew} /> */}
 
-                    </div>
+                    </Switch>
             </div>
         );
     }
