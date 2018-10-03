@@ -15,6 +15,11 @@ reportsRouter.get('/api/reports', function (request, response) {
   response.json(reportsDatastore.GetAllReports());
 })
 
+//get a single report back based on it's id
+reportsRouter.get('/api/reports/:_id', function (request, response) {
+  let _id = request.params._id;
+  reportsDatastore.GetReportById(_id).then(reportById => response.json(reportById));
+})
 
 //post api/reports will save a particular user's report to the the DB
 //the request will include the user's id and so in addition to saveing this we will also need to associated by the id sent in the request with a user
