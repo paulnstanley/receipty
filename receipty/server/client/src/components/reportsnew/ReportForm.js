@@ -1,4 +1,3 @@
-// ExpenseForm shows a form for a user to add input
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
@@ -6,7 +5,8 @@ import { Link } from 'react-router-dom';
 import formFieldsStyle from './formFieldsStyle';
 import formFields from './formFields';
 import NavBar from '../navbar/NavBar'
-class ExpenseForm extends Component {
+
+class ReportForm extends Component {
   renderFields() {
     return _.map(formFields, ({ label, name }) => {
       return (
@@ -25,10 +25,10 @@ class ExpenseForm extends Component {
     return (
       <div>
         <NavBar />
-        <h4 className="FormTitleContainer">Expense Form</h4>
-        <form onSubmit={this.props.handleSubmit(this.props.onExpenseSubmit)}>
+        <h4 className="FormTitleContainer">Report Form</h4>
+        <form onSubmit={this.props.handleSubmit(this.props.onReportSubmit)}>
           {this.renderFields()}
-          <Link to="/expenses" className="red btn-flat white-text">
+          <Link to="/reports" className="red btn-flat white-text">
             Cancel
           </Link>
           <button type="submit" className="teal btn-flat right white-text">
@@ -55,6 +55,6 @@ function validate(values) {
 
 export default reduxForm({
   validate,
-  form: 'expenseForm',
+  form: 'reportForm',
   destroyOnUnmount: false
-})(ExpenseForm);
+})(ReportForm);
