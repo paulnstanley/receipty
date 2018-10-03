@@ -10,6 +10,10 @@ export const fetchUser = () => async dispatch => {
     dispatch({ type: FETCH_USER, payload: res.data });
   };
  
+
+//this is the request to push new expenses to admin
+
+
   //until login is complete, hard code a user Id for a user that exists in your db here to see the add expense form work. 
   export const submitExpense = (values, history) => async dispatch => {
     const res = await axios.post(`${BASE_URL}/api/expenses/5bb26ea977074900150d3ee7`, values);
@@ -25,6 +29,8 @@ export const fetchUser = () => async dispatch => {
     dispatch({ type: FETCH_USER, payload: res.data });
   };
   
+
+  //this is the request to request all server for expenese, rightnow of jim since he is hard coded in. 
   export const fetchExpenses = () => async dispatch => {
     const res = await axios.get('https://ps-receipty.herokuapp.com/api/user/5bb26ea977074900150d3ee7/expenses');
   
