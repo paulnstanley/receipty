@@ -15,7 +15,7 @@ export const fetchUser = () => async dispatch => {
     const res = await axios.post(`${BASE_URL}/api/expenses/5bb26ea977074900150d3ee7`, values);
   
     history.push('/expenses');
-    dispatch({ type: FETCH_USER, payload: res.data });
+    dispatch({ type: FETCH_USER, payload: res });
   };
 
   export const submitReports = (values, history) => async dispatch => {
@@ -26,7 +26,7 @@ export const fetchUser = () => async dispatch => {
   };
   
   export const fetchExpenses = () => async dispatch => {
-    const res = await axios.get('https://ps-receipty.herokuapp.com/api/user/5bb26ea977074900150d3ee7/expenses');
+    const res = await axios.get();
   
     dispatch({ type: FETCH_EXPENSES, payload: res.data });
   };
