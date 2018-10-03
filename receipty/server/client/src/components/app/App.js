@@ -15,7 +15,7 @@ import ExpenseNew from '../expensesNew/ExpenseNew';
 import Reports from '../reports/Reports';
 /* this will also include NavBar */
 //base page of add listed expense to form a new report
-import ReportsNew from '../reportsnew/ReportsNew';
+import ReportNew from '../reportsNew/ReportsNew';
 
 //the major app component that forms the UX/UI
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
                         <Route exact path="/expenses" component={Expenses} />
                         <Route exact path="/expenses/new" component={ExpenseNew} />
                         <Route exact path="/reports" component={Reports} />
-                        {/* <Route exact path="/reports/new" component={ReportNew} /> */}
+                        <Route exact path="/reports/new" component={ReportNew} />
                     </div>
                 </BrowserRouter>
             </div>

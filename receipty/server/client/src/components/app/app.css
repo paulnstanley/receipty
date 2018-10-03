@@ -30,7 +30,7 @@ form {
     width: 85%;
 }
 
-#ExpenseFormTitleContainer {
+.FormTitleContainer {
     float: right;
     padding: 20px 0px 10px;
     width: 85%;
@@ -38,10 +38,16 @@ form {
 
 /* styling added for the new expense button - requires the constructor function on expenses.js file */
 .fixed-action-btn {
+    top: 0;
+    right: 0;
     padding: 0px 5px 5px 5px;
     height: 30px;
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     text-transform: uppercase;
     border-radius: 10px;
+}
+
+.fixed-btn {
+    
 }

@@ -25,15 +25,24 @@ class Expenses extends Component {
     return (
       <div>
         <NavBar />
-        <ExpenseListTable />
+
         <Button 
           className="fixed-action-btn"
           bsStyle="Success" 
-          bsSize="large" 
+          bsSize="small" 
           type="submit"
           onClick={this.navigateToNewExpense}
           >New Expense
         </Button>
+        <Button 
+          className="fixed-btn"
+          bsStyle="Success" 
+          bsSize="small" 
+          type="submit"
+          onClick={this.navigateToNewExpense}
+          >New Report
+        </Button>
+        <ExpenseListTable />
       </div>
     );
   }
