@@ -45,6 +45,8 @@ class ExpenseListTable extends Component {
     }
 
     dataToFill() {
+
+      
       let data = this.props.expenses || this.state.data;
 
       return data;

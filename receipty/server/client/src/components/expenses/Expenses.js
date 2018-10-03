@@ -24,10 +24,6 @@ class Expenses extends Component {
     return (
       <div>
         <NavBar />
-<<<<<<< HEAD
-       
-=======
->>>>>>> 42b33f01812ff123f06a1686277704beac382863
         <ExpenseListTable />
         <Button 
           className="fixed-action-btn"
