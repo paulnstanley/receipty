@@ -12,10 +12,9 @@ const passport = require('passport');
 // Setup router
 authRouter.use(bodyParser.json());
 
-
 authRouter.post('/login', passport.authenticate('login', {
     successRedirect: '/api/expenses',
-    failureRedirect: '/success',
+    failureRedirect: '/success'
   }));
   
 

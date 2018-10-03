@@ -15,12 +15,12 @@ module.exports = function(passport) {
     // required for persistent login sessions
     // passport needs ability to serialize and unserialize users out of session
 
-    // used to serialize the user for the session
+    // used to serialize the user for the session (if user is logged in , save the _id to the session as req.session.passport.user)
     passport.serializeUser((user, done) => {
         done(null, user._id);
     });
 
-    // used to deserialize the user
+    // used to deserialize the user (find user's object in the db and return it)
     passport.deserializeUser((_id, done) => {
         // let foundUser = User.find(user => user._id == _id);
         // done(null, foundUser);

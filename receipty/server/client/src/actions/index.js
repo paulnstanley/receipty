@@ -2,14 +2,17 @@
 import axios from 'axios';
 import { FETCH_USER, FETCH_EXPENSES, FETCH_REPORTS } from './types';
 
+const BASE_URL = "https://ps-receipty.herokuapp.com";
+
 export const fetchUser = () => async dispatch => {
-    const res = await axios.get('/login');
+    const res = await axios.get('/api/login');
   
     dispatch({ type: FETCH_USER, payload: res.data });
   };
-  
-  export const submitExpenses = (values, history) => async dispatch => {
-    const res = await axios.post('/expenses', values);
+ 
+  //until login is complete, hard code a user Id for a user that exists in your db here to see the add expense form work. 
+  export const submitExpense = (values, history) => async dispatch => {
+    const res = await axios.post(`${BASE_URL}/api/expenses/5bb26ea977074900150d3ee7`, values);
   
     history.push('/expenses');
     dispatch({ type: FETCH_USER, payload: res.data });
@@ -23,7 +26,7 @@ export const fetchUser = () => async dispatch => {
   };
   
   export const fetchExpenses = () => async dispatch => {
-    const res = await axios.get('/expenses');
+    const res = await axios.get('https://ps-receipty.herokuapp.com/api/user/5bb26ea977074900150d3ee7/expenses');
   
     dispatch({ type: FETCH_EXPENSES, payload: res.data });
   };

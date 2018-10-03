@@ -3,7 +3,6 @@
 }
 
 
-
 .col-centered{
     float: none;
     margin: 100px auto;
@@ -55,12 +54,11 @@
 }
 
 .login-submit {
-    height: 30px;
+    height: 32px;
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    text-decoration-color: darkgreen;
+    font-size: 14px;
     text-align: center;
-    text-transform: uppercase;
+    position: relative;
     border-radius: 10px;
 }
 

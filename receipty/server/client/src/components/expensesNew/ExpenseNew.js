@@ -1,6 +1,10 @@
-// SurveyNew shows SurveyForm and SurveyFormReview
+// react required compenents
 import React, { Component } from 'react';
+
+// redux required components
 import { reduxForm } from 'redux-form';
+
+//gui for expenses new
 import ExpenseForm from './ExpenseForm';
 import ExpenseFormReview from './ExpenseFormReview';
 

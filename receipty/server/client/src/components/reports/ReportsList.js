@@ -1,49 +1,31 @@
+//this page forms the actual list of reports will be a component of reports.js
+//required node modules for react
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchReports } from '../../actions';
-import NavBar from '../NavBar';
+import './reportslist.css';
+import 'react-dropdown/style.css'
+import Report from './Report'
 
-class ReportsList extends Component {
-  componentDidMount() {
-    this.props.fetchReports();
-  };
-
-
-  renderReports() {
-    return this.props.reports.reverse().map(report => {
-      return (
-        <div className="card darken-1" key={report._id}>
-          <div className="card-content">
-            <span className="card-title">{report.title}</span>
-            <p>
-              {report.body}
-            </p>
-            <p className="right">
-              Sent On: {new Date(report.dateSent).toLocaleDateString()}
-            </p>
-          </div>
-          <div className="card-action">
-            <a>Yes: {report.yes}</a>
-            <a>No: {report.no}</a>
-          </div>
-        </div>
-      );
-    });
-  }
-
+class ReportList extends Component {
   render() {
     return (
-      <div>
-        <NavBar />
-        {this.renderReports()}
+      <div className="report-list-container">
+        <div>
+          {
+            this.props.reports.map(report => 
+              <Report report={report} key={report._id}/>
+            )
+          }
+        </div>
       </div>
     );
   }
-
 }
 
-function mapStateToProps({ reports }) {
-  return { reports };
+function mapStateToProps({reportMetadata}) {
+  return {
+    reports: reportMetadata.reports || []
+  };
 }
 
-export default connect(mapStateToProps, { fetchReports })(ReportsList);
+export default connect(mapStateToProps)(ReportList);

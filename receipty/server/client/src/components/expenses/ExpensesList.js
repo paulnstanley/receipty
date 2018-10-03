@@ -22,17 +22,13 @@ class ExpensesList extends Component {
         <div className="card darken-1" key={expense._id}>
           <div className="card-content">
             <span className="card-title">{expense.title}</span>
-            <p>
+            {/* <p>
+              Hello World "Hello World"fsdgjsldfgjsldfkjlsdkghskjdfghslkdfjghklsdfjghlskdfjghsldkfjghlsdkjfghldkfjghsldfjghsldkfjghsdklfghslkdfjghlskdjglskg
               {expense.body}
-            </p>
+            </p> */}
             <p className="right">
               Sent On: {new Date(expense.dateSent).toLocaleDateString()}
             </p>
-          </div>
-          {/* The bottom portion probably don't be need for our expense but you can play around with it to see what it does. */}
-          <div className="card-action">
-            <a>Yes: {expense.yes}</a>
-            <a>No: {expense.no}</a>
           </div>
         </div>
       );

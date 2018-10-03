@@ -29,12 +29,12 @@
     padding-bottom: 10%;
 }
 
-#about-recipty {
+#about-receipty {
     color: White;
     position: absolute;
     bottom: 10px;
     width: 100%;
-    font-size: 25px;
+    font-size: 22px;
     z-index: initial;
     text-align: center;
     font-family: 'Pacifico', Helvetica, sans-serif;
@@ -51,27 +51,30 @@
  width: 100%;
  background-color:rgba(5, 119, 150, 0);
  border-radius: 10px;
+ text-align: left;
 }
 
 .navbar-li-a {
 /* colors and further styling are optional. this set up allows for the current look.  */
- text-align: center;
+ text-align: left;
  display: block;
  color: white;
  padding: 8px 16px;
  text-decoration: none;
  padding-bottom: 10%;
+
+
 }
 
 .navbar-li-a:hover {
  /* hover allows for a grey bar to pop up highlighting options that are able to be clicked.   */
- background-color: #555;
+ background-color: grey;
  color: white;
 }
 
 .navbar-li-a-active {
  /* the active highlight is so that users know wich page they are on. currently timeboxing will return to it later relates to function activePageHighlighter  */
- background-color: #4CAF50;
+ background-color: rgb(18, 169, 23);
  width: 100%;
  color: white;
 }

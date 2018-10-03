@@ -5,8 +5,7 @@ import formFields from './formFields';
 import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
 
-
-const ExpenseFormReview = ({ onCancel, formValues, submitExpense, history, handleSubmit }) => {
+const ReportFormReview = ({ onCancel, formValues, submitReport, history }) => {
   const reviewFields = _.map(formFields, ({ name, label }) => {
     return (
       <div key={name}>
@@ -18,15 +17,8 @@ const ExpenseFormReview = ({ onCancel, formValues, submitExpense, history, handl
     );
   });
 
-  submitExpense = event => {
-    alert(this.props.expenses);
-    // this.setState({
-    //   [event.target]: event.target.value
-    // });
-  }
-
   return (
-    <div className="FormReview">
+    <div>
       <h5>Please confirm your entries</h5>
       {reviewFields}
       <button
@@ -35,18 +27,18 @@ const ExpenseFormReview = ({ onCancel, formValues, submitExpense, history, handl
       >
         Back
       </button>
-      <button type="button"
-        onClick={() => submitExpense(formValues, history)}
+      <button
+        onClick={() => submitReport(formValues, history)}
         className="green btn-flat right white-text"
       >
-        Submit Expense
+        Send Report
       </button>
     </div>
   );
 };
 
 function mapStateToProps(state) {
-  return { formValues: state.form.expenseForm.values };
+  return { formValues: state.form.reportForm.values };
 }
 
-export default connect(mapStateToProps, actions)(withRouter(ExpenseFormReview));
+export default connect(mapStateToProps, actions)(withRouter(ReportFormReview));
