@@ -10,7 +10,6 @@ Right now, this is saving in memory so anything will be lost if the server resta
 //mongoose is a persistant database
 //in memory data is temporary
 
-var expenses = require('../dataFiles/expenses.json');
 var users = require('../dataFiles/users.json');
 
 //require in Expense model (DB data)
@@ -22,6 +21,7 @@ var Expense = require('../models/Expense.js')
 const GetAllExpenses = function() {
     return expenses;
 }
+var expenses = require('../dataFiles/expenses.json');
 
 //a function that will find an expense by its id
 const GetExpensesByUserId = function(userId) {

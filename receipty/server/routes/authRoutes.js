@@ -14,14 +14,24 @@ authRouter.use(bodyParser.json());
 
 
 authRouter.post('/login', passport.authenticate('login', {
-    successRedirect: '/api/user/:userId/expenses',
-    failureRedirect: '/api/login',
+    successRedirect: '/api/expenses',
+    failureRedirect: '/success',
   }));
+  
+
 
 authRouter.get('/logout', (request, response) => {
     console.log("I am Logged out!")
     request.logOut()
     response.send("Woot Woot You're Logged Out")
+})
+
+authRouter.get('/success', (request, response) =>{
+    if(!request.isAuthenticated()) {
+        response.status(401).send("Please Log In")
+    } else {
+        response.status(200).send("Success")
+    }
 })
 
 module.exports = authRouter;
