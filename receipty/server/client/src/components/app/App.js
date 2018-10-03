@@ -15,7 +15,7 @@ import ExpenseNew from '../expensesNew/ExpenseNew';
 import Reports from '../reports/Reports';
 /* this will also include NavBar */
 //base page of add listed expense to form a new report
-import ReportNew from '../reportsNew/ReportsNew';
+import ReportNew from '../reportsnew/ReportsNew';
 
 //the major app component that forms the UX/UI
 class App extends Component {
