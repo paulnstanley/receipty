@@ -1,16 +1,11 @@
-const mongoose = require('mongoose');
-
-/*==========================================================
-the datastore/Users_datastore.js file will handle all of the database search/filter/sort/save for Users.  Export the functions as an object so as not to overwrite any of them.  
-============================================================*/
+//datastore/Users_datastore.js file handles all of the database search/filter/sort/save for Users.
+const mongoose = require('mongoose');  
 
 //require in dummy data in users.json
 var users = require('../dataFiles/users.json');
 
 //require in User model (DB data)
 var User = require ('../models/User.js')
-
-//add functions here and don't forget to export
 
 //**** LOCAL MONGODB -NOT IN MEMORY  ****/
 const AddNewUser = function(userModel){
@@ -30,17 +25,12 @@ const GetAllUsers = function() {
 
 //find a user by id
 const GetUserById = function (_id) {
-  /**** LOCAL MONGODB -NOT IN MEMORY  ****/
- //return(
-    User
-    .findById(_id)
-    .populate('expenses')
-    .populate('reports')
-    .exec((err, user) => {
-      if(err) {
-        console.log("error");
-      }
-    })
+    let query = User
+      .find({
+        _id: _id,
+      });
+
+    return query.exec();
 }
 
 const GetUserIdByName = function (userName) {
