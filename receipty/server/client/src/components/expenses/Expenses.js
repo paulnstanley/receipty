@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 //component imports
-import ExpenseList from './ExpensesList';
 import ExpenseListTable from './ExpenseListTable';
 import NavBar from '../navbar/NavBar.js';
 import { Button } from "react-bootstrap";
@@ -25,7 +24,6 @@ class Expenses extends Component {
     return (
       <div>
         <NavBar />
-        <ExpenseList />
         <ExpenseListTable />
         <Button 
           className="fixed-action-btn"

@@ -15,7 +15,7 @@ import ExpenseNew from '../expensesNew/ExpenseNew';
 import Reports from '../reports/Reports';
 /* this will also include NavBar */
 //base page of add listed expense to form a new report
-import ReportsNew from '../reportsnew/ReportsNew';
+import ReportNew from '../reportsnew/ReportsNew';
 
 import Inbox from '../inbox/Inbox';
 import Settings from '../settings/Settings';
