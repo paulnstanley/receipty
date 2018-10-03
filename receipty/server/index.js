@@ -4,15 +4,22 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+
+require('./models/User');
+require('./services/passport')(passport);
 
 mongoose.connect(keys.mongoURI)
 
 const app = express()
 
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(
   cookieSession({
+    name: 'Session',
     maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [keys.cookieKey]
   })
@@ -20,6 +27,22 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
+
+
+//import routes
+const expenseRoutes = require('./routes/expenseRoutes')
+const reportRoutes = require('./routes/reportRoutes')
+const authRoutes = require('./routes/authRoutes')
+const userRoutes = require('./routes/userRoutes')
+
+//use routes
+app.use(expenseRoutes)
+app.use(reportRoutes)
+app.use(authRoutes)
+app.use(userRoutes)
+
+
+//only in heroku
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production assets
   // like our main.js file, or main.css file!

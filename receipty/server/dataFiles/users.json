@@ -4,13 +4,18 @@
         "username": "bob",
         "password": "bob",
         "role": "admin",
-        "generatedToken": "abcdefg"
+        "generatedToken": "abcdefg",
+        "expenses": [],
+        "reports": []
+        
     },
     {
         "_id": 2,
         "username": "jim",
         "password": "jim",
         "role": "user",
-        "generatedToken": "abcdefg"
+        "generatedToken": "abcdefg",
+        "expenses": [],
+        "reports": []
     }
 ]
