@@ -3,8 +3,9 @@ const { Schema } = mongoose;
 
 
 const UserSchema = new Schema({
-    username: String,
-    password: String,
+    name: String,
+    userName: String,
+    email: String,
     role: String,
 });
 

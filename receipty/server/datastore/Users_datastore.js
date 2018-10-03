@@ -10,11 +10,13 @@ var User = require ('../models/User.js')
 //**** LOCAL MONGODB -NOT IN MEMORY  ****/
 const AddNewUser = function(userModel){
   const user = new User({
-    username: userModel.username,
-    password: userModel.password,
+    name: userModel.name,
+    userName: userModel.userName,
+    email: userModel.email,
     role: userModel.role,
-    generatedToken: userModel.generatedToken,
   });
+
+
 
   return user.save();
 }

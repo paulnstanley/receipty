@@ -16,16 +16,27 @@ var Report = require('../models/Report.js')
 const SaveReport = function(reportModel) {
 
     const report = new Report({
-      name: reportModel.name,
-      totalAmount: reportModel.totalAmount,
-      fromUser: reportModel.fromUser,
-      toAdmin: reportModel.toAdmin,
-      requestedDate:reportModel.requestedDate,
-      reimbursementDate: reportModel.reimbursementDate,
-      userId: reportModel.userIsd
+      ReportName: reportModel.ReportName,
+      ReportAmountTotal: reportModel.ReportAmountTotal,
+      UserName: reportModel.UserName,
+      UserId: reportModel.UserId,
+      ReportCreatedDate: reportModel.ReportCreatedDate,
+      DateSentToOrganization: reportModel.DateSentToOrganization,
+      ReimbursementDate: reportModel.ReimbursementDate,
+      Organization: reportModel.Organization
     });
 
     return report.save();
+}
+
+const PostExpenseInReport = function(expenseId, reportId) {
+  let query = Report
+  .find({
+      expenseId : expenseId,
+      _id: reportId
+  });
+  
+  return query.exec();
 }
 
 //a function that will find an expense by its id
@@ -37,5 +48,6 @@ const GetReportsByUserId = function (userId) {
 
 module.exports = {
   SaveReport,
-  GetReportsByUserId
+  GetReportsByUserId,
+  PostExpenseInReport
 }

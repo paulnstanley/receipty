@@ -26,11 +26,12 @@ userRouter.get('/api/user/:_id', function (request, response) {
 //TODO: update this to reflect proper user login
 userRouter.post('/api/user/new', function(request, response){
   let userModel = {
-    username: request.body.username,
-    password: request.body.password,
+    name: request.body.name,
+    userName: request.body.userName,
+    email: request.body.email,
     role: request.body.role,
-    generatedToken: 00000000,
   }
+
   usersDatastore.AddNewUser(userModel);
   //respond with a 200 message that the item was saved
   response.end(console.log('200: the user was saved!'));

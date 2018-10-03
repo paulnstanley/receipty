@@ -15,6 +15,18 @@ reportsRouter.get('/api/reports', function (request, response) {
   response.json(reportsDatastore.GetAllReports());
 })
 
+//TODO: test this endpoint!
+reportsRouter.post('/api/expenses/:expenseId/report/:reportId', function (request, response) {
+  let theExpense = request.params.expenseId;
+  let theReport = request.params.reportId;
+
+  expensesDatastore.PostExpenseInReport(theExpense, theReport).then(userExpense => response.json(userExpense));
+})
+
+// TODO:
+// reportsRouter.post('/api/sendReport', function (request, response) {
+// })
+
 
 //post api/reports will save a particular user's report to the the DB
 //the request will include the user's id and so in addition to saveing this we will also need to associated by the id sent in the request with a user
@@ -24,14 +36,16 @@ reportsRouter.post('/api/report', function (request, response) {
   
   //expenseModel = request.body.amount;
   let reportModel = {
-    name: request.body.name,
-    totalAmount: request.body.total,
-    fromUser: request.body.fromUser,
-    toAdmin: request.body.toAdmin,
-    requestedDate: request.body.submittedDate,
-    reimbursementDate: request.body.reimbursementDate,
-    userId: request.body.id
+    ReportName: request.body.name,
+    ReportAmountTotal: request.body.total,
+    UserName: request.body.userName, 
+    UserId: request.body.userId, 
+    ReportCreatedDate: request.body.reportCreatedDate, 
+    DateSentToOrganization: request.body.dateSentToOrganization, 
+    ReimbursementDate: request.body.reimbursementDate, 
+    Organization: request.body.organization, 
   };
+ 
 
   reportsDatastore.SaveReport(reportModel);
 

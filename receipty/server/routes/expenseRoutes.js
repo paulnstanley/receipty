@@ -37,14 +37,27 @@ expensesRouter.post('/api/expenses/:userId', function (request, response) {
 
   //expense date and expense id should auto save
   let expenseModel = {
-    merchant: request.body.Merchant,
-    amount: request.body.Amount,
-    category: request.body.Category,
-    reciept_img: request.body.Reciept_img,
-    comments: request.body.Comments,
-    userId: request.params.UserId,
-    reportId: request.body.ReportId
+    Merchant: request.body.Merchant,
+    Amount: request.body.Amount,
+    Category: request.body.Category,
+    Reciept_img: request.body.Reciept_img,
+    Comments: request.body.Comments,
+    UserId: request.params.UserId,
+    ReportId: request.body.ReportId
   };
+
+  /**
+     Merchant: String,
+  Amount: Number,
+  PurchaseDate: String,
+  ExpenseCreatedDate: { type: Date, default: Date.now },
+  Category: String,
+  Reciept_img: String,
+  Comments: String,
+  UserId: String,
+  ReportId: String
+   */
+
   //use the datastore function to save to the database
   expensesDatastore.SaveExpense(expenseModel);
 

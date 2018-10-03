@@ -35,13 +35,13 @@ const SaveExpense = function(expenseModel) {
 
     //**** SAVE TO MONGODB NOT TO IN MEMORY */
     const expense = new Expense({
-        merchant: expenseModel.merchant,
-        amount: expenseModel.amount,
-        category: expenseModel.category,
-        receipt_img: expenseModel.reciept_img,
-        comments: expenseModel.comments,
-        userId: expenseModel.userId,
-        reportId: expenseModel.reportId
+        Merchant: expenseModel.Merchant,
+        Amount: expenseModel.Amount,
+        Category: expenseModel.Category,
+        Receipt_img: expenseModel.Reciept_img,
+        Comments: expenseModel.Comments,
+        UserId: expenseModel.UserId,
+        ReportId: expenseModel.ReportId
     });
 
     return expense.save();

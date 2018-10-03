@@ -3,15 +3,15 @@ const { Schema } = mongoose;
 
 
 const ExpenseSchema = new Schema({
-  merchant: String,
-  amount: Number,
-  purchaseDate: String,
-  expenseCreatedDate: { type: Date, default: Date.now },
-  category: String,
-  reciept_img: String,
-  comments: String,
-  userId: String,
-  reportId: String
+  Merchant: String,
+  Amount: Number,
+  PurchaseDate: String,
+  ExpenseCreatedDate: { type: Date, default: Date.now },
+  Category: String,
+  Reciept_img: String,
+  Comments: String,
+  UserId: String,
+  ReportId: String
 });
 
 // const Expense = mongoose.model('Expense', ExpenseSchema);
