@@ -1,29 +1,33 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 import './login.css';
+import { connect } from 'react-redux';
+import { fetchUser } from '../../actions';
+import {bindActionCreators} from 'redux';
 
 class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: "",
+      username: "",
       password: ""
     };
   }
 
   validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
+    return this.state.username.length > 0 && this.state.password.length > 0;
   }
 
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
-    });
+    }, () => console.log(this.state));
   }
 
   handleSubmit = event => {
     event.preventDefault();
+    this.props.fetchUser(this.state);
   }
 
   render() {
@@ -35,12 +39,12 @@ class Login extends Component {
             <span>
             <div className="form-block col-md-9">
                 <form onSubmit={this.handleSubmit}>
-                <FormGroup className="email" controlId="email" bsSize="large">
+                <FormGroup className="email" controlId="username" bsSize="large">
                     <FormControl
                     className="email-input"
-                    placeholder="Email address"
-                    type="email"
-                    value={this.state.email}
+                    placeholder="Username"
+                    type="text"
+                    value={this.state.username}
                     onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -68,4 +72,7 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+const mapDispatchToProps = (dispatch) =>{
+  return bindActionCreators({ fetchUser }, dispatch);
+}
+export default connect(null, mapDispatchToProps)(Login);
