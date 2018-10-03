@@ -29,7 +29,7 @@
     padding-bottom: 10%;
 }
 
-#about-recipty {
+#about-receipty {
     color: White;
     position: absolute;
     bottom: 10px;
@@ -56,7 +56,7 @@
 
 .navbar-li-a {
 /* colors and further styling are optional. this set up allows for the current look.  */
- text-align: center;
+ text-align: left;
  display: block;
  color: white;
  padding: 8px 16px;
