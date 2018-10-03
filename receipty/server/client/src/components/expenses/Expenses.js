@@ -33,15 +33,16 @@ class Expenses extends Component {
           onClick={this.navigateToNewExpense}
           >New Expense
         </Button>
-        <Button 
-          className="fixed-btn"
-          bsStyle="Success" 
-          bsSize="small" 
+        <Button
+          className="fixed-action-btn"
+          id="add-to-report"
+          bsStyle="Success"
+          bsSize="large"
           type="submit"
-          onClick={this.navigateToNewExpense}
-          >New Report
+          
+        >Add to Report
+
         </Button>
-        <ExpenseListTable />
       </div>
     );
   }
