@@ -11,7 +11,7 @@ import NavBar from '../navbar/NavBar';
 const Reports = () => {
   return (
     <div>
-      {/* <NavBar /> */}
+      <NavBar />
       <ReportsList />
       <div className="fixed-action-btn">
         <Link to="/reports/new" className="teal btn-flat right white-text">
