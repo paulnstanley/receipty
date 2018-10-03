@@ -8,10 +8,16 @@ var Report = require('../models/Report.js')
 //   return reports;
 // }
 
-// const GetReportById = function(id) {
-//   //do some filtering by id....
-//   return reports.filter(report => report._id == id);
-// }
+//gets a report by the report's id
+const GetReportById = function(_id) {
+  let query = Report
+    .find({
+      _id: _id,
+    });
+
+  return query.exec();
+}
+
 
 const SaveReport = function(reportModel) {
 
@@ -37,5 +43,6 @@ const GetReportsByUserId = function (userId) {
 
 module.exports = {
   SaveReport,
-  GetReportsByUserId
+  GetReportsByUserId,
+  GetReportById
 }

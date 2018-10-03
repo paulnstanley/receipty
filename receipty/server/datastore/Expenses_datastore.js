@@ -30,6 +30,16 @@ const GetUniqueExpenseByUserId = function(userId, expenseId) {
     return query.exec();
 }
 
+//returns one expense for a user
+const GetAllExpensesByReportId= function (reportId) {
+    let query = Expense
+        .find({
+            reportId: reportId
+        });
+
+    return query.exec();
+}
+
 //a function that will add an expense to the in memory storage (or db)
 const SaveExpense = function(expenseModel) {
 
@@ -51,5 +61,6 @@ module.exports = {
     GetAllExpenses,
     SaveExpense,
     GetExpensesByUserId,
-    GetUniqueExpenseByUserId
+    GetUniqueExpenseByUserId,
+    GetAllExpensesByReportId
 }

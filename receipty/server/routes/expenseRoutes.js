@@ -29,6 +29,12 @@ expensesRouter.get('/api/user/:userId/expenses/:expenseId', function (request, r
   expensesDatastore.GetUniqueExpenseByUserId(theUser, theExpense).then(userExpense => response.json(userExpense));
 })
 
+expensesRouter.get('/api/reports/:reportId/expenses', function (request, response) {
+  let reportId = request.params.reportId;
+
+  expensesDatastore.GetAllExpensesByReportId(reportId).then(expensesInReport => response.json(expensesInReport));
+})
+
 //Given an expense model (already defined but sent as json in request and a user userId (sent in the request) Returns expenses from a particular userId 
 //TODO: THIS WILL NEED TO BE EDITED TO VALIDATE CURRENT USER SO WE MAY NOT NEED TO REQUEST WITH PARAM ID BUT CAN SEND THE TOKEN, MATCH THAT TOKEN WITH A USER AND SEARCH FOR THE USER THAT WAY????? (THIS SEEMS RIGHT, BUT IDK)
 expensesRouter.post('/api/expenses/:userId', function (request, response) {
@@ -54,6 +60,5 @@ expensesRouter.post('/api/expenses/:userId', function (request, response) {
   response.end(console.log('200: the expense was saved!'));
 })
 
-//expensesRouter.put('/api/expenses/ex')
 
 module.exports = expensesRouter;
