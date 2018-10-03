@@ -2,7 +2,6 @@
 
 const mongoose = require('mongoose'); 
 
-var expenses = require('../dataFiles/expenses.json');
 var users = require('../dataFiles/users.json');
 //require in Expense model (DB data)
 var Expense = require('../models/Expense.js')
@@ -12,6 +11,7 @@ var Expense = require('../models/Expense.js')
 const GetAllExpenses = function() {
     return expenses;
 }
+var expenses = require('../dataFiles/expenses.json');
 
 //search the DB for expenses by user's id
 const GetExpensesByUserId = function(userId) {
