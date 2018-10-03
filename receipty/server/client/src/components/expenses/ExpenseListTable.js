@@ -3,6 +3,9 @@ import ReactTable from "react-table";
 import 'react-table/react-table.css'
 import "./ExpenseListTable.css";
 import axios from "axios";
+import { connect } from 'react-redux';
+//imports from actions to get real data
+import { fetchExpenses } from '../../actions';
 
 class ExpenseListTable extends Component { 
     constructor(props) {
@@ -12,6 +15,10 @@ class ExpenseListTable extends Component {
 
       	this.toggleRow = this.toggleRow.bind(this);
     }
+    componentDidMount() {
+    console.log(this);  
+      this.props.fetchExpenses();
+    };
 
     toggleRow(Merchant) {
       const newSelected = Object.assign({}, this.state.selected);
@@ -35,6 +42,12 @@ class ExpenseListTable extends Component {
         selected: newSelected,
         selectAll: this.state.selectAll === 0 ? 1 : 0
       });
+    }
+
+    dataToFill() {
+      let data = this.props.expenses || this.state.data;
+
+      return data;
     }
 
     render() {
@@ -79,37 +92,37 @@ class ExpenseListTable extends Component {
             //Merchant column
 
             Header: 'Merchant',
-            accessor: 'Merchant',
+            accessor: 'merchant',
             maxWidth: 180
           }, {
             //Date column
 
             Header: 'Date',
-            accessor: 'Date',
+            accessor: 'expenseCreatedDate',
             maxWidth: 80
           }, {
             //Amount $ column
 
             Header: 'Amount',
-            accessor: 'Amount',
+            accessor: 'amount',
             maxWidth: 60
           }, {
             //Category column
 
             Header: 'Category',
-            accessor: 'Category',
+            accessor: 'category',
             maxWidth: 100
           }, {
             //Comments column
 
             Header: 'Comments',
-            accessor: 'Comments',
+            accessor: 'comments',
             maxWidth: 350
           }, {
             //Expense status column
 
             Header: 'Status',
-            accessor: 'Status',
+            accessor: 'status',
             width: 50
           }
         ]
@@ -127,7 +140,7 @@ class ExpenseListTable extends Component {
         return (
           <div className="ExpenseListTable">
             <ReactTable
-            data={this.state.data}
+            data={this.dataToFill()}
             columns={columns}
             defaultPageSize={dataLength()}
             resizable={false} />
@@ -136,12 +149,7 @@ class ExpenseListTable extends Component {
     }
 }
 
-//bob's expenses
-axios.get('https://ps-receipty.herokuapp.com/api/user/5bb26ea077074900150d3ee6/expenses')
-  .then(function (response) {
-    console.log("bob's expenses");
-    console.log(response);
-  })
+
 
 
 
@@ -154,8 +162,21 @@ axios.get('https://ps-receipty.herokuapp.com/api/user/5bb26ea077074900150d3ee6/e
 
 //Make dummy data for table
 function makeData() {
-  return [
-    {
+
+//   var jimData =[];
+//   //jim's expenses
+// axios.get('https://ps-receipty.herokuapp.com/api/user/5bb26ea977074900150d3ee7/expenses')
+// .then(function (response) {
+ 
+//   // jimData.push(response.data);
+//   return JSON.stringify(response.data)
+  
+// })
+//  return jimData;
+
+  // this works as is, but want to now make it work with axios
+
+  return [{
   Merchant: 'Google',
   Date: '10/1/18',
   Amount: '$45',
@@ -319,6 +340,11 @@ function makeData() {
 
 ]
   
-};
+}
 
-export default ExpenseListTable;
+ //this maps our state according to expesnse and connects with our fetch Expenses function and exports as Expense List//
+function mapStateToProps({ expenses }) {
+  return { expenses };
+}
+
+export default connect(mapStateToProps, { fetchExpenses })(ExpenseListTable);
