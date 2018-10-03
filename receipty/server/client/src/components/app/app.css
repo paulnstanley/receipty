@@ -10,7 +10,7 @@
     height: 500px;
     }
 body {
-    background-color: rgb(206, 223, 216)
+    background-color: white;
 }
 
 h1 {
@@ -21,19 +21,19 @@ h1 {
 
 form {
     float: right;
-    width: 80%;
+    width: 85%;
 }
 /* without this CSS for the forms, formreview, & expenseformtitlecontainer, the form bleeds into the NavBar */
 
 .FormReview {
     float: right;
-    width: 80%;
+    width: 85%;
 }
 
 #ExpenseFormTitleContainer {
     float: right;
     padding: 20px 0px 10px;
-    width: 90%;
+    width: 85%;
 }
 
 /* styling added for the new expense button - requires the constructor function on expenses.js file */

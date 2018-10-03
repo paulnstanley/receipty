@@ -50,13 +50,13 @@ expensesRouter.post('/api/expenses/:userId', function (request, response) {
   //define what wll be saved
   //expense date and expense id should auto save
   let expenseModel = {
-    merchant: request.body.merchant,
-    amount: request.body.amount,
-    category: request.body.category,
-    reciept_img: request.body.reciept_img,
-    comments: request.body.comments,
-    userId: request.params.userId,
-    reportId: request.body.reportId
+    merchant: request.body.Merchant,
+    amount: request.body.Amount,
+    category: request.body.Category,
+    reciept_img: request.body.Reciept_img,
+    comments: request.body.Comments,
+    userId: request.params.UserId,
+    reportId: request.body.ReportId
   };
   //use the datastore function to save to the database
   expensesDatastore.SaveExpense(expenseModel);
@@ -66,5 +66,7 @@ expensesRouter.post('/api/expenses/:userId', function (request, response) {
   //respond with a 200 message that the item was saved
   response.end(console.log('200: the expense was saved!'));
 })
+
+//expensesRouter.put('/api/expenses/ex')
 
 module.exports = expensesRouter;

@@ -5,7 +5,7 @@ import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import formFieldsStyle from './formFieldsStyle';
 import formFields from './formFields';
-
+import NavBar from '../navbar/NavBar'
 class ExpenseForm extends Component {
   renderFields() {
     return _.map(formFields, ({ label, name }) => {
@@ -24,6 +24,8 @@ class ExpenseForm extends Component {
   render() {
     return (
       <div>
+        <NavBar />
+        <h4 id="ExpenseFormTitleContainer">Expense Form</h4>
         <form onSubmit={this.props.handleSubmit(this.props.onExpenseSubmit)}>
           {this.renderFields()}
           <Link to="/expenses" className="red btn-flat white-text">
