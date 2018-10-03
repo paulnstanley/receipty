@@ -344,6 +344,7 @@ function makeData() {
 
  //this maps our state according to expesnse and connects with our fetch Expenses function and exports as Expense List//
 function mapStateToProps({ expenses }) {
+  console.log(expenses);
   return { expenses };
 }
 
