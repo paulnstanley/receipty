@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 //component imports
-import ExpensesList from './ExpensesList';
+import ExpenseList from './ExpensesList';
 import ExpenseListTable from './ExpenseListTable';
 import NavBar from '../navbar/NavBar.js';
 import { Button } from "react-bootstrap";
@@ -25,15 +25,22 @@ class Expenses extends Component {
     return (
       <div>
         <NavBar />
-        <ExpensesList />
+        <ExpenseList />
         <ExpenseListTable />
         <Button 
           className="fixed-action-btn"
           bsStyle="Success" 
-          bsSize="large" 
+          bsSize="small" 
           type="submit"
           onClick={this.navigateToNewExpense}
           >New Expense
+        </Button>
+        <Button
+          className="fixed-action-btn"
+          id="add-to-report"
+          bsStyle="Success"
+          bsSize="large"
+          type="submit">Add to Report
         </Button>
       </div>
     );
