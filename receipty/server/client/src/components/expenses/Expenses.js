@@ -25,7 +25,6 @@ class Expenses extends Component {
     return (
       <div>
         <NavBar />
-
         <Button 
           className="fixed-action-btn"
           bsStyle="Success" 
