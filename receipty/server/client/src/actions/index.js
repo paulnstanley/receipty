@@ -4,8 +4,8 @@ import { FETCH_USER, FETCH_EXPENSES, FETCH_REPORTS } from './types';
 
 const BASE_URL = "https://ps-receipty.herokuapp.com";
 
-export const fetchUser = () => async dispatch => {
-    const res = await axios.get('/api/login');
+export const fetchUser = (loginObject) => async dispatch => {
+    const res = await axios.post(BASE_URL + '/login', loginObject);
   
     dispatch({ type: FETCH_USER, payload: res.data });
   };

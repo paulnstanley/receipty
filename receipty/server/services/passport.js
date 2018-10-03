@@ -25,23 +25,20 @@ module.exports = function(passport) {
         // let foundUser = User.find(user => user._id == _id);
         // done(null, foundUser);
 
-        let users = User.GetAllUsers();
-        let user = users.find(user => user._id == _id);
-
-
-
-        done(null, user);
-
+        User.GetAllUsers().then(users => {
+            user = users.find(user => user._id == _id);
+            done(null, user);
+        });
     });
 
     passport.use('login', new LocalStrategy((username, password, done) => {
-        let users = User.GetAllUsers();
-        let user = users.find( user => user.username == username && user.password == password);
+         User.GetAllUsers().then(users => {
 
-            if (!user) {
-              return done(null, false, { message: 'Incorrect username or password' });
-            }
-            return done(null, user);
+        let user = users.find(user => user.username == username && user.password == password);
+        if (!user) {
+            return done(null, false, { message: 'Incorrect username or password' });
         }
-    ));
+        return done(null, user);
+    });
+    }));
 };
