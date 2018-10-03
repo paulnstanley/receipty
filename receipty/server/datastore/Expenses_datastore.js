@@ -1,42 +1,25 @@
-const mongoose = require('mongoose');
+//datastore/Expenses.js handles all of the database search/filter/sort/save for Expenses. 
 
-
-/*==========================================================
-the datastore/Expenses.js file will handle all of the database search/filter/sort/save for Expenses.  Export the functions as an object so as not to overwrite any of them.  
-
-Right now, this is saving in memory so anything will be lost if the server restarts.  it's ok for testing and is good because when we change this to actually communicate with the db we won't need to change any other files other than those in the datastore folder
-============================================================*/
-
-//mongoose is a persistant database
-//in memory data is temporary
+const mongoose = require('mongoose'); 
 
 var expenses = require('../dataFiles/expenses.json');
 var users = require('../dataFiles/users.json');
-
 //require in Expense model (DB data)
 var Expense = require('../models/Expense.js')
 
-
-// will need to change these functions to search for a unique user's 
-// expenses in their users.json 'expenses' array
+//Finds all expenses in db
+//TODO either delete because not testing or change --> not functional for mongoose query 
 const GetAllExpenses = function() {
     return expenses;
 }
 
-//a function that will find an expense by its id
+//search the DB for expenses by user's id
 const GetExpensesByUserId = function(userId) {
-    // //do some filtering by id....
-    // return expenses.filter(expense => expense._id == id);
-    //let {user}= userId;
-
-    //****delete later after testing */
-    // let query = Expense.find({userId : new mongoose.Types.ObjectId(userId)});
-    // return query.exec();
-
     let query = Expense.find({userId : userId});
     return query.exec();
 }
 
+//returns one expense for a user
 const GetUniqueExpenseByUserId = function(userId, expenseId) {
     let query = Expense
     .find({
@@ -44,6 +27,16 @@ const GetUniqueExpenseByUserId = function(userId, expenseId) {
         _id: expenseId
     });
     
+    return query.exec();
+}
+
+//returns one expense for a user
+const GetAllExpensesByReportId= function (reportId) {
+    let query = Expense
+        .find({
+            reportId: reportId
+        });
+
     return query.exec();
 }
 
@@ -62,15 +55,12 @@ const SaveExpense = function(expenseModel) {
     });
 
     return expense.save();
-
-    /** ******** COMMENT OUT ABOVE TO USE WITH IN MEMEORY ***** */
-
-    // expenses.push(expenseModel);
 }
 
 module.exports = {
     GetAllExpenses,
     SaveExpense,
     GetExpensesByUserId,
-    GetUniqueExpenseByUserId
+    GetUniqueExpenseByUserId,
+    GetAllExpensesByReportId
 }

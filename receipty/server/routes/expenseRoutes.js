@@ -1,9 +1,8 @@
 const _ = require('lodash');
 const { URL } = require('url');
-// const mongoose = require('mongoose');
 // const requireLogin = require('../middlewares/requireLogin');
 
-//dataSore is a file that will handle all of the mongodb sorting/filtering/saving...anything related to the DB.  This is why we don't need to require in mongoose in this file
+//dataSore is a file that will handle all of the mongodb sorting/filtering/saving
 const expensesDatastore = require('../datastore/Expenses_datastore');
 const usersDatastore = require('../datastore/Users_datastore');
 
@@ -21,7 +20,6 @@ expensesRouter.get('/api/user/:userId/expenses', function (request, response) {
   // let expenses = expensesDatastore.GetExpensesByUserId(user);
   expensesDatastore.GetExpensesByUserId(userId)
   .then(expensesByUserId => response.json(expensesByUserId));
-  
 })
 
 expensesRouter.get('/api/user/:userId/expenses/:expenseId', function (request, response) {
@@ -31,32 +29,27 @@ expensesRouter.get('/api/user/:userId/expenses/:expenseId', function (request, r
   expensesDatastore.GetUniqueExpenseByUserId(theUser, theExpense).then(userExpense => response.json(userExpense));
 })
 
+expensesRouter.get('/api/reports/:reportId/expenses', function (request, response) {
+  let reportId = request.params.reportId;
 
-// //REQUEST WILL INCLUDE user token whenever we implement auth
-// //for now, we will substitute user id for user token
-// expensesRouter.get('/api/me/:userId/expenses', function(request, response){
-//   let id = request.params.id;
-//   let user = usersDatastore.GetUserById(id);
-  
-//   response.json(expensesDatastore.GetExpenseByUserId(user));
-// })
+  expensesDatastore.GetAllExpensesByReportId(reportId).then(expensesInReport => response.json(expensesInReport));
+})
 
-//Given an expense model (already defined but sent as json in request) and a user userId (sent in the request) Returns expenses from a particular userId 
+//Given an expense model (already defined but sent as json in request and a user userId (sent in the request) Returns expenses from a particular userId 
 //TODO: THIS WILL NEED TO BE EDITED TO VALIDATE CURRENT USER SO WE MAY NOT NEED TO REQUEST WITH PARAM ID BUT CAN SEND THE TOKEN, MATCH THAT TOKEN WITH A USER AND SEARCH FOR THE USER THAT WAY????? (THIS SEEMS RIGHT, BUT IDK)
 expensesRouter.post('/api/expenses/:userId', function (request, response) {
-  //define the user id sent in the request
+    //define the user id sent in the request
   let id = request.params.userId;
 
-  //define what wll be saved
   //expense date and expense id should auto save
   let expenseModel = {
-    merchant: request.body.merchant,
-    amount: request.body.amount,
-    category: request.body.category,
-    reciept_img: request.body.reciept_img,
-    comments: request.body.comments,
-    userId: request.params.userId,
-    reportId: request.body.reportId
+    merchant: request.body.Merchant,
+    amount: request.body.Amount,
+    category: request.body.Category,
+    reciept_img: request.body.Reciept_img,
+    comments: request.body.Comments,
+    userId: request.params.UserId,
+    reportId: request.body.ReportId
   };
   //use the datastore function to save to the database
   expensesDatastore.SaveExpense(expenseModel);
@@ -66,5 +59,6 @@ expensesRouter.post('/api/expenses/:userId', function (request, response) {
   //respond with a 200 message that the item was saved
   response.end(console.log('200: the expense was saved!'));
 })
+
 
 module.exports = expensesRouter;

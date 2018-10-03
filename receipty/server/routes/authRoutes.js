@@ -12,16 +12,20 @@ const passport = require('passport');
 // Setup router
 authRouter.use(bodyParser.json());
 
-
 authRouter.post('/login', passport.authenticate('login', {
-    successRedirect: '/api/user/:userId/expenses',
-    failureRedirect: '/api/login',
+    successRedirect: '/expenses',
+    failureRedirect: '/login',
   }));
 
 authRouter.get('/logout', (request, response) => {
     console.log("I am Logged out!")
     request.logOut()
     response.send("Woot Woot You're Logged Out")
+})
+
+authRouter.get('/current_user', (request, response) => {
+    console.log(current_user);
+    response.send(request.user);
 })
 
 module.exports = authRouter;
