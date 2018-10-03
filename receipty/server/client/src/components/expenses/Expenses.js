@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 //component imports
-import ExpensesList from './ExpensesList';
+import ExpenseList from './ExpensesList';
 import ExpenseListTable from './ExpenseListTable';
 import NavBar from '../navbar/NavBar.js';
 import { Button } from "react-bootstrap";
