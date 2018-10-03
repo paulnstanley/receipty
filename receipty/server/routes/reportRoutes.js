@@ -51,8 +51,8 @@ reportsRouter.post('/api/reports/', requireLogin, function (request, response) {
 
 // GET / api / user /: userId / reports
 // return all of a user’s reports for a given user id
-reportsRouter.get('/api/user/:userId/reports', function (request, response) {
-  let userId = request.params.userId
+reportsRouter.get('/api/user/reports', function (request, response) {
+  let userId = request.user._id
   console.log(request.params.userId);
   // let expenses = expensesDatastore.GetExpensesByUserId(user);
   reportsDatastore.GetReportsByUserId(userId)
