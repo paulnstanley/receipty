@@ -27,8 +27,10 @@ class Expenses extends Component {
         <ExpenseListTable />
         <Button 
           className="fixed-action-btn"
-          bsStyle="Success" 
-          bsSize="small" 
+
+          bsStyle="Danger" 
+          bsSize="large" 
+
           type="submit"
           onClick={this.navigateToNewExpense}
           >New Expense
