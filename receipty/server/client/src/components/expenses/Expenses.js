@@ -25,6 +25,8 @@ class Expenses extends Component {
     return (
       <div>
         <NavBar />
+        <ExpenseList />
+        <ExpenseListTable />
         <Button 
           className="fixed-action-btn"
           bsStyle="Success" 
@@ -38,10 +40,7 @@ class Expenses extends Component {
           id="add-to-report"
           bsStyle="Success"
           bsSize="large"
-          type="submit"
-          
-        >Add to Report
-
+          type="submit">Add to Report
         </Button>
       </div>
     );
