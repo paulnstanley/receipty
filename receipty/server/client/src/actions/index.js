@@ -19,20 +19,20 @@ export const fetchUser = () => async dispatch => {
   };
 
   export const submitReports = (values, history) => async dispatch => {
-    const res = await axios.post('/reports', values);
+    const res = await axios.post(`${BASE_URL}/api/reports`, values);
   
     history.push('/reports');
     dispatch({ type: FETCH_USER, payload: res.data });
   };
   
   export const fetchExpenses = () => async dispatch => {
-    const res = await axios.get();
+    const res = await axios.get(`${BASE_URL}/api/user/expenses`);
   
     dispatch({ type: FETCH_EXPENSES, payload: res.data });
   };
 
   export const fetchReports = () => async dispatch => {
-    const res = await axios.get('/reports');
+    const res = await axios.get(`${BASE_URL}/api/reports`);
   
     dispatch({ type: FETCH_REPORTS, payload: res.data });
   };
