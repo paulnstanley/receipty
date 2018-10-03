@@ -26,7 +26,7 @@ export const fetchUser = () => async dispatch => {
   };
   
   export const fetchExpenses = () => async dispatch => {
-    const res = await axios.get('/expenses');
+    const res = await axios.get('https://ps-receipty.herokuapp.com/api/user/5bb26ea977074900150d3ee7/expenses');
   
     dispatch({ type: FETCH_EXPENSES, payload: res.data });
   };
