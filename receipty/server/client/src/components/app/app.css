@@ -67,3 +67,8 @@ form {
     font-size: 40px;
     background-color: rgb(160, 16, 16)
 }
+
+.giphy-embed {
+    margin-left: 200px;
+    margin-top: 50px;
+}
