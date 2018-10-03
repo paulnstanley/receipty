@@ -38,7 +38,6 @@ class Expenses extends Component {
         <Button
           className="fixed-action-btn"
           id="add-to-report"
-          bsStyle="Success"
           bsSize="large"
           type="submit">Add to Report
         </Button>
