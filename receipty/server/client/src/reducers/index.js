@@ -8,5 +8,5 @@ export default combineReducers({
   login: loginReducer,
   form: reduxForm,
   expenses: expensesReducer,
-  reports: reportsReducer
+  reportMetadata: reportsReducer
 });
