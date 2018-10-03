@@ -1,9 +1,8 @@
 const _ = require('lodash');
 const { URL } = require('url');
-// const mongoose = require('mongoose');
 // const requireLogin = require('../middlewares/requireLogin');
 
-//dataSore is a file that will handle all of the mongodb sorting/filtering/saving...anything related to the DB.  This is why we don't need to require in mongoose in this file
+//dataSore is a file that will handle all of the mongodb sorting/filtering/saving
 const expensesDatastore = require('../datastore/Expenses_datastore');
 const usersDatastore = require('../datastore/Users_datastore');
 

@@ -25,17 +25,12 @@ const GetAllUsers = function() {
 
 //find a user by id
 const GetUserById = function (_id) {
-  /**** LOCAL MONGODB -NOT IN MEMORY  ****/
- //return(
-    User
-    .findById(_id)
-    .populate('expenses')
-    .populate('reports')
-    .exec((err, user) => {
-      if(err) {
-        console.log("error");
-      }
-    })
+    let query = User
+      .find({
+        _id: _id,
+      });
+
+    return query.exec();
 }
 
 const GetUserIdByName = function (userName) {

@@ -36,8 +36,6 @@ const GetReportsByUserId = function (userId) {
 }
 
 module.exports = {
-  GetAllReports,
-  GetReportById,
   SaveReport,
   GetReportsByUserId
 }
