@@ -46,8 +46,15 @@ class InboxListTable extends Component {
     }
 
     dataToFill() {
-      let data = this.props.reports || this.state.data;
+      let data = [];
+    //   if props contains reports and if reports HAS data, then data is props.reports
+      if(this.props.reports && this.props.reports.length > 0)
+        data = this.props.reports;
+        else
+        data = this.state.data;
 
+        console.log(data);
+    
       return data;
     }
 
@@ -92,12 +99,16 @@ class InboxListTable extends Component {
           }, {
             //Report Date column
 
-            Header: 'ReportDate',
-            accessor: 'reportDate',
+            Header: 'ReportSent',
+            accessor: 'reportSentDate',
             maxWidth: 90
           }, {
             //Date column
-
+            Header: 'To',
+            accessor: 'sentToOrganization',
+            maxWidth: 100
+          },
+          {
             Header: 'ReportName',
             accessor: 'reportName',
             maxWidth: 190
@@ -115,7 +126,7 @@ class InboxListTable extends Component {
         }
     
         return (
-          <div className="ExpenseListTable">
+          <div className="InboxListTable">
             <ReactTable
             data={this.dataToFill()}
             columns={columns}
@@ -154,8 +165,9 @@ function makeData() {
   // this works as is, but want to now make it work with axios
 
   return [{
-  ReportDate: '10/2/2018',
-  ReportName: 'Donut'
+  reportSentDate: '10/2/2018',
+  organizationName: 'Donut Eaters',
+  reportName: 'Donuts'
   }]
   
 }

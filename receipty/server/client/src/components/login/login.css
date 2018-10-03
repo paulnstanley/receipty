@@ -8,13 +8,20 @@
     margin: 100px auto;
 }
 
-.avatar {
-    float: left;
+.logo {
+    color: rgb(147,147, 147);
+    bottom: 10px;
+    width: 100%;
+    font-size: 50px;
+    font-family: 'Pacifico', Helvetica, sans-serif;
+    text-align: left;
+    margin-left: 270px;
+    margin-bottom: 50px;
 }
 
 .form-block {
     float: left;
-    width: 60%;
+    width: 80%;
 }
 
 .email-input {
