@@ -35,6 +35,16 @@ class Expenses extends Component {
           onClick={this.navigateToNewExpense}
           >New Expense
         </Button>
+        <Button
+          className="fixed-action-btn"
+          id="add-to-report"
+          bsStyle="Success"
+          bsSize="large"
+          type="submit"
+          
+        >Add to Report
+
+        </Button>
       </div>
     );
   }
