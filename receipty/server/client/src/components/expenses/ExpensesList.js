@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 //imports from actions to get real data
 import { fetchExpenses } from '../../actions';
 
+import "../app/app.css"
+
 // component that will render the actual list of expenses
 class ExpensesList extends Component {
   componentDidMount() {
@@ -19,7 +21,7 @@ class ExpensesList extends Component {
     //the botton return says map out this.props.expenses but in reverse order so that the most recent is on top//
     return this.props.expenses.reverse().map(expense => {
       return (
-        <div className="card darken-1" key={expense._id}>
+        <div className="card darken-1" key={expense._id} id="expenses-something">
           <div className="card-content">
             <span className="card-title">{expense.title}</span>
             {/* <p>
