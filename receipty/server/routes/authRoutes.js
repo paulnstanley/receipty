@@ -2,7 +2,6 @@ const bodyParser = require('body-parser');
 const authRouter = require('express').Router();
 const passport = require('passport');
 
-
 // const mongoose = require('mongoose');
 // const requireLogin = require('../middlewares/requireLogin');
 
@@ -12,13 +11,10 @@ const passport = require('passport');
 // Setup router
 authRouter.use(bodyParser.json());
 
-
 authRouter.post('/api/login', passport.authenticate('login', {
     successRedirect: '/api/user/expenses',
     failureRedirect: '/success',
   }));
-  
-
 
 authRouter.get('/logout', (request, response) => {
     console.log("I am Logged out!")

@@ -27,6 +27,7 @@ module.exports = function(passport) {
 
         User.GetAllUsers().then(users => {
             user = users.find(user => user._id == _id);
+            users._id = user._id.toString();
             done(null, user);
         });
     });
