@@ -4,6 +4,7 @@ import './login.css';
 import { connect } from 'react-redux';
 import { fetchUser } from '../../actions';
 import {bindActionCreators} from 'redux';
+import { Redirect } from 'react-router';
 
 class Login extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class Login extends Component {
 
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      redirectToNewPage: false
     };
   }
 
@@ -27,14 +29,20 @@ class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.fetchUser(this.state);
+    this.props.fetchUser(this.state).then(this.setState({ redirectToNewPage: true })
+  )
   }
 
   render() {
+    if (this.state.redirectToNewPage) {
+      return (
+      <Redirect to="/expenses"/>
+      )
+    } else {
     return (
         <div className="Login col-lg-1 col-centered">
-            <div className="avatar col-md-3"> 
-                <img src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" alt="Avatar" width="150px" height="150px" />
+            <div className="logo">
+                ReCeipty 
             </div>
             <span>
             <div className="form-block col-md-9">
@@ -64,12 +72,12 @@ class Login extends Component {
                         type="submit"
                         >Login
                     </Button>
-
                 </form>
             </div>
             </span>
         </div>
     );
+  }
   }
 }
 const mapDispatchToProps = (dispatch) =>{

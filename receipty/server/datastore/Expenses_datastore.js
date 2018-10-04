@@ -8,6 +8,7 @@ var Expense = require('../models/Expense.js');
 
 var ObjectId = require('mongoose').Types.ObjectId; 
 
+
 //Finds all expenses in db
 //TODO either delete because not testing or change --> not functional for mongoose query 
 const GetAllExpenses = () =>  {
@@ -21,6 +22,7 @@ const GetExpensesByUserId = (userId) => {
     console.log(userId)
     console.log(userId.toString())
     console.log(filter)
+
     return query.exec();
 }
 
@@ -62,10 +64,17 @@ const SaveExpense = function(expenseModel) {
     return expense.save();
 }
 
+// const PostExpenseInReport = function(reportId, expenseId){
+//     let query = Expense
+//         .findOneAndUpdate(expenseId, {reportId:reportId});
+//     return query.exec();
+// }
+
 module.exports = {
     GetAllExpenses,
     SaveExpense,
     GetExpensesByUserId,
     GetUniqueExpenseByUserId,
     GetAllExpensesByReportId
+    // PostExpenseInReport
 }

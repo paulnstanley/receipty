@@ -20,6 +20,7 @@ authRouter.post('/api/login', passport.authenticate('login', {
 //     response.redirect('/api/user/expenses');
 // });
 
+
 authRouter.get('/logout', (request, response) => {
     console.log("I am Logged out!")
     request.logOut()
