@@ -16,6 +16,9 @@ const GetAllExpenses = function() {
 //search the DB for expenses by user's id
 const GetExpensesByUserId = function(UID) {
     let query = Expense.find({userId : UID});
+
+    console.log("this is a uid..." + UID);
+
     return query.exec();
 }
 
@@ -68,6 +71,5 @@ module.exports = {
     SaveExpense,
     GetExpensesByUserId,
     GetUniqueExpenseByUserId,
-    GetAllExpensesByReportId,
-    PostExpenseInReport
+    GetAllExpensesByReportId
 }

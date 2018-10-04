@@ -41,10 +41,13 @@ const GetReportsByUserId = function (userId) {
   return query.exec();
 }
 
-const AddExpenseToReportExpenseArray = function (reportId, expenseId){
+const AddExpenseToReportExpenseArray = function (reportId, expenses, userId){
   let query = Report
-    .update({reportId: reportId} ,{expenses: expenses});
-  return query.exec();
+    .findByIdAndUpdate({reportId: reportId} ,{expenses: expenses});
+    query.exec((results)=>{
+      console.log(results)
+    })
+  // return query.exec();
 
 }
 

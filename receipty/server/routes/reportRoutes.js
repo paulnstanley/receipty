@@ -38,7 +38,6 @@ reportsRouter.post('/api/reports', requireLogin, function (request, response) {
   response.end(console.log('200: the report was saved!'));
 })
 
-
 // return all of a user’s reports for a given user id
 reportsRouter.get('/api/user/reports', function (request, response) {
   // let userId = request.user._id

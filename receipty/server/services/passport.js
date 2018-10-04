@@ -31,7 +31,7 @@ module.exports = function(passport) {
         });
     });
 
-    passport.use('login', new LocalStrategy((username, password, done) => {
+    passport.use('login', new LocalStrategy({ proxy: true}, (username, password, done) => {
          User.GetAllUsers().then(users => {
 
         let user = users.find(user => user.username == username && user.password == password);
