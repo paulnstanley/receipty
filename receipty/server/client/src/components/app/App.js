@@ -44,7 +44,6 @@ class App extends Component {
                         <Route exact path="/settings" component={Settings} />
                         <Route exact path="/about" component={About} />
                         <Route exact path="/logout" component={Logout} />
-                        <Route exact path="/test" component={Test} />
                     </div>
                 </BrowserRouter>
             </div>
