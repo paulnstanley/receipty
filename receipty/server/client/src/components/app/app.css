@@ -87,3 +87,9 @@ form {
 .expense-table {
     text-align: center;
 }
+
+.demo-night {
+    float: right;
+    margin-right: 460px;
+    font-size: 18px;
+}
