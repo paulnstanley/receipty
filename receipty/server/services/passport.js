@@ -22,6 +22,7 @@ module.exports = function(passport) {
 
     // used to deserialize the user (find user's object in the db and return it)
     passport.deserializeUser((_id, done) => {
+
         User.GetUserById(_id).then(users => {
             done(null, users[0]);
         });
