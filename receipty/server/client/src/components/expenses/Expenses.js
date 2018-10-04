@@ -6,7 +6,6 @@ import { Link, withRouter } from 'react-router-dom';
 import ExpenseListTable from './ExpenseListTable';
 import NavBar from '../navbar/NavBar.js';
 import { Button } from "react-bootstrap";
-import '../app/app.css';
 
 class Expenses extends Component {
   constructor(props) {
@@ -22,7 +21,8 @@ class Expenses extends Component {
     return (
       <div>
         <NavBar />
-          <ExpenseListTable />
+        <ExpenseListTable />
+          {/* <ExpenseList /> */}
           <Button 
             className="fixed-action-btn"
             bsStyle="success" 
