@@ -1,6 +1,6 @@
 //Zulmy- I used the template we used for FeedbackLoop//
 import axios from 'axios';
-import { FETCH_USER, FETCH_EXPENSES, FETCH_REPORTS, ADD_EXPENSES } from './types';
+import { FETCH_USER, FETCH_EXPENSES, FETCH_REPORTS, ADD_EXPENSES, FETCH_MESSAGES } from './types';
 
 //const BASE_URL = "https://ps-receipty.herokuapp.com";
 
@@ -39,4 +39,10 @@ export const fetchUser = (loginObject) => async dispatch => {
     dispatch({ type: FETCH_REPORTS, payload: res.data });
   };
 
+  export const fetchMessages = () => async dispatch => {
+    const res = await axios.get(`/api/messages`);
+  
+    dispatch({ type: FETCH_MESSAGES, payload: res.data });
+  };
+  
   //the following code are actions or requests to the reducers to incorporate these calls for data as part of the store//
