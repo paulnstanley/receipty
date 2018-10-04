@@ -1,19 +1,16 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-
 const ReportSchema = new Schema({
   name: String,
   totalAmount: Number,
-  fromUser: String,
-  toAdmin: String,
+  fromUser: Schema.ObjectId,
+  toAdmin: Schema.ObjectId,
   requestedDate: String,
   reportCreatedDate: { type: Date, default: Date.now },
   reimbursementDate: String,
-  userId: String,
-  expenses: Array
+  userId: Schema.ObjectId,
+  expenses: [Schema.ObjectId]
 })
-
-// const Report = mongoose.model('Report', ReportSchema);
 
 module.exports = mongoose.model('Report', ReportSchema)
