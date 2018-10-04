@@ -1,21 +1,15 @@
 [
     {
-        "_id": 1,
         "username": "bob",
         "password": "bob",
         "role": "admin",
-        "generatedToken": "abcdefg",
-        "expenses": [],
-        "reports": []
+        "generatedToken": "abcdefg"
         
     },
     {
-        "_id": 2,
         "username": "jim",
         "password": "jim",
         "role": "user",
-        "generatedToken": "abcdefg",
-        "expenses": [],
-        "reports": []
+        "generatedToken": "abcdefg"
     }
 ]

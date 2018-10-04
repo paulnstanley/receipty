@@ -3,6 +3,7 @@ import ReactTable from "react-table";
 import 'react-table/react-table.css'
 import "./ExpenseListTable.css";
 import axios from "axios";
+import './expenses.json';
 import { connect } from 'react-redux';
 //imports from actions to get real data
 import { fetchExpenses } from '../../actions';
@@ -72,7 +73,7 @@ class ExpenseListTable extends Component {
                   />
                 );
               },
-              Header: x => {
+              Header: () => {
                 return (
                   <input
                     type="checkbox"
@@ -94,37 +95,37 @@ class ExpenseListTable extends Component {
             //Merchant column
 
             Header: 'Merchant',
-            accessor: 'merchant',
+            accessor: 'Merchant',
             maxWidth: 180
           }, {
             //Date column
 
             Header: 'Date',
-            accessor: 'expenseCreatedDate',
+            accessor: 'Date',
             maxWidth: 80
           }, {
             //Amount $ column
 
             Header: 'Amount',
-            accessor: 'amount',
+            accessor: 'Amount',
             maxWidth: 60
           }, {
             //Category column
 
             Header: 'Category',
-            accessor: 'category',
+            accessor: 'Category',
             maxWidth: 100
           }, {
             //Comments column
 
             Header: 'Comments',
-            accessor: 'comments',
+            accessor: 'Comments',
             maxWidth: 350
           }, {
             //Expense status column
 
             Header: 'Status',
-            accessor: 'status',
+            accessor: 'Status',
             width: 50
           }
         ]
@@ -142,7 +143,7 @@ class ExpenseListTable extends Component {
         return (
           <div className="ExpenseListTable">
             <ReactTable
-            data={this.dataToFill()}
+            data={makeData()}
             columns={columns}
             defaultPageSize={dataLength()}
             resizable={false} />

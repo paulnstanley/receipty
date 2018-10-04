@@ -9,12 +9,6 @@ const reportsDatastore = require('../datastore/Reports_datastore');
 const usersDatastore = require('../datastore/Users_datastore');
 const reportsRouter = require('express').Router();
 
-//get a single report back based on it's report _id
-reportsRouter.get('/api/reports/:_id', function (request, response) {
-  let _id = request.params._id;
-  reportsDatastore.GetReportById(_id).then(reportById => response.json(reportById));
-})
-
 //post api/reports will save a particular user's report to the the DB
 //the request will include the user's id and so in addition to saveing this we will also need to associated by the id sent in the request with a user
 reportsRouter.post('/api/reports', requireLogin, function (request, response) {
@@ -29,7 +23,7 @@ reportsRouter.post('/api/reports', requireLogin, function (request, response) {
     toAdmin: request.body.toAdmin,
     requestedDate: request.body.submittedDate,
     userId: userId,
-    reimbursementDate: request.body.reimbursementDate,
+    reimbursementDate: request.body.reimbursementDate
   };
 
   reportsDatastore.SaveReport(reportModel);
@@ -37,7 +31,6 @@ reportsRouter.post('/api/reports', requireLogin, function (request, response) {
   //respond with a 200 message that the item was saved
   response.end(console.log('200: the report was saved!'));
 })
-
 
 // return all of a user’s reports for a given user id
 reportsRouter.get('/api/user/reports', function (request, response) {
@@ -48,19 +41,20 @@ reportsRouter.get('/api/user/reports', function (request, response) {
     .then(reportsByUserId => response.json(reportsByUserId));
 })
 
+//get a single report back based on it's report _id
+reportsRouter.get('/api/reports/:_id', function (request, response) {
+  let _id = request.params._id;
+  reportsDatastore.GetReportById(_id).then(reportById => response.json(reportById));
+})
 
 reportsRouter.post('/api/reports/:reportId/expenses', function (request, response) {
   let userId = request.user._id;
   let reportId = request.params.reportId;
-  //body is going to contain an array of expense Ids
-  // let expenseArrayModel = {
-  //   expenses: request.body.expenseArray
-  // }
-  let expenses = expenses.request.body.expenseArray; 
+  //body is going to contain an array of expenses Ids
+  let expenses = request.body.expenses;
 
-  expensesDatastore.AddExpenseToReportExpenseArray(userId, reportId, expenses)
+  reportsDatastore.AddExpenseToReportExpenseArray(userId, reportId, expenses)
   .then(userReportExpense => response.json(userReportExpense));
 });
-
 
 module.exports = reportsRouter;
