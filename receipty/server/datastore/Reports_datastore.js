@@ -28,7 +28,7 @@ const SaveReport = function(reportModel) {
       toAdmin: reportModel.toAdmin,
       requestedDate:reportModel.requestedDate,
       reimbursementDate: reportModel.reimbursementDate,
-      userId: reportModel.userIsd
+      userId: reportModel.userId
     });
 
     return report.save();
@@ -41,8 +41,16 @@ const GetReportsByUserId = function (userId) {
   return query.exec();
 }
 
+const AddExpenseToReportExpenseArray = function (reportId, expenseId){
+  let query = Report
+    .update({reportId: reportId} ,{expenses: expenses});
+  return query.exec();
+
+}
+
 module.exports = {
   SaveReport,
   GetReportsByUserId,
-  GetReportById
+  GetReportById,
+  AddExpenseToReportExpenseArray
 }
