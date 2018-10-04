@@ -14,7 +14,6 @@ mongoose.connect(keys.mongoURI)
 const app = express()
 
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(
@@ -39,10 +38,11 @@ const messageRoutes = require('./routes/messageRoutes')
 //use routes
 app.use(expenseRoutes)
 app.use(reportRoutes)
-app.use(authRoutes)
 app.use(userRoutes)
 app.use(messageRoutes)
+app.use(authRoutes)
 
+// app.use(require('./routes/fakeDataRoutes'));
 
 //only in heroku
 if (process.env.NODE_ENV === 'production') {

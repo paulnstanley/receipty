@@ -10,7 +10,7 @@ const ExpenseSchema = new Schema({
   category: String,
   reciept_img: String,
   comments: String,
-  userId: String,
+  userId: Schema.ObjectId,
   reportId: String
 });
 

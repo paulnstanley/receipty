@@ -5,7 +5,6 @@ const requireLogin = require('../middleware/requireLogin');
 // const mongoose = require('mongoose');
 // const requireLogin = require('../middlewares/requireLogin');
 
-// changing 'datastore' to 'reportsDatastore' to not have a 'datastore' in each route file
 const reportsDatastore = require('../datastore/Reports_datastore');
 const usersDatastore = require('../datastore/Users_datastore');
 const reportsRouter = require('express').Router();
@@ -82,26 +81,18 @@ reportsRouter.post('/api/reports/:reportId/expenses', function (request, respons
 
 //   reportsDatastore.SaveReport(reportModel);
 
-// {
-//   //define the user id sent in the request
-//   // let id = request.user._id;
-//   let id = '5bb26ea077074900150d3ee6';
+reportsRouter.post('/api/reports/:reportId/expenses', function (request, response) {
+  let userId = request.user._id;
+  let reportId = request.params.reportId;
+  //body is going to contain an array of expense Ids
+  // let expenseArrayModel = {
+  //   expenses: request.body.expenseArray
+  // }
+  let expenses = expenses.request.body.expenseArray; 
 
-//   //expenseModel = request.body.amount;
-//   let reportModel = {
-//     name: request.body.name,
-//     totalAmount: request.body.total,
-//     fromUser: request.body.fromUser,
-//     toAdmin: request.body.toAdmin,
-//     requestedDate: request.body.submittedDate,
-//     userId: id,
-//     reimbursementDate: request.body.reimbursementDate,
-//   };
+  expensesDatastore.AddExpenseToReportExpenseArray(userId, reportId, expenses)
+  .then(userReportExpense => response.json(userReportExpense));
+});
 
-//   reportsDatastore.SaveReport(reportModel);
-
-//   //respond with a 200 message that the item was saved
-//   response.end(console.log('200: the report was saved!'));
-// }
 
 module.exports = reportsRouter;
