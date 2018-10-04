@@ -23,6 +23,7 @@ const GetExpensesByUserId = (userId) => {
     console.log(userId.toString())
     console.log(filter)
 
+
     return query.exec();
 }
 
@@ -76,5 +77,4 @@ module.exports = {
     GetExpensesByUserId,
     GetUniqueExpenseByUserId,
     GetAllExpensesByReportId
-    // PostExpenseInReport
 }

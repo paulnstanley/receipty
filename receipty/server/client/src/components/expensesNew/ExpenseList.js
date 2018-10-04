@@ -12,8 +12,8 @@ class ExpenseList extends Component {
   }
 
    renderExpenses(list) {
-     console.log("List": userExpenses);
-     
+     console.log(userExpenses);
+
    return (
     <tr key>
       <td></td>
