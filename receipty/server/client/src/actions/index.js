@@ -2,11 +2,12 @@
 import axios from 'axios';
 import { FETCH_USER, FETCH_EXPENSES, FETCH_REPORTS } from './types';
 
-const BASE_URL = "https://ps-receipty.herokuapp.com";
+//const BASE_URL = "https://ps-receipty.herokuapp.com";
+const BASE_URL = "http://localhost:5000";
 
 export const fetchUser = (loginObject) => async dispatch => {
-    const res = await axios.post(BASE_URL + '/api/login', loginObject);
-  
+    const res = await axios.post(BASE_URL + '/api/login', loginObject, {withCredentials: true});
+
     dispatch({ type: FETCH_USER, payload: res.data });
   };
  

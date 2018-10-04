@@ -20,7 +20,8 @@ const AddNewUser = function(userModel){
 }
 
 const GetAllUsers = function() {
-  return User.find();
+  console.log("i am finding all users///");
+  return User.find({}).exec();
 }
 
 //find a user by id

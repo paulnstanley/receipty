@@ -25,6 +25,12 @@
     "redux-form": "^7.4.2",
     "redux-thunk": "^2.3.0"
   },
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5000"
+    }
+  },
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

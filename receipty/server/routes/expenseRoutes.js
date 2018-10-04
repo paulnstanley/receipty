@@ -14,9 +14,12 @@ const expensesRouter = require('express').Router();
 
 //TODO: remove, this was for testing (later we will need /api/me/get and more error handling)
 expensesRouter.get('/api/user/expenses', function (request, response) {
+  
   let UID = request.user._id
   //because using express you can shorten the reponse.writehead and response.end to this:
-  response.json(expensesDatastore.GetExpensesByUserId(UID));
+  expensesDatastore.GetExpensesByUserId(UID).then(expenses => {
+    response.json(expenses);
+  });
 })
 
 // expensesRouter.get('/api/user/:user/expenses', function (request, response) {
