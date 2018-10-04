@@ -12,7 +12,9 @@ class ExpenseListTable extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { selected: {}, selectAll: 0, data: makeData() };
+        // this.state = { selected: {}, selectAll: 0, data: makeData() };
+      this.state = { selected: {}, selectAll: 0, data: this.state.data };
+
 
       	this.toggleRow = this.toggleRow.bind(this);
     }
@@ -141,10 +143,9 @@ class ExpenseListTable extends Component {
         return (
           <div className="ExpenseListTable">
             <ReactTable
-            data={makeData()}
-            columns={columns}
-            defaultPageSize={dataLength()}
-            resizable={false} />
+              columns={columns}
+              defaultPageSize={dataLength()}
+              resizable={false} />
           </div>
         )
     }
@@ -152,6 +153,13 @@ class ExpenseListTable extends Component {
 
 
 
+{/* <div className="ExpenseListTable">
+  <ReactTable
+    data={makeData()}
+    columns={columns}
+    defaultPageSize={dataLength()}
+    resizable={false} />
+</div> */}
 
 
 
@@ -160,188 +168,187 @@ class ExpenseListTable extends Component {
 
 
 
+// //Make dummy data for table
+// function makeData() {
 
-//Make dummy data for table
-function makeData() {
-
-//   var jimData =[];
-//   //jim's expenses
-// axios.get('https://ps-receipty.herokuapp.com/api/user/5bb26ea977074900150d3ee7/expenses')
-// .then(function (response) {
+// //   var jimData =[];
+// //   //jim's expenses
+// // axios.get('https://ps-receipty.herokuapp.com/api/user/5bb26ea977074900150d3ee7/expenses')
+// // .then(function (response) {
  
-//   // jimData.push(response.data);
-//   return JSON.stringify(response.data)
+// //   // jimData.push(response.data);
+// //   return JSON.stringify(response.data)
   
-// })
-//  return jimData;
+// // })
+// //  return jimData;
 
-  // this works as is, but want to now make it work with axios
+//   // this works as is, but want to now make it work with axios
 
-  return [{
-  Merchant: 'Google',
-  Date: '10/1/18',
-  Amount: '$45',
-  Category: 'Food',
-  Comments: 'Mmm',
-  Status: 'No'
-  },
+//   return [{
+//   Merchant: 'Google',
+//   Date: '10/1/18',
+//   Amount: '$45',
+//   Category: 'Food',
+//   Comments: 'Mmm',
+//   Status: 'No'
+//   },
 
-  {
-  Merchant: 'AAA',
-  Date: '9/3/18',
-  Amount: '$69',
-  Category: 'Travel',
-  Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
-  Status: 'Yes'
-  },
+//   {
+//   Merchant: 'AAA',
+//   Date: '9/3/18',
+//   Amount: '$69',
+//   Category: 'Travel',
+//   Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
+//   Status: 'Yes'
+//   },
 
-  {
-  Merchant: 'Duke Energy',
-  Date: '9/5/18',
-  Amount: '$32',
-  Category: 'Utilities',
-  Comments: 'Sure',
-  Status: 'No'
-  },
+//   {
+//   Merchant: 'Duke Energy',
+//   Date: '9/5/18',
+//   Amount: '$32',
+//   Category: 'Utilities',
+//   Comments: 'Sure',
+//   Status: 'No'
+//   },
 
-  {
-  Merchant: 'AAA',
-  Date: '9/3/18',
-  Amount: '$69',
-  Category: 'Travel',
-  Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
-  Status: 'Yes'
-  },
+//   {
+//   Merchant: 'AAA',
+//   Date: '9/3/18',
+//   Amount: '$69',
+//   Category: 'Travel',
+//   Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
+//   Status: 'Yes'
+//   },
 
-  {
-  Merchant: 'AAA',
-  Date: '9/3/18',
-  Amount: '$69',
-  Category: 'Travel',
-  Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
-  Status: 'Yes'
-  },
+//   {
+//   Merchant: 'AAA',
+//   Date: '9/3/18',
+//   Amount: '$69',
+//   Category: 'Travel',
+//   Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
+//   Status: 'Yes'
+//   },
 
-  {
-  Merchant: 'AAA',
-  Date: '9/3/18',
-  Amount: '$69',
-  Category: 'Travel',
-  Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
-  Status: 'Yes'
-  },
+//   {
+//   Merchant: 'AAA',
+//   Date: '9/3/18',
+//   Amount: '$69',
+//   Category: 'Travel',
+//   Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
+//   Status: 'Yes'
+//   },
 
-  {
-    Merchant: 'Google',
-    Date: '10/1/18',
-    Amount: '$45',
-    Category: 'Food',
-    Comments: 'Mmm',
-    Status: 'No'
-    },
+//   {
+//     Merchant: 'Google',
+//     Date: '10/1/18',
+//     Amount: '$45',
+//     Category: 'Food',
+//     Comments: 'Mmm',
+//     Status: 'No'
+//     },
   
-    {
-    Merchant: 'AAA',
-    Date: '9/3/18',
-    Amount: '$69',
-    Category: 'Travel',
-    Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
-    Status: 'Yes'
-    },
+//     {
+//     Merchant: 'AAA',
+//     Date: '9/3/18',
+//     Amount: '$69',
+//     Category: 'Travel',
+//     Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
+//     Status: 'Yes'
+//     },
   
-    {
-    Merchant: 'Duke Energy',
-    Date: '9/5/18',
-    Amount: '$32',
-    Category: 'Utilities',
-    Comments: 'Sure',
-    Status: 'No'
-    },
+//     {
+//     Merchant: 'Duke Energy',
+//     Date: '9/5/18',
+//     Amount: '$32',
+//     Category: 'Utilities',
+//     Comments: 'Sure',
+//     Status: 'No'
+//     },
   
-    {
-    Merchant: 'AAA',
-    Date: '9/3/18',
-    Amount: '$69',
-    Category: 'Travel',
-    Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
-    Status: 'Yes'
-    },
+//     {
+//     Merchant: 'AAA',
+//     Date: '9/3/18',
+//     Amount: '$69',
+//     Category: 'Travel',
+//     Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
+//     Status: 'Yes'
+//     },
   
-    {
-    Merchant: 'AAA',
-    Date: '9/3/18',
-    Amount: '$69',
-    Category: 'Travel',
-    Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
-    Status: 'Yes'
-    },
+//     {
+//     Merchant: 'AAA',
+//     Date: '9/3/18',
+//     Amount: '$69',
+//     Category: 'Travel',
+//     Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
+//     Status: 'Yes'
+//     },
   
-    {
-    Merchant: 'AAA',
-    Date: '9/3/18',
-    Amount: '$69',
-    Category: 'Travel',
-    Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
-    Status: 'Yes'
-    },
+//     {
+//     Merchant: 'AAA',
+//     Date: '9/3/18',
+//     Amount: '$69',
+//     Category: 'Travel',
+//     Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
+//     Status: 'Yes'
+//     },
 
-    {
-      Merchant: 'Google',
-      Date: '10/1/18',
-      Amount: '$45',
-      Category: 'Food',
-      Comments: 'Mmm',
-      Status: 'No'
-      },
+//     {
+//       Merchant: 'Google',
+//       Date: '10/1/18',
+//       Amount: '$45',
+//       Category: 'Food',
+//       Comments: 'Mmm',
+//       Status: 'No'
+//       },
     
-      {
-      Merchant: 'AAA',
-      Date: '9/3/18',
-      Amount: '$69',
-      Category: 'Travel',
-      Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
-      Status: 'Yes'
-      },
+//       {
+//       Merchant: 'AAA',
+//       Date: '9/3/18',
+//       Amount: '$69',
+//       Category: 'Travel',
+//       Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
+//       Status: 'Yes'
+//       },
     
-      {
-      Merchant: 'Duke Energy',
-      Date: '9/5/18',
-      Amount: '$32',
-      Category: 'Utilities',
-      Comments: 'Sure',
-      Status: 'No'
-      },
+//       {
+//       Merchant: 'Duke Energy',
+//       Date: '9/5/18',
+//       Amount: '$32',
+//       Category: 'Utilities',
+//       Comments: 'Sure',
+//       Status: 'No'
+//       },
     
-      {
-      Merchant: 'AAA',
-      Date: '9/3/18',
-      Amount: '$69',
-      Category: 'Travel',
-      Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
-      Status: 'Yes'
-      },
+//       {
+//       Merchant: 'AAA',
+//       Date: '9/3/18',
+//       Amount: '$69',
+//       Category: 'Travel',
+//       Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
+//       Status: 'Yes'
+//       },
     
-      {
-      Merchant: 'AAA',
-      Date: '9/3/18',
-      Amount: '$69',
-      Category: 'Travel',
-      Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
-      Status: 'Yes'
-      },
+//       {
+//       Merchant: 'AAA',
+//       Date: '9/3/18',
+//       Amount: '$69',
+//       Category: 'Travel',
+//       Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
+//       Status: 'Yes'
+//       },
     
-      {
-      Merchant: 'AAA',
-      Date: '9/3/18',
-      Amount: '$69',
-      Category: 'Travel',
-      Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
-      Status: 'Yes'
-      }
+//       {
+//       Merchant: 'AAA',
+//       Date: '9/3/18',
+//       Amount: '$69',
+//       Category: 'Travel',
+//       Comments: 'Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated Lorep Ipsum Catum something repeated',
+//       Status: 'Yes'
+//       }
 
-]
+// ]
   
-}
+// }
 
  //this maps our state according to expesnse and connects with our fetch Expenses function and exports as Expense List//
 function mapStateToProps({ expenses }) {
