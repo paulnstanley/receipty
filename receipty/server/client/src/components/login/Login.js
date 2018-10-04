@@ -72,7 +72,6 @@ class Login extends Component {
                         type="submit"
                         >Login
                     </Button>
-
                 </form>
             </div>
             </span>

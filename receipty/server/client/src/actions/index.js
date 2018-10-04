@@ -6,7 +6,7 @@ import { FETCH_USER, FETCH_EXPENSES, FETCH_REPORTS } from './types';
 const BASE_URL = "localhost:5000";
 
 export const fetchUser = (loginObject) => async dispatch => {
-    const res = await axios.post(BASE_URL + '/api/login', loginObject);
+    const res = await axios.get(`${BASE_URL}/api/login`, loginObject);
   
     dispatch({ type: FETCH_USER, payload: res.data });
   };
@@ -16,7 +16,8 @@ export const fetchUser = (loginObject) => async dispatch => {
     const res = await axios.post(`${BASE_URL}/api/expenses`, values);
   
     history.push('/expenses');
-    dispatch({ type: FETCH_USER, payload: res });
+    dispatch({ type: FETCH_USER, payload: res.data });
+    
   };
 
   export const submitReports = (values, history) => async dispatch => {
@@ -39,4 +40,3 @@ export const fetchUser = (loginObject) => async dispatch => {
   };
 
   //the following code are actions or requests to the reducers to incorporate these calls for data as part of the store//
-  
