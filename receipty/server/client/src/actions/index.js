@@ -5,7 +5,7 @@ import { FETCH_USER, FETCH_EXPENSES, FETCH_REPORTS } from './types';
 const BASE_URL = "https://ps-receipty.herokuapp.com";
 
 export const fetchUser = (loginObject) => async dispatch => {
-    const res = await axios.post(BASE_URL + '/login', loginObject);
+    const res = await axios.post(BASE_URL + '/api/login', loginObject);
   
     dispatch({ type: FETCH_USER, payload: res.data });
   };
@@ -19,20 +19,20 @@ export const fetchUser = (loginObject) => async dispatch => {
   };
 
   export const submitReports = (values, history) => async dispatch => {
-    const res = await axios.post('/reports', values);
+    const res = await axios.post(`${BASE_URL}/api/reports`, values);
   
     history.push('/reports');
     dispatch({ type: FETCH_USER, payload: res.data });
   };
   
   export const fetchExpenses = () => async dispatch => {
-    const res = await axios.get();
+    const res = await axios.get(`${BASE_URL}/api/user/expenses`);
   
     dispatch({ type: FETCH_EXPENSES, payload: res.data });
   };
 
   export const fetchReports = () => async dispatch => {
-    const res = await axios.get('/reports');
+    const res = await axios.get(`${BASE_URL}/api/reports`);
   
     dispatch({ type: FETCH_REPORTS, payload: res.data });
   };
