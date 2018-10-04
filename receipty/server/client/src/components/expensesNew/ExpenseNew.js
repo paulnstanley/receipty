@@ -4,7 +4,10 @@ import ExpenseForm from './ExpenseForm';
 import showResults from './ExpenseResults';
 
 class ExpenseNew extends Component {
-  state = { showFormValues: false };
+  constructor(props) {
+    super(props);
+    this.state = '';
+  }
 
   renderContent() {
     if (this.state.showFormValues) {
@@ -29,7 +32,7 @@ class ExpenseNew extends Component {
   }
 }
 
-
+9
 
 export default reduxForm({ form: 'simple' })(ExpenseNew);
 

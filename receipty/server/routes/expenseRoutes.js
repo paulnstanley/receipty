@@ -11,7 +11,7 @@ const expensesRouter = require('express').Router();
 
 
 expensesRouter.get('/api/user/expenses', function (request, response) {
-  
+
   let UID = request.user._id
   //because using express you can shorten the reponse.writehead and response.end to this:
   expensesDatastore.GetExpensesByUserId(UID).then(expenses => {
@@ -25,7 +25,7 @@ expensesRouter.get('/api/user/expenses', function (request, response) {
 //   // let expenses = expensesDatastore.GetExpensesByUserId(user);
 //   expensesDatastore.GetExpensesByUserId(userId)
 //   .then(expensesByUserId => response.json(expensesByUserId));
-  
+
 // })
 //At this time we do not need get one particular expense
 // expensesRouter.get('/api/user/expenses/:expenseId', requireLogin, function (request, response) {
@@ -42,7 +42,7 @@ expensesRouter.get('/api/reports/:reportId/expenses', function (request, respons
   expensesDatastore.GetAllExpensesByReportId(reportId).then(expensesInReport => response.json(expensesInReport));
 });
 
-//Given an expense model (already defined but sent as json in request and a user userId (sent in the request) Returns expenses from a particular userId 
+//Given an expense model (already defined but sent as json in request and a user userId (sent in the request) Returns expenses from a particular userId
 expensesRouter.post('/api/expenses/', requireLogin,  function (request, response) {
   //define the user id sent in the request
   // let id = request.user._id;
