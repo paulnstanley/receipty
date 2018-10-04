@@ -5,17 +5,24 @@ const mongoose = require('mongoose');
 var users = require('../dataFiles/users.json');
 //require in Expense model (DB data)
 var Expense = require('../models/Expense.js');
-var expenses = require('../dataFiles/expenses.json');
+
+var ObjectId = require('mongoose').Types.ObjectId; 
+
 
 //Finds all expenses in db
 //TODO either delete because not testing or change --> not functional for mongoose query 
-const GetAllExpenses = function() {
-    return expenses;
+const GetAllExpenses = () =>  {
+    return Expense.find({}).exec();
 }
 
 //search the DB for expenses by user's id
-const GetExpensesByUserId = function(UID) {
-    let query = Expense.find({userId : UID});
+const GetExpensesByUserId = (userId) => {
+    let filter = {userId : userId}
+    let query = Expense.find(filter);
+    console.log(userId)
+    console.log(userId.toString())
+    console.log(filter)
+
     return query.exec();
 }
 
