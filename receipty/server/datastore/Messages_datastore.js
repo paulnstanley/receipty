@@ -4,11 +4,17 @@ const mongoose = require('mongoose');
 //require in Message model (DB data)
 var Message = require('../models/Message')
 //Finds all of user's messages in db
-const GetAllMessagesForUser = function(id) {
+const GetMessagesForUser = function(id) {
     let query = Message.find({userId : id});
     return query.exec();
 }
 
+const SaveMessagesForUser = function(message) {
+    const _message = new Message(message);
+    return _message.save();
+}
+
 module.exports = {
-    GetAllMessagesForUser
+    GetMessagesForUser,
+    SaveMessagesForUser
 }
