@@ -9,8 +9,13 @@ const ReportSchema = new Schema({
   requestedDate: String,
   reportCreatedDate: { type: Date, default: Date.now },
   reimbursementDate: String,
+<<<<<<< HEAD
+  userId: String,
+  
+=======
   userId: Schema.ObjectId,
   expenses: [Schema.ObjectId]
+>>>>>>> master
 })
 
 module.exports = mongoose.model('Report', ReportSchema)

@@ -15,9 +15,14 @@ expensesRouter.get('/api/user/expenses', function (request, response) {
   // let UID = request.user._id
   let UID = "5bb65b0251823f580cf2040d";
   //because using express you can shorten the reponse.writehead and response.end to this:
+<<<<<<< HEAD
+  expensesDatastore.GetExpensesByUserId(UID)
+    .then(expensesByUserId => response.json(expensesByUserId));
+=======
   expensesDatastore.GetExpensesByUserId(UID).then(expenses => {
     response.json(expenses);
   });
+>>>>>>> master
 })
 
 // expensesRouter.get('/api/user/:user/expenses', function (request, response) {
@@ -60,6 +65,10 @@ expensesRouter.post('/api/expenses/', requireLogin,  function (request, response
   };
   //use the datastore function to save to the database
   expensesDatastore.SaveExpense(expenseModel);
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
   //respond with a 200 message that the item was saved
   response.end(console.log('200: the expense was saved!'));
 });
