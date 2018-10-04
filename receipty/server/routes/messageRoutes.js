@@ -11,7 +11,7 @@ const messagesDatastore = require('../datastore/Messages_datastore');
 const expensesDatastore = require('../datastore/Expenses_datastore');
 const usersDatastore = require('../datastore/Users_datastore');
 
-const expensesRouter = require('express').Router();
+const messagesRouter = require('express').Router();
 
 
 messagesRouter.get('/api/user/messages', function (request, response) {

@@ -71,27 +71,27 @@ reportsRouter.post('/api/reports/:reportId/expenses', function (request, respons
   reportsDatastore.PostExpenseInReport(theExpense, theReport).then(userExpense => response.json(userExpense));
 })
 
-{
-  //define the user id sent in the request
-  let id = request.user._id;
+// {
+//   //define the user id sent in the request
+// //   let id = request.user._id;
 
-  //expenseModel = request.body.amount;
-  let reportModel = {
-    name: request.body.name,
-    totalAmount: request.body.total,
-    fromUser: request.body.fromUser,
-    toAdmin: request.body.toAdmin,
-    requestedDate: request.body.submittedDate,
-    userId: id,
-    reimbursementDate: request.body.reimbursementDate,
-  };
+//   //expenseModel = request.body.amount;
+//   let reportModel = {
+//     name: request.body.name,
+//     totalAmount: request.body.total,
+//     fromUser: request.body.fromUser,
+//     toAdmin: request.body.toAdmin,
+//     requestedDate: request.body.submittedDate,
+//     userId: id,
+//     reimbursementDate: request.body.reimbursementDate,
+//   };
 
-  reportsDatastore.SaveReport(reportModel);
+//   reportsDatastore.SaveReport(reportModel);
 
 
 
-  //respond with a 200 message that the item was saved
-  response.end(console.log('200: the report was saved!'));
-}
+//   //respond with a 200 message that the item was saved
+//   response.end(console.log('200: the report was saved!'));
+// }
 
 module.exports = reportsRouter;
