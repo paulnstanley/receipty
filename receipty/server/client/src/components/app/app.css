@@ -67,3 +67,29 @@ form {
     font-size: 40px;
     background-color: rgb(160, 16, 16)
 }
+
+.giphy-embed {
+    margin-left: 200px;
+    margin-top: 50px;
+}
+
+.k-checkbox {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    height: 15px !important;
+    width: 15px !important;
+    position: relative !important;
+    margin-top: 5px !important;
+    border-width: 20px !important;
+    border-style: solid !important;
+}
+
+.expense-table {
+    text-align: center;
+}
+
+.demo-night {
+    float: right;
+    margin-right: 460px;
+    font-size: 18px;
+}

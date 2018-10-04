@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import ReactTable from "react-table";
 import 'react-table/react-table.css'
-import "./InboxListTable.css";
-import axios from "axios";
+import "./ReportListTable.css";
 import { connect } from 'react-redux';
 //imports from actions to get real data
 import { fetchReports } from '../../actions';
 
-
-class InboxListTable extends Component { 
+class ReportListTable extends Component { 
     constructor(props) {
         super(props);
 
@@ -21,9 +19,9 @@ class InboxListTable extends Component {
       this.props.fetchReports();
     };
 
-    toggleRow(ReportDate) {
+    toggleRow(Name) {
       const newSelected = Object.assign({}, this.state.selected);
-      newSelected[ReportDate] = !this.state.selected[ReportDate];
+      newSelected[Name] = !this.state.selected[Name];
       this.setState({
         selected: newSelected,
         selectAll: 2
@@ -35,7 +33,7 @@ class InboxListTable extends Component {
   
       if (this.state.selectAll === 0) {
         this.state.data.forEach(x => {
-          newSelected[x.ReportDate] = true;
+          newSelected[x.Name] = true;
         });
       }
   
@@ -46,15 +44,8 @@ class InboxListTable extends Component {
     }
 
     dataToFill() {
-      let data = [];
-    //   if props contains reports and if reports HAS data, then data is props.reports
-      if(this.props.reports && this.props.reports.length > 0)
-        data = this.props.reports;
-        else
-        data = this.state.data;
+      let data = this.props.reports || this.state.data;
 
-        console.log(data);
-    
       return data;
     }
 
@@ -73,12 +64,12 @@ class InboxListTable extends Component {
                   <input
                     type="checkbox"
                     className="checkbox"
-                    checked={this.state.selected[original.ReportDate] === true}
-                    onChange={() => this.toggleRow(original.ReportDate)}
+                    checked={this.state.selected[original.Name] === true}
+                    onChange={() => this.toggleRow(original.Name)}
                   />
                 );
               },
-              Header: x => {
+              Header: () => {
                 return (
                   <input
                     type="checkbox"
@@ -97,22 +88,26 @@ class InboxListTable extends Component {
               width: 45
 
           }, {
-            //Report Date column
+            //Name column
 
-            Header: 'ReportSent',
-            accessor: 'reportSentDate',
-            maxWidth: 90
+            Header: 'Name',
+            accessor: 'Name',
           }, {
-            //Date column
-            Header: 'To',
-            accessor: 'sentToOrganization',
-            maxWidth: 100
-          },
-          {
-            Header: 'ReportName',
-            accessor: 'reportName',
-            maxWidth: 190
+            // Amount column
+
+            Header: 'Amount',
+            accessor: 'Amount'
+          }, {
+            //Organization column
+
+            Header: 'Organization',
+            accessor: 'Organization'
+          }, {
+
+            Header: 'Comments',
+            accessor: 'Comments'
           }
+
         ]
         
 
@@ -126,9 +121,9 @@ class InboxListTable extends Component {
         }
     
         return (
-          <div className="InboxListTable">
+          <div className="ReportListTable">
             <ReactTable
-            data={this.dataToFill()}
+            data={makeData()}
             columns={columns}
             defaultPageSize={dataLength()}
             resizable={false} />
@@ -137,44 +132,18 @@ class InboxListTable extends Component {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-//Make dummy data for table
 function makeData() {
-
-//   var jimData =[];
-//   //jim's expenses
-// axios.get('https://ps-receipty.herokuapp.com/api/user/5bb26ea977074900150d3ee7/expenses')
-// .then(function (response) {
- 
-//   // jimData.push(response.data);
-//   return JSON.stringify(response.data)
-  
-// })
-//  return jimData;
-
-  // this works as is, but want to now make it work with axios
-
-  return [{
-  reportSentDate: '10/2/2018',
-  sentToOrganization: 'Donut Eaters',
-  reportName: 'Donuts'
-  }]
-  
+    return [
+        {
+        Name: "Sean",
+        Amount: "$69",
+        Organization: "Your mom's house",
+        Comments: "Hello"
+      }
+    ]
 }
-
- //this maps our state according to expesnse and connects with our fetch Expenses function and exports as Expense List//
 function mapStateToProps({ reports }) {
-  return { reports };
-}
-
-export default connect(mapStateToProps, { fetchReports })(InboxListTable);
+    return { reports };
+  }
+  
+  export default connect(mapStateToProps, { fetchReports })(ReportListTable);

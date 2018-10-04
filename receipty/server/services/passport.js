@@ -22,26 +22,21 @@ module.exports = function(passport) {
 
     // used to deserialize the user (find user's object in the db and return it)
     passport.deserializeUser((_id, done) => {
-        // let foundUser = User.find(user => user._id == _id);
-        // done(null, foundUser);
 
-        let users = User.GetAllUsers();
-        let user = users.find(user => user._id == _id);
-
-
-
-        done(null, user);
-
+        User.GetUserById(_id).then(users => {
+            done(null, users[0]);
+        });
     });
 
     passport.use('login', new LocalStrategy((username, password, done) => {
-        let users = User.GetAllUsers();
-        let user = users.find( user => user.username == username && user.password == password);
+        
+         User.GetAllUsers().then(users => {
 
-            if (!user) {
-              return done(null, false, { message: 'Incorrect username or password' });
-            }
-            return done(null, user);
+        let user = users.find(user => user.username == username && user.password == password);
+        if (!user) {
+            return done(null, false, { message: 'Incorrect username or password' });
         }
-    ));
+        return done(null, user);
+    });
+    }));
 };
