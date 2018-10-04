@@ -10,7 +10,8 @@ const ReportSchema = new Schema({
   requestedDate: String,
   reportCreatedDate: { type: Date, default: Date.now },
   reimbursementDate: String,
-  userId: String
+  userId: String,
+  expenses: Array
 })
 
 // const Report = mongoose.model('Report', ReportSchema);

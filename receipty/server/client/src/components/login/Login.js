@@ -33,8 +33,8 @@ class Login extends Component {
   render() {
     return (
         <div className="Login col-lg-1 col-centered">
-            <div className="avatar col-md-3"> 
-                <img src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" alt="Avatar" width="150px" height="150px" />
+            <div className="logo">
+                ReCeipty 
             </div>
             <span>
             <div className="form-block col-md-9">

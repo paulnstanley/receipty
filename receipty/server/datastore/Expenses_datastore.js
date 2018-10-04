@@ -4,18 +4,18 @@ const mongoose = require('mongoose');
 
 var users = require('../dataFiles/users.json');
 //require in Expense model (DB data)
-var Expense = require('../models/Expense.js')
+var Expense = require('../models/Expense.js');
+var expenses = require('../dataFiles/expenses.json');
 
 //Finds all expenses in db
 //TODO either delete because not testing or change --> not functional for mongoose query 
 const GetAllExpenses = function() {
     return expenses;
 }
-var expenses = require('../dataFiles/expenses.json');
 
 //search the DB for expenses by user's id
-const GetExpensesByUserId = function(userId) {
-    let query = Expense.find({userId : userId});
+const GetExpensesByUserId = function(UID) {
+    let query = Expense.find({userId : UID});
     return query.exec();
 }
 
@@ -57,10 +57,17 @@ const SaveExpense = function(expenseModel) {
     return expense.save();
 }
 
+// const PostExpenseInReport = function(reportId, expenseId){
+//     let query = Expense
+//         .findOneAndUpdate(expenseId, {reportId:reportId});
+//     return query.exec();
+// }
+
 module.exports = {
     GetAllExpenses,
     SaveExpense,
     GetExpensesByUserId,
     GetUniqueExpenseByUserId,
-    GetAllExpensesByReportId
+    GetAllExpensesByReportId,
+    PostExpenseInReport
 }
