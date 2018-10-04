@@ -27,6 +27,12 @@
     "redux-form-website-template": "0.0.123",
     "redux-thunk": "^2.3.0"
   },
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5000"
+    }
+  },
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

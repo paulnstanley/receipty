@@ -17,8 +17,6 @@ import Reports from '../reports/Reports';
 //base page of add listed expense to form a new report
 import ReportNew from '../reportsnew/ReportsNew';
 
-import Test from './test.js';
-
 import Inbox from '../inbox/Inbox';
 import Settings from '../settings/Settings';
 import About from '../about/About';
@@ -40,19 +38,17 @@ class App extends Component {
                         <Route exact path="/expenses/new" component={ExpenseNew} />
                         <Route exact path="/reports" component={Reports} />
 
-          
+
                         <Route exact path="/reports/new" component={ReportNew} />
                         <Route exact path="/inbox" component={Inbox} />
                         <Route exact path="/settings" component={Settings} />
                         <Route exact path="/about" component={About} />
                         <Route exact path="/logout" component={Logout} />
-                        <Route exact path="/test" component={Test} />
                     </div>
                 </BrowserRouter>
             </div>
         );
     }
 }
-//Zulmy- I had to comment out ReportsNew since it causes 11 errors in page since component hasn't been made. 
+//Zulmy- I had to comment out ReportsNew since it causes 11 errors in page since component hasn't been made.
 export default connect (null, actions)(App);
-
