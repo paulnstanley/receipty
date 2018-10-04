@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
@@ -15,6 +16,11 @@ const options = [
 
 const defaultOption = options[0];
 
+=======
+import formFieldsStyle from './formFieldsStyle';
+import formFields from './formFields';
+import NavBar from '../navbar/NavBar'ß
+>>>>>>> b1da6e974ddf64e80b168dedc00ab3ba7b21ec9a
 class ExpenseForm extends Component {
   constructor(props) {
     super(props);
