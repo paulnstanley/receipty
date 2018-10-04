@@ -45,27 +45,22 @@ const ExpenseForm = props => {
       <div>
         <label>Date</label>
         <div>
-        <input 
-          type="date" 
-          label="Date" 
-          component="input"
-          key="Date"
-          name="Date"
+        <Field
+            name="Date"
+            component="input"
+            type="text"
+            placeholder="Date"
           />
         </div>
       </div>
       <div>
         <label>Categories</label>
         <div>
-          <Dropdown 
-          name="Categories"
-          key="Categories"
-          label="Categories" 
-          component="select"
-          className="expense-categories"
-          options={options} 
-          value={defaultOption} 
-          placeholder="Select an Option" 
+        <Field
+            name="Categories"
+            component="input"
+            type="text"
+            placeholder="Categories"
           />
         </div>
       </div>
