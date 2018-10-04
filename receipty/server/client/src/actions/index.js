@@ -6,14 +6,14 @@ import { FETCH_USER, FETCH_EXPENSES, FETCH_REPORTS } from './types';
 const BASE_URL = "http://localhost:5000";
 
 export const fetchUser = (loginObject) => async dispatch => {
-    const res = await axios.post(BASE_URL + '/api/login', loginObject, {withCredentials: true});
+    const res = await axios.post('/api/login', loginObject);
 
     dispatch({ type: FETCH_USER, payload: res.data });
   };
  
   //until login is complete, hard code a user Id for a user that exists in your db here to see the add expense form work. 
   export const submitExpense = (values, history) => async dispatch => {
-    const res = await axios.post(`${BASE_URL}/api/expenses/5bb26ea977074900150d3ee7`, values);
+    const res = await axios.post('/api/expenses/', values);
   
     history.push('/expenses');
     dispatch({ type: FETCH_USER, payload: res });
