@@ -64,7 +64,6 @@ reportsRouter.get('/api/user/reports', function (request, response) {
 // })
 
 
-
 //get a single report back based on it's report _id
 reportsRouter.get('/api/reports/:_id', function (request, response) {
   let _id = request.params._id;
