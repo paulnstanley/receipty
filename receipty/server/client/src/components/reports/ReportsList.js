@@ -1,31 +1,45 @@
-//this page forms the actual list of reports will be a component of reports.js
-//required node modules for react
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import './reportslist.css';
-import 'react-dropdown/style.css'
-import Report from './Report'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { fetchReports } from "../actions";
 
-class ReportList extends Component {
-  render() {
-    return (
-      <div className="report-list-container">
-        <div>
-          {
-            this.props.reports.map(report => 
-              <Report report={report} key={report._id}/>
-            )
-          }
-        </div>
-      </div>
-    );
-  }
+class ReportList extends Component {    
+    renderReport() {
+        console.log("render",this.props.reports[0]);
+            return this.props.reports.map(report => {
+                return <tr>
+                <br />
+                <br />
+                <th width="40%">
+                    {report.name}
+                </th>
+                <th width="20%">
+                    ${report.amount}
+                </th>
+                <th width="40%">
+                    {report.organization}
+                </th>
+                </tr>
+            })
+        }
+    
+
+    render() {
+        return (
+            <table className="table table-striped table-bordered table-sm" cellSpacing="0" width="80%">
+                {this.renderReport()}
+            </table>
+        );
+    }
 }
 
-function mapStateToProps({reportMetadata}) {
-  return {
-    reports: reportMetadata.reports || []
-  };
+function mapStateToProps(state) {
+    console.log("my state", state);
+    return { reports: state.reports};
 }
 
-export default connect(mapStateToProps)(ReportList);
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({ fetchReports: fetchReports }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReportList);

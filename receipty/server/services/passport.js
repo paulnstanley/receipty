@@ -22,17 +22,14 @@ module.exports = function(passport) {
 
     // used to deserialize the user (find user's object in the db and return it)
     passport.deserializeUser((_id, done) => {
-        // let foundUser = User.find(user => user._id == _id);
-        // done(null, foundUser);
 
-        User.GetAllUsers().then(users => {
-            user = users.find(user => user._id == _id);
-            users._id = user._id.toString();
-            done(null, user);
+        User.GetUserById(_id).then(users => {
+            done(null, users[0]);
         });
     });
 
-    passport.use('login', new LocalStrategy({ proxy: true}, (username, password, done) => {
+    passport.use('login', new LocalStrategy((username, password, done) => {
+        
          User.GetAllUsers().then(users => {
 
         let user = users.find(user => user.username == username && user.password == password);

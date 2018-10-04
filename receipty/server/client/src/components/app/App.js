@@ -38,19 +38,17 @@ class App extends Component {
                         <Route exact path="/expenses/new" component={ExpenseNew} />
                         <Route exact path="/reports" component={Reports} />
 
-          
+
                         <Route exact path="/reports/new" component={ReportNew} />
                         <Route exact path="/inbox" component={Inbox} />
                         <Route exact path="/settings" component={Settings} />
                         <Route exact path="/about" component={About} />
                         <Route exact path="/logout" component={Logout} />
-
                     </div>
                 </BrowserRouter>
             </div>
         );
     }
 }
-//Zulmy- I had to comment out ReportsNew since it causes 11 errors in page since component hasn't been made. 
+//Zulmy- I had to comment out ReportsNew since it causes 11 errors in page since component hasn't been made.
 export default connect (null, actions)(App);
-

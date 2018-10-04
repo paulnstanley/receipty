@@ -11,11 +11,31 @@ const expensesRouter = require('express').Router();
 
 
 expensesRouter.get('/api/user/expenses', function (request, response) {
+  
   let UID = request.user._id
   //because using express you can shorten the reponse.writehead and response.end to this:
-  expensesDatastore.GetExpensesByUserId(UID)
-    .then(expensesByUserId => response.json(expensesByUserId));
-});
+  expensesDatastore.GetExpensesByUserId(UID).then(expenses => {
+    response.json(expenses);
+  });
+})
+
+// expensesRouter.get('/api/user/:user/expenses', function (request, response) {
+//   let userId= request.user._id
+//   console.log(request.params.userId);
+//   // let expenses = expensesDatastore.GetExpensesByUserId(user);
+//   expensesDatastore.GetExpensesByUserId(userId)
+//   .then(expensesByUserId => response.json(expensesByUserId));
+  
+// })
+//At this time we do not need get one particular expense
+// expensesRouter.get('/api/user/expenses/:expenseId', requireLogin, function (request, response) {
+//   let theUser = request.user._id;
+//   let theExpense = request.params.expenseId;
+
+
+//   expensesDatastore.GetUniqueExpenseByUserId(theUser, theExpense).then(userExpense => response.json(userExpense));
+// })
+
 
 expensesRouter.get('/api/reports/:reportId/expenses', function (request, response) {
   let reportId = request.params.reportId;
