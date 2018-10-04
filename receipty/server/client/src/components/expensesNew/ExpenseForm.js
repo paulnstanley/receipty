@@ -2,41 +2,43 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import formFields from './formFields';
+// import withRouter from 'react';
+// import _ from 'lodash';
 
-import NavBar from '../navbar/NavBar'
-class ExpenseForm extends Component {
-  renderFields() {
-    return _.map(formFields, ({ label, name }) => {
-      return (
-        <Field
-          key={name}
-          component={formFieldsStyle}
-          type="text"
-          label={label}
-          name={name}
-        />
-      );
-    });
-  }
+// import NavBar from '../navbar/NavBar'
+// class ExpenseForm extends Component {
+//   renderFields() {
+//     return _.map(formFields, ({ label, name }) => {
+//       return (
+//         <Field
+//           key={name}
+//           component={formFields}
+//           type="text"
+//           label={label}
+//           name={name}
+//         />
+//       );
+//     });
+//   }
 
-  render() {
-    return (
-      <div>
-        <NavBar />
-        <h4 className="FormTitleContainer">Expense Form</h4>
-        <form onSubmit={this.props.handleSubmit(this.props.onExpenseSubmit)}>
-          {this.renderFields()}
-          <Link to="/expenses" className="red btn-flat white-text">
-            Cancel
-          </Link>
-          <button type="submit" className="teal btn-flat right white-text">
-            Next
-          </button>
-        </form>
-      </div>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <div>
+//         <NavBar />
+//         <h4 className="FormTitleContainer">Expense Form</h4>
+//         <form onSubmit={this.props.handleSubmit(this.props.onExpenseSubmit)}>
+//           {this.renderFields()}
+//           <Link to="/expenses" className="red btn-flat white-text">
+//             Cancel
+//           </Link>
+//           <button type="submit" className="teal btn-flat right white-text">
+//             Next
+//           </button>
+//         </form>
+//       </div>
+//     );
+//   }
+// }
 
 
 const options = [
@@ -116,6 +118,7 @@ const ExpenseForm = props => {
     </form>
   )
 }
+
 
 export default reduxForm({
   form: 'simple' // a unique identifier for this form
