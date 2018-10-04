@@ -1,38 +1,37 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import ExpenseForm from './ExpenseForm';
+import showResults from './ExpenseResults';
 
 class ExpenseNew extends Component {
-  state = { showFormReview: false };
+  state = { showFormValues: false };
 
   renderContent() {
-    if (this.state.showFormReview) {
+    if (this.state.showFormValues) {
       return (
         <ExpenseForm
-          onCancel={() => this.setState({ showFormReview: false })} />
+          onCancel={() => this.setState({ showFormValues: false })} />
       );
     }
 
     return (
       <ExpenseForm
-        onExpenseSubmit={() => this.setState({ showFormReview: true })} />
+        onExpenseSubmit={() => this.setState({ showFormValues: true })} />
     );
   }
 
   render() {
     return (
       <div>
-        {this.renderContent()}
+        <ExpenseForm onSubmit={showResults} />
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
-  return { formValues}
-}
 
-export default reduxForm({ form: 'expenseForm' })(ExpenseNew);
+
+export default reduxForm({ form: 'simple' })(ExpenseNew);
 
 // function mapStateToProps(state) {
 //   return { formValues: state.form.expenseForm.values };
