@@ -11,7 +11,7 @@ const ReportSchema = new Schema({
   reportCreatedDate: { type: Date, default: Date.now },
   reimbursementDate: String,
   userId: String,
-  
+  expenses: Array
 })
 
 // const Report = mongoose.model('Report', ReportSchema);
