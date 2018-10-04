@@ -2,7 +2,7 @@
 //required node modules
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import ReportListTable from './ReportListTable.js';
 //required components to create the Reports components.
 import NavBar from '../navbar/NavBar';
 
@@ -12,6 +12,7 @@ class Reports extends Component {
     return (
       <div>
         <NavBar />
+        <ReportListTable />
         <div className="fixed-action-btn">
           <Link to="/reports/new" className="teal btn-flat right white-text">
             New Report
