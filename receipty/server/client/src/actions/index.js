@@ -18,22 +18,21 @@ export const fetchUser = (loginObject) => async dispatch => {
     
   };
 
-  export const submitReports = (userID, values, history) => async dispatch => {
-    const url = `${BASE_URL}/api/reports/${userID}`
-    const res = await axios.post(url, {headers: { "Content-Type": "application/json"}}, values);
+  export const submitReports = (values, history) => async dispatch => {
+    const res = await axios.post(`${BASE_URL}/api/reports`, values);
   
     history.push('/reports');
     dispatch({ type: FETCH_USER, payload: res.data });
   };
   
   export const fetchExpenses = () => async dispatch => {
-    const res = await axios.get();
+    const res = await axios.get(`${BASE_URL}/api/user/expenses`);
   
     dispatch({ type: FETCH_EXPENSES, payload: res.data });
   };
 
   export const fetchReports = () => async dispatch => {
-    const res = await axios.get(BASE_URL + '/api/reports');
+    const res = await axios.get(`${BASE_URL}/api/reports`);
   
     dispatch({ type: FETCH_REPORTS, payload: res.data });
   };

@@ -12,11 +12,12 @@ const usersDatastore = require('../datastore/Users_datastore');
 
 const expensesRouter = require('express').Router();
 
-//TODO: remove, this was for testing (later we will need /api/me/get and more error handling)
+
 expensesRouter.get('/api/user/expenses', function (request, response) {
   let UID = request.user._id
   //because using express you can shorten the reponse.writehead and response.end to this:
-  response.json(expensesDatastore.GetExpensesByUserId(UID));
+  expensesDatastore.GetExpensesByUserId(UID)
+    .then(expensesByUserId => response.json(expensesByUserId));
 })
 
 // expensesRouter.get('/api/user/:user/expenses', function (request, response) {
@@ -59,8 +60,6 @@ expensesRouter.post('/api/expenses/', requireLogin,  function (request, response
   };
   //use the datastore function to save to the database
   expensesDatastore.SaveExpense(expenseModel);
-
-  // usersDatastore.AddExpenseToUserArray(id, expenseModel);
 
   //respond with a 200 message that the item was saved
   response.end(console.log('200: the expense was saved!'));
