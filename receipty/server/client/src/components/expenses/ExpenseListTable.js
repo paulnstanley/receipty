@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 import ReactTable from "react-table";
 import 'react-table/react-table.css'
 import "./ExpenseListTable.css";
-import axios from "axios";
-import './expenses.json';
 import { connect } from 'react-redux';
-//imports from actions to get real data
 import { fetchExpenses } from '../../actions';
 
 class ExpenseListTable extends Component { 
     constructor(props) {
-        super(props);
-        
+        super(props);       
       	this.toggleRow = this.toggleRow.bind(this);
     }
     componentDidMount() {
@@ -19,8 +15,7 @@ class ExpenseListTable extends Component {
     };
 
     static getDerivedStateFromProps(props, state) {
-      return { selected: {}, selectAll: 0, data: props.expenses };
-      
+      return { selected: {}, selectAll: 0, data: props.expenses };      
     }
 
     toggleRow(Merchant) {
@@ -49,18 +44,11 @@ class ExpenseListTable extends Component {
 
     dataToFill() {
       let data = this.props.expenses || this.state.data;
-
       return data;
     }
 
     render() {
-        
-          //Table columns
-
           const columns = [{
-
-            //Checkbox column
-
               id: "checkbox",
               accessor: "checkbox",
               Cell: ({ original }) => {
@@ -142,7 +130,6 @@ class ExpenseListTable extends Component {
     }
 }
 
- //this maps our state according to expesnse and connects with our fetch Expenses function and exports as Expense List//
 function mapStateToProps({ expenses }) {
   return { expenses };
 }
