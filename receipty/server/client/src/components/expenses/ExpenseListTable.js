@@ -4,10 +4,12 @@ import 'react-table/react-table.css'
 import "./ExpenseListTable.css";
 import { connect } from 'react-redux';
 import { fetchExpenses } from '../../actions';
+import _ from "lodash";
 
 class ExpenseListTable extends Component { 
     constructor(props) {
         super(props);       
+        this.state ={};
       	this.toggleRow = this.toggleRow.bind(this);
     }
     componentDidMount() {
@@ -15,7 +17,7 @@ class ExpenseListTable extends Component {
     };
 
     static getDerivedStateFromProps(props, state) {
-      return { selected: {}, selectAll: 0, data: props.expenses };      
+      return { selected: {}, selectAll: 0, data: props.expenses.expenses };      
     }
 
     toggleRow(Merchant) {
@@ -31,6 +33,7 @@ class ExpenseListTable extends Component {
       let newSelected = {};
   
       if (this.state.selectAll === 0) {
+        
         this.state.data.forEach(x => {
           newSelected[x.Merchant] = true;
         });
@@ -43,11 +46,12 @@ class ExpenseListTable extends Component {
     }
 
     dataToFill() {
-      let data = this.props.expenses || this.state.data;
+      let data = this.props.expenses.expenses || this.state.data;
       return data;
     }
 
     render() {
+      console.log(this.props.expenses)
           const columns = [{
               id: "checkbox",
               accessor: "checkbox",
@@ -81,50 +85,45 @@ class ExpenseListTable extends Component {
 
           }, {
             //Merchant column
-
             Header: 'Merchant',
             accessor: 'Merchant',
-            maxWidth: 180
+            maxWidth: 180,
+            Cell: props => <span className='Name'>{props.original.merchant}</span>
+
           }, {
             //Date column
 
             Header: 'Date',
             accessor: 'Date',
-            maxWidth: 80
+            maxWidth: 80,
+            Cell: props => <span className='Date'>{props.original.expenseCreatedDate}</span>
+
           }, {
             //Amount $ column
 
             Header: 'Amount',
             accessor: 'Amount',
-            maxWidth: 60
-          }, {
-            //Category column
+            maxWidth: 60,
+            Cell: props => <span className='Amount'>{props.original.amount}</span>
 
-            Header: 'Category',
-            accessor: 'Category',
-            maxWidth: 100
           }, {
             //Comments column
 
             Header: 'Comments',
             accessor: 'Comments',
-            maxWidth: 350
-          }, {
-            //Expense status column
+            maxWidth: 350,
+            Cell: props => <span className='Comments'>{props.original.comments}</span>
 
-            Header: 'Status',
-            accessor: 'Status',
-            width: 50
           }
         ]
-           
+
         return (
           <div className="ExpenseListTable">
             <ReactTable
-            data={this.state.data}
+            data={this.props.expenses}
             columns={columns}
             defaultPageSize={10}
-            resizable={false} />
+            resolveData={data => data.map(row => row)}/>
           </div>
         )
     }
