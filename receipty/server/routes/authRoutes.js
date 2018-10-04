@@ -19,7 +19,6 @@ authRouter.post('/api/login', passport.authenticate('login', {
   }));
   
 
-
 authRouter.get('/logout', (request, response) => {
     console.log("I am Logged out!")
     request.logOut()

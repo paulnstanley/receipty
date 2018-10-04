@@ -1,41 +1,40 @@
-// react required compenents
 import React, { Component } from 'react';
-
-// redux required components
 import { reduxForm } from 'redux-form';
-
-//gui for expenses new
 import ExpenseForm from './ExpenseForm';
-import ExpenseFormReview from './ExpenseFormReview';
+import showResults from './ExpenseResults';
 
 class ExpenseNew extends Component {
-  state = { showFormReview: false };
+  state = { showFormValues: false };
 
   renderContent() {
-    if (this.state.showFormReview) {
+    if (this.state.showFormValues) {
       return (
-        <ExpenseFormReview
-          onCancel={() => this.setState({ showFormReview: false })}
-        />
+        <ExpenseForm
+          onCancel={() => this.setState({ showFormValues: false })} />
       );
     }
 
     return (
       <ExpenseForm
-        onExpenseSubmit={() => this.setState({ showFormReview: true })}
-      />
+        onExpenseSubmit={() => this.setState({ showFormValues: true })} />
     );
   }
 
   render() {
     return (
       <div>
-        {this.renderContent()}
+        <ExpenseForm onSubmit={showResults} />
       </div>
     );
   }
 }
 
-export default reduxForm({
-  form: 'expenseForm'
-})(ExpenseNew);
+
+
+export default reduxForm({ form: 'simple' })(ExpenseNew);
+
+// function mapStateToProps(state) {
+//   return { formValues: state.form.expenseForm.values };
+// }
+
+// export default connect(mapStateToProps, actions)(withRouter(ExpenseFormReview));
