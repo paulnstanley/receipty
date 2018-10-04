@@ -5,7 +5,7 @@ import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import formFieldsStyle from './formFieldsStyle';
 import formFields from './formFields';
-import NavBar from '../navbar/NavBar'ß
+import NavBar from '../navbar/NavBar'
 class ExpenseForm extends Component {
   renderFields() {
     return _.map(formFields, ({ label, name }) => {
