@@ -1,44 +1,41 @@
 import React, { Component } from 'react';
-import "./ExpenseListTable.css";
-import axios from "axios";
 import { connect } from 'react-redux';
 import { fetchExpenses } from '../../actions';
-import ExpenseForm from "./ExpenseForm";
-import userExpenses from "./ExpenseResults";
 
-class ExpenseList extends Component { 
+class SurveyList extends Component {
   componentDidMount() {
     this.props.fetchExpenses();
   }
 
-   renderExpenses(list) {
-     console.log(userExpenses);
+  renderExpenses() {
+    return this.props.expenses.reverse().map(expense => {
+      return (
+        <div className="card darken-1" key={expense.name}>
+          <div className="card-content">
+            <span className="card-title">{expense.amount}</span>
+            <p>
+              {expense.body}
+            </p>
+            <p className="right">
+              Sent On: {new Date(expense.dateSent).toLocaleDateString()}
+            </p>
+          </div>
+        </div>
+      );
+    });
+  }
 
-   return (
-    <tr key>
-      <td></td>
-      <td></td>
-    </tr>
-   );
-}
-   render() {
-     return(
-       <table className="table">
-       <thead>
-         <tr>
-           <th>Name:</th>
-         </tr>
-       </thead>
-       <tbody>
-         {this.renderExpenses()}
-       </tbody>
-       </table>
-     );
-   }
+  render() {
+    return (
+      <div>
+        {this.renderExpenses()}
+      </div>
+    );
+  }
 }
 
-function mapStateToProps({ expenses }){
+function mapStateToProps({ expenses }) {
   return { expenses };
 }
 
-export default connect(mapStateToProps, { fetchExpenses })(ExpenseList)
+export default connect(mapStateToProps, { fetchExpenses })(ExpenseList);
