@@ -2,12 +2,33 @@
 
 import React, {Component} from "react";
 import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router'; // Redirect is used on line 29 in an if/else
+
 
 // need for shaping navbar to the left
 import './navbar.css';
 
 class NavBar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      redirectToNewPage: false // when button is clicked, becomes true, redirects to /login
+    };
+  }
+    
+    handleSubmit = event => {
+      event.preventDefault();
+        this.setState({ redirectToNewPage: true })
+    }
+  
+
   render() {
+    if (this.state.redirectToNewPage) {
+      return (
+      <Redirect to="/"/>
+      )
+    } else {
     return (
      <div id = "exp-rep-navbar">
      <h1>
@@ -37,9 +58,9 @@ class NavBar extends Component {
           </Link>
         </li>
         <li>
-          <Link to = {`/logout`} id = "logout" className = "navbar-li-a">
+          <button onClick={this.handleSubmit}>
             LOGOUT
-          </Link>
+          </button>
         </li>
         <li>
           <Link to = {`/about`} id = "about-receipty" className = "navbar-li-a">
@@ -54,9 +75,10 @@ class NavBar extends Component {
       </h1>
      </div>
      );
-
+    }
   }
 }
 
+//  to = {`/logout`} id = "logout" className = "navbar-li-a"
 
 export default NavBar;
