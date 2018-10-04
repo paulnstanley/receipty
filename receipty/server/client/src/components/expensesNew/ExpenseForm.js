@@ -3,16 +3,6 @@ import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 
-const options = [
-  { value: 'travel', label: 'Travel', className: 'travel' },
-  { value: 'food', label: 'Food', className: 'food' },
-  { value: 'supplies', label: 'Supplies', className: 'supplies'}, 
-  { value: 'utilities', label: 'Utilities', className: 'utilities'}, 
-  { value: 'entertainment', label: 'Entertainment', className: 'entertainment'}, 
-  { value: 'other', label: 'Other', className: 'other'}
-];
-
-const defaultOption = options[0];
 
 const ExpenseForm = props => {
   

@@ -12,7 +12,8 @@ const expensesRouter = require('express').Router();
 
 expensesRouter.get('/api/user/expenses', function (request, response) {
   
-  let UID = request.user._id
+  // let UID = request.user._id
+  let UID = "5bb65b0251823f580cf2040d";
   //because using express you can shorten the reponse.writehead and response.end to this:
   expensesDatastore.GetExpensesByUserId(UID).then(expenses => {
     response.json(expenses);
