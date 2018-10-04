@@ -69,5 +69,5 @@ module.exports = {
     GetExpensesByUserId,
     GetUniqueExpenseByUserId,
     GetAllExpensesByReportId,
-    PostExpenseInReport
+    // PostExpenseInReport
 }
