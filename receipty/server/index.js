@@ -34,12 +34,14 @@ const expenseRoutes = require('./routes/expenseRoutes')
 const reportRoutes = require('./routes/reportRoutes')
 const authRoutes = require('./routes/authRoutes')
 const userRoutes = require('./routes/userRoutes')
+const messageRoutes = require('./routes/messageRoutes')
 
 //use routes
 app.use(expenseRoutes)
 app.use(reportRoutes)
 app.use(authRoutes)
 app.use(userRoutes)
+app.use(messageRoutes)
 
 
 //only in heroku
