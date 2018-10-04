@@ -166,7 +166,7 @@ function makeData() {
 
   return [{
   reportSentDate: '10/2/2018',
-  organizationName: 'Donut Eaters',
+  sentToOrganization: 'Donut Eaters',
   reportName: 'Donuts'
   }]
   

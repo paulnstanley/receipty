@@ -29,7 +29,8 @@ userRouter.post('/api/user/new', function(request, response){
     username: request.body.username,
     password: request.body.password,
     role: request.body.role,
-    generatedToken: 00000000,
+    messages: request.body.messages,
+    generatedToken: 00000000
   }
   usersDatastore.AddNewUser(userModel);
   //respond with a 200 message that the item was saved
