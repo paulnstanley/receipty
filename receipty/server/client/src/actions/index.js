@@ -40,7 +40,7 @@ export const fetchUser = (loginObject) => async dispatch => {
   };
 
   export const fetchMessages = () => async dispatch => {
-    const res = await axios.get(`${BASE_URL}/api/user/messages`);
+    const res = await axios.get(`/api/messages`);
   
     dispatch({ type: FETCH_MESSAGES, payload: res.data });
   };

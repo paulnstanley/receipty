@@ -7,7 +7,7 @@ import { fetchMessages } from '../../actions';
 
 
 class InboxListTable extends Component {
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchMessages();
     }
 
@@ -15,12 +15,15 @@ class InboxListTable extends Component {
     renderList() {
       return this.props.messages.map(message => {
         return (
-          <li
+
+          <li 
             key={message._id}
-            className="list-group-item"
-          >
-            {message.messsage}
+            className="list-group-item">
+            {message.message}
+            Created: {message.createdDate}
+            Status Type: {message.type}
           </li>
+
         );
       });
     }
@@ -35,7 +38,7 @@ class InboxListTable extends Component {
   }
   
   function mapStateToProps(state) {
-    
+    console.log(state);
     return {
       messages: state.messages
     };

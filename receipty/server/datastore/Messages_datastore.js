@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 var Message = require('../models/Message')
 //Finds all of user's messages in db
 const GetMessagesForUser = function(id) {
-    let query = Message.find({userId : id});
+    let query = Message.find({'userId' : id});
     return query.exec();
 }
 
