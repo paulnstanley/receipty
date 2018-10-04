@@ -3,10 +3,11 @@ const { Schema } = mongoose;
 
 
 const MessageSchema = new Schema({
-  requestedDate: { type: Date, default: Date.now },
-  status: String,
+  createdDate: { type: Date, default: Date.now },
+  message: String,
   userId: String,
-  adminId: String
+  reportId: String,
+  type: String
 });
 
 

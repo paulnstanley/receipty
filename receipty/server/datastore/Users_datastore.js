@@ -13,6 +13,7 @@ const AddNewUser = function(userModel){
     username: userModel.username,
     password: userModel.password,
     role: userModel.role,
+    messages: userModel.messages,
     generatedToken: userModel.generatedToken,
   });
 

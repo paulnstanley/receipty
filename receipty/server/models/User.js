@@ -6,7 +6,7 @@ const UserSchema = new Schema({
     username: String,
     password: String,
     role: String,
-    message_Id: String
+    messages: String
 });
 
 
