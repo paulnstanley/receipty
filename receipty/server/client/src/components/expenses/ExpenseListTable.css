@@ -9,4 +9,5 @@
     appearance: checkbox;
     opacity: 1;
     position: relative;
+    pointer-events: auto;
 }
