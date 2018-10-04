@@ -57,9 +57,11 @@ const SaveExpense = function(expenseModel) {
     return expense.save();
 }
 
-const PostExpenseInReport = function(reportId){
-    
-}
+// const PostExpenseInReport = function(reportId, expenseId){
+//     let query = Expense
+//         .findOneAndUpdate(expenseId, {reportId:reportId});
+//     return query.exec();
+// }
 
 module.exports = {
     GetAllExpenses,
@@ -67,4 +69,5 @@ module.exports = {
     GetExpensesByUserId,
     GetUniqueExpenseByUserId,
     GetAllExpensesByReportId
+    // PostExpenseInReport
 }
