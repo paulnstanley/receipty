@@ -1,6 +1,10 @@
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+// class ExpenseResults extends Components
+const userExpenses =[];
+
 export default (async function showResults(values) {
   await sleep(500); // simulate server latency
-  window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+  userExpenses.push(`${JSON.stringify(values)}`);
+  console.log(values);
 });

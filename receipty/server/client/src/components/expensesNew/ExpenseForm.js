@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
-import formFields from './formFields';
-import Dropdown from 'react-dropdown';
+import { Redirect } from 'react-router';
 
 const options = [
   { value: 'travel', label: 'Travel', className: 'travel' },
@@ -81,6 +80,7 @@ const ExpenseForm = props => {
     </form>
   )
 }
+
 
 export default reduxForm({
   form: 'simple' // a unique identifier for this form

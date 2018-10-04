@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@progress/kendo-react-grid": "^2.1.0",
     "ajv": "^6.5.4",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.3",
