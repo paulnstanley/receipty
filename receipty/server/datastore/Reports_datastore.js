@@ -28,7 +28,7 @@ const SaveReport = function(reportModel) {
       toAdmin: reportModel.toAdmin,
       requestedDate:reportModel.requestedDate,
       reimbursementDate: reportModel.reimbursementDate,
-      userId: reportModel.userIsd
+      userId: reportModel.userId
     });
 
     return report.save();
