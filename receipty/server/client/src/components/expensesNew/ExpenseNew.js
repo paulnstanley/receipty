@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import ExpenseForm from './ExpenseForm';
-import showResults from './ExpenseResults';
+import submitExpense from '../../actions';
+
+const userExpenses =[];
 
 class ExpenseNew extends Component {
   constructor(props) {
@@ -9,30 +11,16 @@ class ExpenseNew extends Component {
     this.state = '';
   }
 
-  renderContent() {
-    if (this.state.showFormValues) {
-      return (
-        <ExpenseForm
-          onCancel={() => this.setState({ showFormValues: false })} />
-      );
-    }
-
-    return (
-      <ExpenseForm
-        onExpenseSubmit={() => this.setState({ showFormValues: true })} />
-    );
-  }
-
   render() {
     return (
       <div>
-        <ExpenseForm onSubmit={showResults} />
+        <ExpenseForm submitExpense={()=> {
+          console.log("hello")
+        }} />
       </div>
     );
   }
 }
-
-9
 
 export default reduxForm({ form: 'simple' })(ExpenseNew);
 

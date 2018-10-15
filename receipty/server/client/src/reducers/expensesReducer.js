@@ -1,4 +1,4 @@
-import { FETCH_EXPENSES, ADD_EXPENSES } from '../actions/types';
+import { FETCH_EXPENSES } from '../actions/types';
 
 export default function(state = [], action) {
   switch (action.type) {

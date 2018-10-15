@@ -2,59 +2,14 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import formFields from './formFields';
-// import withRouter from 'react';
-// import _ from 'lodash';
-
-// import NavBar from '../navbar/NavBar'
-// class ExpenseForm extends Component {
-//   renderFields() {
-//     return _.map(formFields, ({ label, name }) => {
-//       return (
-//         <Field
-//           key={name}
-//           component={formFields}
-//           type="text"
-//           label={label}
-//           name={name}
-//         />
-//       );
-//     });
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <NavBar />
-//         <h4 className="FormTitleContainer">Expense Form</h4>
-//         <form onSubmit={this.props.handleSubmit(this.props.onExpenseSubmit)}>
-//           {this.renderFields()}
-//           <Link to="/expenses" className="red btn-flat white-text">
-//             Cancel
-//           </Link>
-//           <button type="submit" className="teal btn-flat right white-text">
-//             Next
-//           </button>
-//         </form>
-//       </div>
-//     );
-//   }
-// }
+import { Redirect } from 'react-router';
 
 
-const options = [
-  { value: 'travel', label: 'Travel', className: 'travel' },
-  { value: 'food', label: 'Food', className: 'food' },
-  { value: 'supplies', label: 'Supplies', className: 'supplies'}, 
-  { value: 'utilities', label: 'Utilities', className: 'utilities'}, 
-  { value: 'entertainment', label: 'Entertainment', className: 'entertainment'}, 
-  { value: 'other', label: 'Other', className: 'other'}
-];
-
-const defaultOption = options[0];
 
 const ExpenseForm = props => {
-  
+
   const { handleSubmit, pristine, reset, submitting } = props
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -108,7 +63,7 @@ const ExpenseForm = props => {
         </div>
       </div>
       <div>
-        <button type="submit" disabled={pristine || submitting}>
+        <button type="submit" disabled={pristine || submitting} >
           Submit
         </button>
         <button type="button" disabled={pristine || submitting} onClick={reset}>
@@ -119,7 +74,6 @@ const ExpenseForm = props => {
   )
 }
 
-
 export default reduxForm({
-  form: 'simple' // a unique identifier for this form
+  form: 'simple'
 })(ExpenseForm)
