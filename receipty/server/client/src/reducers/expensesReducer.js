@@ -1,7 +1,6 @@
-import { FETCH_EXPENSES, ADD_EXPENSES } from '../actions/types';
+import { FETCH_EXPENSES } from '../actions/types';
 
 export default function(state = [], action) {
-  console.log(action.payload);
   switch (action.type) {
     case FETCH_EXPENSES:
       state.expenses= action.payload;

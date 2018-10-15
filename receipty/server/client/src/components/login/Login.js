@@ -29,8 +29,8 @@ class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.fetchUser(this.state).then(this.setState({ redirectToNewPage: true })
-  )
+      this.props.fetchUser(this.state).then(this.setState({ redirectToNewPage: true })
+    )
   }
 
   render() {
