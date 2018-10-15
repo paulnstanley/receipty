@@ -6,4 +6,3 @@ export const FETCH_REPORTS = 'fetch_reports';
 export const FETCH_MESSAGES = 'fetch_messages';
 export const ADD_EXPENSES_TO_QUEUE = 'add_expenses';
 export const ADD_EXPENSES = 'add_expenses';
-//these variables are simply extenstions for /actions/index.js

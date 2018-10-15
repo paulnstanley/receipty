@@ -19,14 +19,29 @@ reportsRouter.post('/api/reports', requireLogin, function (request, response) {
   let userId = request.user._id
 
   //expenseModel = request.body.amount;
+
+  //  name: String,
+  // totalAmount: Number,
+  // fromUser: Schema.ObjectId,
+  // toAdmin: Schema.ObjectId,
+  // requestedDate: String,
+  // reportCreatedDate: { type: Date, default: Date.now },
+  // reimbursementDate: String,
+  // reimbursementStatus: String,
+  // userId: Schema.ObjectId,
+  // expenses: [Schema.ObjectId]
+
   let reportModel = {
     name: request.body.name,
-    totalAmount: request.body.total,
+    totalAmount: request.body.totalAmount,
     fromUser: request.body.fromUser,
     toAdmin: request.body.toAdmin,
-    requestedDate: request.body.submittedDate,
-    userId: userId,
-    reimbursementDate: request.body.reimbursementDate
+    requestedDate:request.body.requestedDate,
+    reportCreatedDate: request.body.reportCreatedDate,
+    reimbursementDate: request.body.reimbursementDate,
+    reimbursementStatus: request.body.reimbursementStatus,
+    userId: request.body.userId,
+    expenses: request.body.expenses
   };
 
   reportsDatastore.SaveReport(reportModel);
@@ -60,5 +75,19 @@ reportsRouter.post('/api/reports/:reportId/expenses', function (request, respons
   reportsDatastore.AddExpenseToReportExpenseArray(userId, reportId, expenses)
   .then(userReportExpense => response.json(userReportExpense));
 });
+
+reportsRouter.post('/api/reports/:reportId/approve', function (request, response) {
+  console.log(request.params)
+  const status = true;
+  reportsDatastore.SetReportStatus(request.params, status)
+  .then(console.log('Approved'))
+})
+
+reportsRouter.post('/api/reports/:reportId/reject', function (request, response) {
+  console.log(request.params)
+  const status = false;
+  reportsDatastore.SetReportStatus(request.params, status)
+  .then(console.log('Rejected'))
+})
 
 module.exports = reportsRouter;
