@@ -9,6 +9,7 @@ const ReportSchema = new Schema({
   requestedDate: String,
   reportCreatedDate: { type: Date, default: Date.now },
   reimbursementDate: String,
+  reimbursementStatus: Boolean,
   userId: Schema.ObjectId,
   expenses: [Schema.ObjectId]
 })
