@@ -11,3 +11,29 @@
     position: relative;
     pointer-events: auto;
 }
+.list-group-item {
+    text-align: center;
+    font-size: 24px;
+    list-style-position:inside;
+    border: 6px solid lightsteelblue;
+    opacity: 20;
+    border-radius:16px;
+    padding-left: 0px;
+    padding: 12px;
+}
+.button-style {
+    border:2px solid rgb(170, 170, 170);
+    background-size: 100%;
+    background-color: skyblue;
+    padding-top: 2px;
+    border-radius:10px;
+    margin:0 auto;
+    padding:6px;
+    box-sizing:border-box;
+    text-align: center;
+    font-size: 14px; 
+}
+li span{
+    margin-left: -50px;
+    align: left;
+}
