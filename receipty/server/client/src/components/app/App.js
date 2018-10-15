@@ -15,8 +15,6 @@ import ExpenseNew from '../expensesNew/ExpenseNew';
 import Reports from '../reports/Reports';
 /* this will also include NavBar */
 //base page of add listed expense to form a new report
-import ReportNew from '../reportsnew/ReportsNew';
-
 import Inbox from '../inbox/Inbox';
 import Settings from '../settings/Settings';
 import About from '../about/About';
@@ -39,7 +37,7 @@ class App extends Component {
                         <Route exact path="/reports" component={Reports} />
 
 
-                        <Route exact path="/reports/new" component={ReportNew} />
+
                         <Route exact path="/inbox" component={Inbox} />
                         <Route exact path="/settings" component={Settings} />
                         <Route exact path="/about" component={About} />
