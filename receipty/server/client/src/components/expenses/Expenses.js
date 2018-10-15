@@ -1,5 +1,3 @@
-//this file will form the actual expenses page
-//required node modules files for functionality
 import React, { Component } from 'react';
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
@@ -10,30 +8,38 @@ import { withRouter } from 'react-router-dom';
 import { fetchExpenses } from '../../actions';
 import { addExpenseToQueue } from '../../actions';
 
-class Expenses extends Component {
+class Expenses extends Component {  
   constructor(props) {
     super(props);
     this.navigateToNewExpense = this.navigateToNewExpense.bind(this);
   }
-
+     
   componentDidMount() {
     this.props.fetchExpenses();
   };
-
+  
   navigateToNewExpense() {
     this.props.history.push('/expenses/new');
   }
-
+    
   render () {
     let addExpensesToReportButton;
-        
-    if (this.props.expensesQueue.length > 0) {
-      {addExpensesToReportButton = <Button
+    
+    let newReportButton = <Button 
       className="fixed-action-btn"
-      id="add-to-report"
-      bsSize="large"
-      type="submit">Add Expenses to New Report
-    </Button>}
+      bsStyle="success" 
+      bsSize="large" 
+      type="submit"
+      onClick={this.navigateToNewExpense} >New Expense
+    </Button>;
+    
+    if (this.props.expensesQueue.length > 0) {
+      addExpensesToReportButton = <Button
+        className="fixed-action-btn"
+        id="add-to-report"
+        bsSize="large"
+        type="submit">Add Expenses to New Report
+      </Button>
     }
     
     if (!this.props.expenses) {
@@ -44,11 +50,7 @@ class Expenses extends Component {
       return (
         <div>
           <NavBar />
-          <Button 
-            className="fixed-action-btn"
-            type="submit"
-            onClick={this.navigateToNewExpense}>New Expense
-          </Button>
+          {newReportButton}
           {addExpensesToReportButton}
           <ExpensesToAdd expensestoAdd={ this.props.expensesQueue } />
           <ul>
@@ -66,14 +68,16 @@ class Expenses extends Component {
       )
     }
   }
-};
+}
 
  //this maps our state according to expesnse and connects with our fetch Expenses function and exports as Expense List//
- function mapStateToProps({ expenses, expensesQueue }) {
+function mapStateToProps({ expenses, expensesQueue }) {
   return { expenses, expensesQueue };
 }
- function mapDispatchToProps(dispatch){
+
+
+function mapDispatchToProps(dispatch){
   return bindActionCreators({ addExpenseToQueue, fetchExpenses }, dispatch);
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Expenses)) 
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Expenses))

@@ -6,6 +6,6 @@ export default function(state = [], action) {
       state.expenses= action.payload;
       return action.payload;
     default:
-      return state;      
+      return state;
   }
 }

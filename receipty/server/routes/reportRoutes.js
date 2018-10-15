@@ -2,9 +2,6 @@ const _ = require('lodash');
 const { URL } = require('url');
 const requireLogin = require('../middleware/requireLogin');
 
-// const mongoose = require('mongoose');
-// const requireLogin = require('../middlewares/requireLogin');
-
 const reportsDatastore = require('../datastore/Reports_datastore');
 const usersDatastore = require('../datastore/Users_datastore');
 const reportsRouter = require('express').Router();
@@ -45,23 +42,7 @@ reportsRouter.get('/api/user/reports', function (request, response) {
 
   reportsDatastore.GetReportsByUserId(userId)
     .then(reportsByUserId => response.json(reportsByUserId));
-})
-
-// reportsRouter.put('/api/reports/addExpense/:reportId', function (request, response) {
-
-// })
-
-// reportsRouter.post('/api/reports/:reportId/expenses', function (request, response) {
-//   let theReport = request.params.reportId;
-//
-//   //body is going to contain reportId and an array of expense Ids
-//   let populatedReportModel = {
-//     reportId: request.body.reportId,
-//     expenses: []
-//   }
-//
-//   reportsDatastore.PostExpenseInReport(theExpense, theReport).then(userExpense => response.json(userExpense));
-// })
+});
 
 
 //get a single report back based on it's report _id
