@@ -46,6 +46,7 @@ expensesRouter.get('/api/reports/:reportId/expenses', function (request, respons
 expensesRouter.post('/api/expenses/', requireLogin,  function (request, response) {
   //define the user id sent in the request
   // let id = request.user._id;
+
   let id = request.user._id
   //expense date and expense id should auto save
   let expenseModel = {
