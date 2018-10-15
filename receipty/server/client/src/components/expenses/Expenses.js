@@ -7,6 +7,7 @@ import NavBar from '../navbar/NavBar.js';
 import { withRouter } from 'react-router-dom';
 import { fetchExpenses } from '../../actions';
 import { addExpenseToQueue } from '../../actions';
+import '../app/app.css'
 
 class Expenses extends Component {  
   constructor(props) {
@@ -53,17 +54,21 @@ class Expenses extends Component {
           {newReportButton}
           {addExpensesToReportButton}
           <ExpensesToAdd expensestoAdd={ this.props.expensesQueue } />
-          <ul>
+          <div className="expensesMain">
+          <ul className="allExpenses">
             { this.props.expenses.map((expense) => {
               return (
-                <li key={expense._id}>{expense.merchant} 
-                <button onClick={() => {
+                <li className="indivExpense" key={expense._id}><span className="merchantSpan">{expense.merchant}</span>
+                <button className="expenseButton" onClick={() => {
                   this.props.addExpenseToQueue(expense);
-                }}>add to report</button> 
+                }}>add to report</button> <br /> 
+                <span className = "lefty">{expense.category}</span> 
+                <span className = "righty">${expense.amount}.00</span> 
                 </li>
               )
             })}
           </ul>
+          </div>
         </div>   
       )
     }
