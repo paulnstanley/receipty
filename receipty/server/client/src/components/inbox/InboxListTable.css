@@ -31,9 +31,24 @@
     padding:6px;
     box-sizing:border-box;
     text-align: center;
-    font-size: 14px; 
+    font-size: 14px;
+}
+.report-notification {
+    margin-left: 25px;
+    text-align: left;
+    font-size: 24px;
+}
+.report-date {
+    margin-left: 500px;
+    text-align: left;
+    font-size: 12px;
+}
+.report-buttons {
+    margin-right: 25px;
+    text-align: right;
+    font-size: 24px;
 }
 li span{
-    margin-left: -50px;
+    margin-left: 10px;
     align: left;
 }

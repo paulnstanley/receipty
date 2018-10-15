@@ -9,7 +9,7 @@ import { fetchMessages } from '../../actions';
 class InboxListTable extends Component {
   constructor(props){
     super(props)
-    
+
   }
     componentDidMount() {
         this.props.fetchMessages();
@@ -21,7 +21,7 @@ class InboxListTable extends Component {
       return this.props.messages.map(message => {
         return (
 
-          <li 
+          <li
             key={message._id}
             className="list-group-item">
             {message.message}
@@ -32,27 +32,33 @@ class InboxListTable extends Component {
         );
       });
     }
-  
+
     render() {
       return (
         <ul>
 
-        <li 
-            
+        <li
+
             key="3"
-            className="list-group-item"><span>You have a new report to view </span>
+            className="list-group-item">
+              <span className="report-notification">
+                You have a new report to view.
+              </span>
             {/* Status Type: {"report"} */}
-            
-              <button className="button-style" >Approve</button>
-            
-            <button className="button-style">Reject</button>
-            Created: {"10/23/18"}
+              <span className="report-date">
+                Submitted: {"10/15/18"}
+              </span>
+              <span className="report-buttons">
+                <button className="button-style">Approve</button>
+                <span></span>
+                <button className="button-style">Reject</button>
+              </span>
           </li>
         </ul>
       );
     }
   }
-  
+
   const mapStateToProps = ({messages}) => {
     return {messages};
   }
@@ -63,7 +69,7 @@ class InboxListTable extends Component {
 
 export default connect(mapStateToProps, { fetchMessages })(InboxListTable);
 
-{/* <li 
+{/* <li
 key={message._id}
 className="list-group-item">
 {message.message}
