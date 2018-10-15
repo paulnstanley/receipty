@@ -41,15 +41,15 @@ export const fetchUser = (loginObject) => async dispatch => {
   };
 
   export const fetchReports = () => async dispatch => {
-    const res = await axios.get('/api/reports');
-    console.log('in dispatch', res.data)
+    const res = await axios.get('/api/user/reports');
+
     dispatch({ type: FETCH_REPORTS, payload: res.data });
   };
 
   export const fetchMessages = () => async dispatch => {
     const res = await axios.get(`/api/messages`);
-  
+
     dispatch({ type: FETCH_MESSAGES, payload: res.data });
   };
-  
+
   //the following code are actions or requests to the reducers to incorporate these calls for data as part of the store//

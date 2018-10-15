@@ -53,7 +53,7 @@ reportsRouter.post('/api/reports', requireLogin, function (request, response) {
 // return all of a user’s reports for a given user id
 reportsRouter.get('/api/user/reports', function (request, response) {
   // let userId = request.user._id
-  let userId= request.user._id;
+  let userId = request.user._id;
 
   reportsDatastore.GetReportsByUserId(userId)
     .then(reportsByUserId => response.json(reportsByUserId));
