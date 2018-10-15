@@ -1,6 +1,6 @@
 //Zulmy- I used the template we used for FeedbackLoop//
 import axios from 'axios';
-import { FETCH_USER, FETCH_EXPENSES, FETCH_REPORTS, ADD_EXPENSES, FETCH_MESSAGES } from './types';
+import { FETCH_USER, FETCH_EXPENSES, FETCH_REPORTS, ADD_EXPENSES, FETCH_MESSAGES, ADD_EXPENSES_TO_QUEUE } from './types';
 
 //const BASE_URL = "https://ps-receipty.herokuapp.com";
 
@@ -10,6 +10,13 @@ export const fetchUser = (loginObject) => async dispatch => {
 
     dispatch({ type: FETCH_USER, payload: res.data });
   };
+
+export const addExpenseToQueue = (expense) => {
+  return {
+    type: ADD_EXPENSES_TO_QUEUE,
+    payload: expense
+  }
+}
  
   //until login is complete, hard code a user Id for a user that exists in your db here to see the add expense form work. 
   export const submitExpense = (values, history) => async dispatch => {

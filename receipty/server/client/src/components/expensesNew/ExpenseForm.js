@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import formFields from './formFields';
+import { Redirect } from 'react-router';
+
+
 
 const ExpenseForm = props => {
-  console.log(props.handleSubmit);
+
   const { handleSubmit, pristine, reset, submitting } = props
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -59,7 +63,7 @@ const ExpenseForm = props => {
         </div>
       </div>
       <div>
-        <button type="submit" disabled={pristine || submitting}>
+        <button type="submit" disabled={pristine || submitting} >
           Submit
         </button>
         <button type="button" disabled={pristine || submitting} onClick={reset}>
